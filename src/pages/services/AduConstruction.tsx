@@ -5,7 +5,7 @@ import Footer from '../../components/Footer';
 import HeroSection from '../../components/HeroSection';
 import CallToActionSection from '../../components/CallToActionSection';
 import { CheckCircle } from '../../components/CheckCircle';
-import { Building, Ruler, FileText, HardHat, Users, Clock } from 'lucide-react';
+import { Building2, Ruler, FileText, HardHat, Users, Clock } from 'lucide-react';
 import ServiceCard from '../../components/ServiceCard';
 
 const AduConstruction = () => {
@@ -43,7 +43,7 @@ const AduConstruction = () => {
     {
       title: "Multi-Unit ADUs",
       description: "Specialized expertise in building multiple ADUs on single properties.",
-      icon: <Building />,
+      icon: <Building2 />,
       link: "/contact",
     },
   ];

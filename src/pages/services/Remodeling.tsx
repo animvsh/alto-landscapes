@@ -5,7 +5,7 @@ import Footer from '../../components/Footer';
 import HeroSection from '../../components/HeroSection';
 import CallToActionSection from '../../components/CallToActionSection';
 import { CheckCircle } from '../../components/CheckCircle';
-import { Home, Paintbrush, Kitchen, Bath, Sofa, Hammer } from 'lucide-react';
+import { Home, Paintbrush, UtensilsCrossed, Bath, Sofa, Hammer } from 'lucide-react';
 import ServiceCard from '../../components/ServiceCard';
 
 const Remodeling = () => {
@@ -13,7 +13,7 @@ const Remodeling = () => {
     {
       title: "Kitchen Remodeling",
       description: "Transform your kitchen with modern designs, quality materials, and expert craftsmanship.",
-      icon: <Kitchen />,
+      icon: <UtensilsCrossed />,
       link: "/contact",
     },
     {
