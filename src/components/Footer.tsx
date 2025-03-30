@@ -4,7 +4,6 @@ import Logo from './Logo';
 import { 
   Facebook, 
   Instagram, 
-  Twitter, 
   Linkedin, 
   Mail, 
   Phone, 
@@ -27,9 +26,6 @@ const Footer = () => {
               </a>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-alto-accent">
                 <Instagram size={18} />
-              </a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-alto-accent">
-                <Twitter size={18} />
               </a>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-alto-accent">
                 <Linkedin size={18} />

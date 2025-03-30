@@ -3,70 +3,106 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import HeroSection from '../components/HeroSection';
 import CallToActionSection from '../components/CallToActionSection';
-import { Bed, Bath, Maximize2, CheckCircle } from 'lucide-react';
+import FloorPlanCategory from '../components/FloorPlanCategory';
 import { Link } from 'react-router-dom';
 
 const Plans = () => {
-  const floorPlans = [
+  const studioPlans = [
     {
-      name: "The Yosemite",
-      specs: {
-        beds: 2,
-        baths: 2.5,
-        sqft: 1000,
-      },
-      image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=800&q=80",
-      price: "$295,000",
-      features: [
-        "Open concept living/dining/kitchen",
-        "Primary bedroom with ensuite bath",
-        "Guest bedroom with private bath",
-        "Powder room for guests",
-        "Full-size kitchen with island",
-        "Energy-efficient appliances",
-        "Washer/dryer hookups",
-        "9' ceilings throughout",
-      ]
+      name: "Studio 1",
+      specs: "Studio | 1 BA",
+      price: "$150,000",
+      image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80",
     },
     {
-      name: "The Glacier",
-      specs: {
-        beds: 2,
-        baths: 2,
-        sqft: 850,
-      },
-      image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=80",
-      price: "$265,000",
-      features: [
-        "Open concept living/dining area",
-        "Primary bedroom with ensuite bath",
-        "Spacious second bedroom",
-        "Full guest bathroom",
-        "Efficient kitchen with breakfast bar",
-        "Energy-efficient appliances",
-        "Stacked washer/dryer",
-        "Multiple storage solutions",
-      ]
+      name: "Studio 2",
+      specs: "Studio | 1 BA",
+      price: "$120,000",
+      image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80",
     },
     {
-      name: "The Hickory",
-      specs: {
-        beds: 2,
-        baths: 1,
-        sqft: 700,
-      },
-      image: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&w=800&q=80",
-      price: "$235,000",
-      features: [
-        "Efficient open floor plan",
-        "Two comfortable bedrooms",
-        "Full bathroom with tub/shower combo",
-        "Compact kitchen with all essentials",
-        "Combined living/dining area",
-        "Energy-efficient appliances",
-        "Stackable washer/dryer hookup",
-        "Smart storage solutions",
-      ]
+      name: "Studio 3",
+      specs: "Studio | 1 BA",
+      price: "$140,000",
+      image: "https://images.unsplash.com/photo-1536376072261-38c75010e6c9?auto=format&fit=crop&w=800&q=80",
+    },
+  ];
+
+  const oneBedroomPlans = [
+    {
+      name: "One Bedroom 1",
+      specs: "1 BD | 1 BA",
+      price: "$180,000",
+      image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "One Bedroom 2",
+      specs: "1 BD | 1 BA",
+      price: "$200,000",
+      image: "https://images.unsplash.com/photo-1486304873000-235643847519?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "One Bedroom 3",
+      specs: "1 BD | 1 BA",
+      price: "$200,000",
+      image: "https://images.unsplash.com/photo-1505691723518-36a5ac3be353?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "One Bedroom 4",
+      specs: "1 BD | 1 BA",
+      price: "$240,000",
+      image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "One Bedroom 5",
+      specs: "1 BD | 1 BA",
+      price: "$210,000",
+      image: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "One Bedroom 6",
+      specs: "1 BD | 1 BA",
+      price: "$180,000",
+      image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
+    },
+  ];
+
+  const twoBedroomPlans = [
+    {
+      name: "Two Bedroom 1",
+      specs: "2 BD | 2.5 BA",
+      price: "$540,000",
+      image: "https://images.unsplash.com/photo-1484101403633-562f891dc89a?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "Two Bedroom 2",
+      specs: "2 BD | 2 BA",
+      price: "$320,000",
+      image: "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "Two Bedroom 3",
+      specs: "2 BD | 1 BA",
+      price: "$220,000",
+      image: "https://images.unsplash.com/photo-1630699144867-37acfc0bf63e?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "Two Bedroom 4",
+      specs: "2 BD | 1 BA",
+      price: "$210,000",
+      image: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "Two Bedroom 5",
+      specs: "2 BD | 2 BA",
+      price: "$355,000",
+      image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=800&q=80",
+    },
+    {
+      name: "Two Bedroom 6",
+      specs: "2 BD | 2 BA",
+      price: "$260,000",
+      image: "https://images.unsplash.com/photo-1527030280862-64139fba04ca?auto=format&fit=crop&w=800&q=80",
     },
   ];
 
@@ -74,342 +110,79 @@ const Plans = () => {
     <>
       <Navbar />
       <HeroSection 
-        title="PLANS & PRICING"
-        subtitle="Explore our selection of thoughtfully designed ADU floor plans"
-        backgroundImage="https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=1920&q=80"
+        title="ADU PLANS & PRICING"
+        subtitle="Explore our collection of ready-to-build ADU floor plans"
+        backgroundImage="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1920&q=80"
       />
 
-      <section className="py-20">
+      <section className="py-16 md:py-20">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="section-title">Our Floor Plans</h2>
+            <h2 className="section-title">Accessory Dwelling Unit Floor Plans</h2>
             <p className="section-subtitle mx-auto">
-              Choose from our collection of pre-designed ADU floor plans, each offering a perfect balance of style, functionality, and value
+              Explore our collection of ready-to-build ADU floor plans below. Simply click on any plan to view detailed pricing. 
+              Whether you're looking to customize one of our existing blueprints or dreaming of a fully custom ADU design, we've got you covered.
+            </p>
+            <p className="mt-4 text-alto-dark-gray max-w-4xl mx-auto">
+              Our in-house design team specializes in creating plans that integrate seamlessly with your main residence, 
+              ensuring your ADU's exterior complements your property. From minor modifications to completely bespoke designs, 
+              including stacked ADUs and guest house layouts, we offer a wide range of options to bring your vision to life.
             </p>
           </div>
 
-          <div className="space-y-16">
-            {floorPlans.map((plan, index) => (
-              <div key={index} className="bg-white rounded-lg overflow-hidden card-shadow">
-                <div className="flex flex-col md:flex-row">
-                  <div className="md:w-1/2 h-64 md:h-auto">
-                    <img 
-                      src={plan.image} 
-                      alt={`${plan.name} ADU design`} 
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="md:w-1/2 p-6 md:p-8">
-                    <div className="flex justify-between items-start mb-4">
-                      <h3 className="text-2xl font-semibold text-alto-blue">{plan.name}</h3>
-                      <div className="text-2xl font-semibold text-alto-accent">{plan.price}</div>
-                    </div>
-                    
-                    <div className="flex mb-6">
-                      <div className="flex items-center mr-6">
-                        <Bed size={18} className="text-alto-blue mr-2" />
-                        <span>{plan.specs.beds} Beds</span>
-                      </div>
-                      <div className="flex items-center mr-6">
-                        <Bath size={18} className="text-alto-blue mr-2" />
-                        <span>{plan.specs.baths} Baths</span>
-                      </div>
-                      <div className="flex items-center">
-                        <Maximize2 size={18} className="text-alto-blue mr-2" />
-                        <span>{plan.specs.sqft} sq ft</span>
-                      </div>
-                    </div>
-                    
-                    <div className="mb-6">
-                      <h4 className="font-semibold text-alto-dark-gray mb-3">Key Features:</h4>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2">
-                        {plan.features.map((feature, i) => (
-                          <div key={i} className="flex items-start">
-                            <div className="text-alto-accent mr-2 mt-1">
-                              <CheckCircle size={14} />
-                            </div>
-                            <span className="text-sm">{feature}</span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                    
-                    <div className="flex flex-wrap gap-3">
-                      <Link to={`/plans/${plan.name.toLowerCase().replace(/\s+/g, '-')}`} className="btn-primary">
-                        View Details
-                      </Link>
-                      <Link to="/contact" className="btn-secondary">
-                        Get Quote
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
+          <div className="mb-8">
+            <div className="flex flex-wrap gap-4 justify-center mb-12">
+              <a href="#studio-plans" className="btn-secondary">Studio Plans</a>
+              <a href="#one-bedroom-plans" className="btn-secondary">One Bedroom Plans</a>
+              <a href="#two-bedroom-plans" className="btn-secondary">Two Bedroom Plans</a>
+              <a href="#custom-plans" className="btn-secondary">Custom Plans</a>
+            </div>
+          </div>
+
+          <div id="studio-plans">
+            <FloorPlanCategory title="Studio Plans" plans={studioPlans} />
+          </div>
+
+          <div id="one-bedroom-plans">
+            <FloorPlanCategory title="One Bedroom Plans" plans={oneBedroomPlans} />
+          </div>
+
+          <div id="two-bedroom-plans">
+            <FloorPlanCategory title="Two Bedroom Plans" plans={twoBedroomPlans} />
+          </div>
+
+          <div id="custom-plans" className="bg-alto-light-gray p-8 rounded-lg mt-16">
+            <h3 className="text-2xl font-semibold text-alto-blue mb-4">Need a Custom ADU Floor Plan?</h3>
+            <p className="text-alto-dark-gray mb-6">
+              Looking to customize an accessory dwelling unit (ADU) to perfectly fit your property or expand your project 
+              with multiple attached or stacked units? We're experienced ADU builders who can bring your vision to life! 
+              Whether you want to modify one of our existing ADU plans or create a fully custom design, our expert in-house 
+              drafting team is here to help. Contact us today to start planning your personalized ADU project!
+            </p>
+            <Link to="/contact" className="btn-primary">Start Now</Link>
           </div>
         </div>
       </section>
 
-      <section className="py-20 bg-alto-light-gray">
+      <section className="bg-alto-blue py-16 text-white">
         <div className="container-custom">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-8 md:mb-0 md:pr-12">
-              <h2 className="section-title">Custom Floor Plans</h2>
-              <p className="text-alto-dark-gray mb-6">
-                While our pre-designed floor plans offer excellent value and efficiency, we understand that some projects require a fully custom approach. Our design team can create a bespoke ADU tailored to your specific needs, preferences, and property constraints.
-              </p>
-              
-              <h3 className="text-xl font-semibold text-alto-blue mb-3">Benefits of a Custom Design:</h3>
-              <ul className="space-y-3 mb-6">
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-3 mt-1">
-                    <CheckCircle size={18} />
-                  </div>
-                  <div>
-                    <p className="text-alto-dark-gray">Perfect fit for challenging sites or unique property constraints</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-3 mt-1">
-                    <CheckCircle size={18} />
-                  </div>
-                  <div>
-                    <p className="text-alto-dark-gray">Tailored to your specific lifestyle needs and preferences</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-3 mt-1">
-                    <CheckCircle size={18} />
-                  </div>
-                  <div>
-                    <p className="text-alto-dark-gray">Opportunity for unique architectural details and special features</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-3 mt-1">
-                    <CheckCircle size={18} />
-                  </div>
-                  <div>
-                    <p className="text-alto-dark-gray">Optimized for your specific views, solar orientation, and privacy needs</p>
-                  </div>
-                </li>
-              </ul>
-              
-              <Link to="/contact" className="btn-primary inline-block">
-                Inquire About Custom Designs
+          <div className="max-w-3xl mx-auto text-center">
+            <h3 className="text-2xl md:text-3xl font-semibold mb-6">Want to learn more about your ADU Project?</h3>
+            <p className="text-white/80 mb-8 text-lg">
+              We'd love to help you understand your options and find the perfect ADU solution for your property.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link to="/contact" className="btn-accent">Learn More</Link>
+              <Link to="/plans" className="bg-transparent hover:bg-white/10 border border-white text-white font-medium py-3 px-6 rounded-full transition-all duration-300">
+                Browse Floor Plans
               </Link>
             </div>
-            
-            <div className="md:w-1/2">
-              <img 
-                src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=800&q=80" 
-                alt="Custom floor plan design" 
-                className="rounded-lg shadow-lg w-full"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="section-title">Pricing & Process</h2>
-            <p className="section-subtitle mx-auto">
-              Transparency in our pricing and what to expect throughout your project
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="bg-white p-8 rounded-lg card-shadow">
-              <h3 className="text-xl font-semibold text-alto-blue mb-4">Standard Inclusions</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>Architectural design and plans</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>Structural engineering</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>Permit acquisition and fees</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>Site preparation</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>Foundation and structural framing</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>Plumbing and electrical</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>Standard fixtures and finishes</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>HVAC system</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>Project management</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>Final inspections</span>
-                </li>
-              </ul>
-            </div>
-            
-            <div className="bg-white p-8 rounded-lg card-shadow">
-              <h3 className="text-xl font-semibold text-alto-blue mb-4">Premium Upgrades</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>High-end appliance packages</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>Custom cabinetry</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>Premium flooring options</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>Designer lighting fixtures</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>Smart home technology</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>Solar panel integration</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>Upgraded windows and doors</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>Outdoor living features</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>Custom storage solutions</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>Upgraded insulation and soundproofing</span>
-                </li>
-              </ul>
-            </div>
-            
-            <div className="bg-white p-8 rounded-lg card-shadow">
-              <h3 className="text-xl font-semibold text-alto-blue mb-4">Financing Options</h3>
-              <p className="text-alto-dark-gray mb-4">
-                We partner with trusted financial institutions to offer several financing options for your ADU project:
-              </p>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>Home equity loans and lines of credit</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>Cash-out refinancing</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>Construction loans</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>FHA 203k renovation loans</span>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <span>Fannie Mae HomeStyle loans</span>
-                </li>
-              </ul>
-              <p className="text-alto-dark-gray mt-4">
-                Our team can provide guidance on these options and connect you with loan specialists experienced in ADU financing.
-              </p>
-            </div>
-          </div>
-
-          <div className="bg-alto-blue rounded-lg p-8 text-white">
-            <h3 className="text-xl font-semibold mb-4">Request Detailed Pricing</h3>
-            <p className="mb-6">
-              For detailed pricing specific to your property and project requirements, please contact our team. We'll discuss your needs and provide a comprehensive proposal tailored to your situation.
-            </p>
-            <Link to="/contact" className="btn-accent inline-block">
-              Request Quote
-            </Link>
           </div>
         </div>
       </section>
 
       <CallToActionSection 
-        title="Find Your Perfect Floor Plan"
+        title="Find Your Perfect ADU Plan Today"
         subtitle="Let's discuss which plan best suits your property and lifestyle needs"
         buttonText="Schedule Consultation"
         buttonLink="/contact"
