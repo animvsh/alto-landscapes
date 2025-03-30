@@ -9,7 +9,7 @@ import FeaturedPlansSection from '../components/design/FeaturedPlansSection';
 import DesignInfoBox from '../components/design/DesignInfoBox';
 import DesignerInfoSection from '../components/design/DesignerInfoSection';
 import DesignCtaBanner from '../components/design/DesignCtaBanner';
-import { featuredFloorPlans } from '../data/floorPlansData';
+import { featuredFloorPlans } from '../data/plans';
 
 const Design = () => {
   return (
