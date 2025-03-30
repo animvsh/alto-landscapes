@@ -8,9 +8,10 @@ interface FloorPlanCardProps {
   link: string;
   price?: string;
   squareFeet?: string;
+  description?: string;
 }
 
-const FloorPlanCard = ({ name, specs, image, link, price, squareFeet }: FloorPlanCardProps) => {
+const FloorPlanCard = ({ name, specs, image, link, price, squareFeet, description }: FloorPlanCardProps) => {
   return (
     <div className="bg-white rounded-lg overflow-hidden card-shadow group">
       <div className="relative overflow-hidden h-64">
@@ -28,6 +29,9 @@ const FloorPlanCard = ({ name, specs, image, link, price, squareFeet }: FloorPla
         </div>
         {squareFeet && (
           <p className="text-sm text-alto-gray mb-2">{squareFeet}</p>
+        )}
+        {description && (
+          <p className="text-sm text-alto-dark-gray mb-3 line-clamp-2">{description}</p>
         )}
         <Link 
           to={link} 

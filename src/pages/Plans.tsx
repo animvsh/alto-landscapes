@@ -15,83 +15,11 @@ const Plans = () => {
   const studioPlans = featuredFloorPlans.filter(plan => 
     plan.specs.toLowerCase().includes('studio'));
 
-  const oneBedroomPlans = [
-    {
-      name: "One Bedroom 1",
-      specs: "1 BD | 1 BA",
-      price: "$180,000",
-      image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      name: "One Bedroom 2",
-      specs: "1 BD | 1 BA",
-      price: "$200,000",
-      image: "https://images.unsplash.com/photo-1486304873000-235643847519?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      name: "One Bedroom 3",
-      specs: "1 BD | 1 BA",
-      price: "$200,000",
-      image: "https://images.unsplash.com/photo-1505691723518-36a5ac3be353?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      name: "One Bedroom 4",
-      specs: "1 BD | 1 BA",
-      price: "$240,000",
-      image: "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      name: "One Bedroom 5",
-      specs: "1 BD | 1 BA",
-      price: "$210,000",
-      image: "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      name: "One Bedroom 6",
-      specs: "1 BD | 1 BA",
-      price: "$180,000",
-      image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=800&q=80",
-    },
-  ];
+  const oneBedroomPlans = featuredFloorPlans.filter(plan => 
+    plan.specs.toLowerCase().includes('1 bed') || plan.specs.toLowerCase().includes('1 bedroom'));
 
-  const twoBedroomPlans = [
-    {
-      name: "Two Bedroom 1",
-      specs: "2 BD | 2.5 BA",
-      price: "$540,000",
-      image: "https://images.unsplash.com/photo-1484101403633-562f891dc89a?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      name: "Two Bedroom 2",
-      specs: "2 BD | 2 BA",
-      price: "$320,000",
-      image: "https://images.unsplash.com/photo-1556912172-45b7abe8b7e1?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      name: "Two Bedroom 3",
-      specs: "2 BD | 1 BA",
-      price: "$220,000",
-      image: "https://images.unsplash.com/photo-1630699144867-37acfc0bf63e?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      name: "Two Bedroom 4",
-      specs: "2 BD | 1 BA",
-      price: "$210,000",
-      image: "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      name: "Two Bedroom 5",
-      specs: "2 BD | 2 BA",
-      price: "$355,000",
-      image: "https://images.unsplash.com/photo-1493663284031-b7e3aefcae8e?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      name: "Two Bedroom 6",
-      specs: "2 BD | 2 BA",
-      price: "$260,000",
-      image: "https://images.unsplash.com/photo-1527030280862-64139fba04ca?auto=format&fit=crop&w=800&q=80",
-    },
-  ];
+  const twoBedroomPlans = featuredFloorPlans.filter(plan => 
+    plan.specs.toLowerCase().includes('2 bed') || plan.specs.toLowerCase().includes('2 bedroom'));
 
   return (
     <>
@@ -168,12 +96,90 @@ const Plans = () => {
             </div>
           </div>
 
-          <div id="one-bedroom-plans">
-            <FloorPlanCategory title="One Bedroom Plans" plans={oneBedroomPlans} />
+          <div id="one-bedroom-plans" className="mb-16">
+            <h3 className="text-2xl font-semibold text-alto-blue mb-6 border-b border-alto-light-gray pb-2">
+              One Bedroom Plans
+            </h3>
+            
+            {/* One Bedroom Plans Section */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              {oneBedroomPlans.map((plan, index) => (
+                <Card key={index} className="overflow-hidden">
+                  <div className="relative h-64 overflow-hidden">
+                    <img 
+                      src={plan.floorPlanImage || plan.image} 
+                      alt={`${plan.name} floor plan`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <CardContent className="p-6">
+                    <div className="mb-4">
+                      <h4 className="text-xl font-semibold text-alto-blue">{plan.name}</h4>
+                      <div className="flex justify-between items-center mt-2">
+                        <p className="text-alto-dark-gray">{plan.specs}</p>
+                        <p className="text-alto-accent font-semibold">{plan.price}</p>
+                      </div>
+                      {plan.squareFeet && (
+                        <p className="text-sm text-alto-gray mt-1">{plan.squareFeet}</p>
+                      )}
+                    </div>
+                    <p className="text-sm text-alto-dark-gray mb-4 line-clamp-3">
+                      {plan.description}
+                    </p>
+                    <Link 
+                      to={plan.link} 
+                      className="inline-block text-alto-accent font-medium hover:underline"
+                    >
+                      View Details
+                    </Link>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
 
-          <div id="two-bedroom-plans">
-            <FloorPlanCategory title="Two Bedroom Plans" plans={twoBedroomPlans} />
+          <div id="two-bedroom-plans" className="mb-16">
+            <h3 className="text-2xl font-semibold text-alto-blue mb-6 border-b border-alto-light-gray pb-2">
+              Two Bedroom Plans
+            </h3>
+            
+            {/* Two Bedroom Plans Section - Updated to use the same card pattern */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {twoBedroomPlans.map((plan, index) => (
+                <Card key={index} className="overflow-hidden">
+                  <div className="relative h-64 overflow-hidden">
+                    <img 
+                      src={plan.floorPlanImage || plan.image} 
+                      alt={`${plan.name} floor plan`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <CardContent className="p-6">
+                    <div className="mb-4">
+                      <h4 className="text-xl font-semibold text-alto-blue">{plan.name}</h4>
+                      <div className="flex justify-between items-center mt-2">
+                        <p className="text-alto-dark-gray">{plan.specs}</p>
+                        <p className="text-alto-accent font-semibold">{plan.price}</p>
+                      </div>
+                      {plan.squareFeet && (
+                        <p className="text-sm text-alto-gray mt-1">{plan.squareFeet}</p>
+                      )}
+                    </div>
+                    {plan.description && (
+                      <p className="text-sm text-alto-dark-gray mb-4 line-clamp-3">
+                        {plan.description}
+                      </p>
+                    )}
+                    <Link 
+                      to={plan.link} 
+                      className="inline-block text-alto-accent font-medium hover:underline"
+                    >
+                      View Details
+                    </Link>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
 
           <div id="custom-plans" className="bg-alto-light-gray p-8 rounded-lg mt-16">

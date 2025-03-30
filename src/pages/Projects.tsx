@@ -10,9 +10,14 @@ import FeaturedPlansSection from '../components/design/FeaturedPlansSection';
 import { featuredFloorPlans } from '../data/floorPlansData';
 
 const Projects = () => {
-  // Filter just the studio plans
+  // Filter studio plans
   const studioPlans = featuredFloorPlans.filter(plan => 
     plan.specs.toLowerCase().includes('studio')
+  ).slice(0, 3);
+  
+  // Filter one-bedroom plans
+  const oneBedroomPlans = featuredFloorPlans.filter(plan => 
+    plan.specs.toLowerCase().includes('1 bed') || plan.specs.toLowerCase().includes('1 bedroom')
   ).slice(0, 3);
 
   return (
@@ -38,6 +43,20 @@ const Projects = () => {
           </div>
           
           <FeaturedPlansSection plans={studioPlans} count={3} />
+        </div>
+      </section>
+      
+      {/* Add Featured One Bedroom Plans */}
+      <section className="py-16">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="section-title">Our One Bedroom Plans</h2>
+            <p className="section-subtitle mx-auto">
+              Explore our collection of one-bedroom ADUs offering the perfect balance of space and comfort
+            </p>
+          </div>
+          
+          <FeaturedPlansSection plans={oneBedroomPlans} count={3} />
         </div>
       </section>
 
