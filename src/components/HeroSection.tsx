@@ -2,16 +2,7 @@
 import { ArrowDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-
-interface HeroSectionProps {
-  title: string;
-  subtitle: string;
-  backgroundImage: string;
-  buttonText?: string;
-  buttonLink?: string;
-  showScrollIndicator?: boolean;
-  onScrollDown?: () => void;
-}
+import { HeroSectionProps } from './sections/interfaces';
 
 const HeroSection = ({
   title,
@@ -20,7 +11,8 @@ const HeroSection = ({
   buttonText = "START YOUR BUILD",
   buttonLink = "/contact",
   showScrollIndicator = true,
-  onScrollDown
+  onScrollDown,
+  className
 }: HeroSectionProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   
@@ -46,7 +38,7 @@ const HeroSection = ({
 
   return (
     <div 
-      className="relative min-h-screen flex items-center justify-center pt-20 pb-16 overflow-hidden"
+      className={`relative min-h-screen flex items-center justify-center pt-20 pb-16 overflow-hidden ${className || ''}`}
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${backgroundImage})`,
         backgroundSize: 'cover',

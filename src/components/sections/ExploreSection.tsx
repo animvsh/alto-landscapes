@@ -2,15 +2,22 @@
 import { Link } from 'react-router-dom';
 import { BookOpen, DollarSign, FileText, Ruler, Calendar, Home } from 'lucide-react';
 import InfoCard from '../InfoCard';
+import { ExploreSectionProps } from './interfaces';
 
-const ExploreSection = () => {
+const ExploreSection = ({
+  title = "Begin Your ADU Journey",
+  subtitle = "Building an ADU can oftentimes be a stressful and confusing process. We're here to make it as clear, efficient, and on budget as possible. Start exploring our pages below to understand more information around costs, design, and regulations.",
+  buttonText = "Request Discovery Call",
+  buttonLink = "/contact",
+  className
+}: ExploreSectionProps) => {
   return (
-    <section id="explore-section" className="py-20 bg-alto-light-gray">
+    <section id="explore-section" className={`py-20 bg-alto-light-gray ${className || ''}`}>
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="section-title">Begin Your ADU Journey</h2>
+          <h2 className="section-title">{title}</h2>
           <p className="section-subtitle mx-auto">
-            Building an ADU can oftentimes be a stressful and confusing process. We're here to make it as clear, efficient, and on budget as possible. Start exploring our pages below to understand more information around costs, design, and regulations.
+            {subtitle}
           </p>
         </div>
 
@@ -60,8 +67,8 @@ const ExploreSection = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <Link to="/contact" className="btn-primary">
-            Request Discovery Call
+          <Link to={buttonLink} className="btn-primary">
+            {buttonText}
           </Link>
         </div>
       </div>

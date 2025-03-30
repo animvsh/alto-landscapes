@@ -1,40 +1,38 @@
 
 import TestimonialCard from '../TestimonialCard';
+import { TestimonialsSectionProps } from './interfaces';
 
-interface Testimonial {
-  quote: string;
-  author: string;
-  location: string;
-  image?: string;
-}
+const defaultTestimonials = [
+  {
+    quote: "From start to finish, Alto Builders guided us through the entire ADU process. The final result is stunning - a beautiful space that adds value and versatility to our property.",
+    author: "Sarah Johnson",
+    location: "Los Angeles, CA",
+  },
+  {
+    quote: "The team at Alto Builders was professional, responsive, and delivered our ADU on time and within budget. Their attention to detail is impressive.",
+    author: "Michael Chen",
+    location: "Woodland Hills, CA",
+  },
+  {
+    quote: "We love our new ADU! Alto Builders made what seemed like a complicated process so straightforward. Their expertise is unmatched.",
+    author: "Jessica Rodriguez",
+    location: "Ventura County, CA",
+  },
+];
 
-const TestimonialsSection = () => {
-  // Testimonials data
-  const testimonials: Testimonial[] = [
-    {
-      quote: "From start to finish, Alto Builders guided us through the entire ADU process. The final result is stunning - a beautiful space that adds value and versatility to our property.",
-      author: "Sarah Johnson",
-      location: "Los Angeles, CA",
-    },
-    {
-      quote: "The team at Alto Builders was professional, responsive, and delivered our ADU on time and within budget. Their attention to detail is impressive.",
-      author: "Michael Chen",
-      location: "Woodland Hills, CA",
-    },
-    {
-      quote: "We love our new ADU! Alto Builders made what seemed like a complicated process so straightforward. Their expertise is unmatched.",
-      author: "Jessica Rodriguez",
-      location: "Ventura County, CA",
-    },
-  ];
-
+const TestimonialsSection = ({
+  title = "What Our Clients Say",
+  subtitle = "Hear from homeowners who have transformed their properties with Alto Builders",
+  testimonials = defaultTestimonials,
+  className
+}: TestimonialsSectionProps) => {
   return (
-    <section className="py-20">
+    <section className={`py-20 ${className || ''}`}>
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="section-title">What Our Clients Say</h2>
+          <h2 className="section-title">{title}</h2>
           <p className="section-subtitle mx-auto">
-            Hear from homeowners who have transformed their properties with Alto Builders
+            {subtitle}
           </p>
         </div>
 

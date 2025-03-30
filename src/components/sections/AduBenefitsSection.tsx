@@ -2,15 +2,22 @@
 import { Link } from 'react-router-dom';
 import { DollarSign, Home, Map, Building, Ruler, Zap } from 'lucide-react';
 import InfoCard from '../InfoCard';
+import { AduBenefitsSectionProps } from './interfaces';
 
-const AduBenefitsSection = () => {
+const AduBenefitsSection = ({
+  title = "Why Build an ADU?",
+  subtitle = "Building an ADU offers numerous benefits for homeowners",
+  buttonText = "Learn More",
+  buttonLink = "/adu-benefits",
+  className
+}: AduBenefitsSectionProps) => {
   return (
-    <section className="py-20 bg-alto-light-gray">
+    <section className={`py-20 bg-alto-light-gray ${className || ''}`}>
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="section-title">Why Build an ADU?</h2>
+          <h2 className="section-title">{title}</h2>
           <p className="section-subtitle mx-auto">
-            Building an ADU offers numerous benefits for homeowners
+            {subtitle}
           </p>
         </div>
 
@@ -48,8 +55,8 @@ const AduBenefitsSection = () => {
         </div>
 
         <div className="mt-12 text-center">
-          <Link to="/adu-benefits" className="btn-secondary">
-            Learn More
+          <Link to={buttonLink} className="btn-secondary">
+            {buttonText}
           </Link>
         </div>
       </div>

@@ -1,8 +1,17 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AboutSectionProps } from './interfaces';
 
-const AboutSection = () => {
+const AboutSection = ({
+  title = "Los Angeles & Ventura County ADU Specialists",
+  subtitle = "We are ALTO BUILDERS",
+  primaryButtonText = "Learn More",
+  primaryButtonLink = "/contact",
+  secondaryButtonText = "Browse Floor Plans",
+  secondaryButtonLink = "/floor-plans",
+  className
+}: AboutSectionProps) => {
   const [aboutVisible, setAboutVisible] = useState(false);
   const aboutSectionRef = useRef<HTMLDivElement>(null);
   
@@ -30,12 +39,12 @@ const AboutSection = () => {
   return (
     <section 
       ref={aboutSectionRef}
-      className="py-20 bg-alto-light-gray"
+      className={`py-20 bg-alto-light-gray ${className || ''}`}
     >
       <div className="container-custom">
         <div className="mb-12 text-center">
-          <h2 className="section-title">Los Angeles & Ventura County ADU Specialists</h2>
-          <p className="font-semibold text-xl text-alto-blue mb-6">We are ALTO BUILDERS</p>
+          <h2 className="section-title">{title}</h2>
+          <p className="font-semibold text-xl text-alto-blue mb-6">{subtitle}</p>
         </div>
         
         <div className="flex flex-col md:flex-row items-start gap-12">
@@ -81,11 +90,11 @@ const AboutSection = () => {
               <h3 className="text-2xl font-semibold text-alto-blue mb-4">Want to learn more about your ADU Project?</h3>
               <p className="text-alto-dark-gray mb-6">We'd love to help</p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <Link to="/contact" className="btn-primary">
-                  Learn More
+                <Link to={primaryButtonLink} className="btn-primary">
+                  {primaryButtonText}
                 </Link>
-                <Link to="/floor-plans" className="btn-secondary">
-                  Browse Floor Plans
+                <Link to={secondaryButtonLink} className="btn-secondary">
+                  {secondaryButtonText}
                 </Link>
               </div>
             </div>
