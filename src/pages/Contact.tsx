@@ -1,13 +1,13 @@
-
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import HeroSection from '../components/HeroSection';
 import ContactForm from '../components/ContactForm';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import PageTransition from '../components/PageTransition';
 
 const Contact = () => {
   return (
-    <>
+    <PageTransition>
       <Navbar />
       <HeroSection 
         title="CONTACT US"
@@ -117,6 +117,9 @@ const Contact = () => {
             
             <div className="lg:w-3/5">
               <ContactForm />
+              <div className="mt-4 p-4 bg-blue-50 text-blue-700 rounded-md text-sm">
+                <p><strong>Note:</strong> To enable actual email sending, the EmailJS credentials need to be configured in the ContactForm component.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -178,7 +181,7 @@ const Contact = () => {
       </section>
 
       <Footer />
-    </>
+    </PageTransition>
   );
 };
 

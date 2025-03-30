@@ -1,6 +1,7 @@
 
 import { useState } from 'react';
 import { useToast } from "@/hooks/use-toast";
+import emailjs from 'emailjs-com';
 
 interface FormData {
   name: string;
@@ -29,6 +30,12 @@ const ContactForm = () => {
   // The specific email where queries will be sent
   const CONTACT_EMAIL = "info@altobuilds.com";
 
+  // EmailJS service configuration
+  // NOTE: These would need to be replaced with your actual EmailJS credentials
+  const EMAILJS_SERVICE_ID = "service_id"; // Replace with your EmailJS service ID
+  const EMAILJS_TEMPLATE_ID = "template_id"; // Replace with your EmailJS template ID
+  const EMAILJS_USER_ID = "user_id"; // Replace with your EmailJS user ID
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
@@ -39,14 +46,34 @@ const ContactForm = () => {
     setIsSubmitting(true);
     
     try {
-      // Log the query details, including where it would be sent in a real implementation
       console.log(`Sending query to ${CONTACT_EMAIL}:`, formData);
       
-      // In a real implementation, this would be an API call to your backend
-      // that would send an email to the CONTACT_EMAIL address
+      // Prepare template parameters for EmailJS
+      const templateParams = {
+        to_email: CONTACT_EMAIL,
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        address: formData.address,
+        message: formData.message,
+        timeline: formData.timeline,
+      };
       
-      // Simulate form submission delay
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // If the EmailJS credentials are properly set up, send the email
+      if (EMAILJS_SERVICE_ID !== "service_id" && EMAILJS_TEMPLATE_ID !== "template_id" && EMAILJS_USER_ID !== "user_id") {
+        await emailjs.send(
+          EMAILJS_SERVICE_ID,
+          EMAILJS_TEMPLATE_ID,
+          templateParams,
+          EMAILJS_USER_ID
+        );
+        console.log("Email sent successfully");
+      } else {
+        // If EmailJS is not configured, log this information
+        console.log("EmailJS not configured. Email would have been sent with these details:", templateParams);
+        // Simulate a delay to mimic email sending
+        await new Promise(resolve => setTimeout(resolve, 1500));
+      }
       
       // Show success toast
       toast({
@@ -212,3 +239,4 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
+
