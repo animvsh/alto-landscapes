@@ -120,6 +120,14 @@ export const twoBedroomPlans: FloorPlan[] = [
       "Efficient layout"
     ],
     floorPlanImage: "/lovable-uploads/8b839316-eb19-401e-a92f-20e98c2b378f.png",
+    galleryImages: [
+      "/lovable-uploads/8b839316-eb19-401e-a92f-20e98c2b378f.png",
+      "/lovable-uploads/f39a2fdd-e4fb-40d1-b8b1-2ef28881e7a4.png",
+      "/lovable-uploads/d33dd254-8f59-4d6a-a2bc-62328b665b2d.png",
+      "/lovable-uploads/21faa8b0-bc6e-447d-9c61-62a55e9406bb.png",
+      "/lovable-uploads/971d20d2-9047-4571-bab6-a890df15038b.png",
+      "/lovable-uploads/3df8a6da-6f2c-4853-a0d6-22f2549bf43a.png"
+    ],
     stories: "One Story",
     bedrooms: "2",
     bathrooms: "1"
