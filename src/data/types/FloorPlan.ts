@@ -9,5 +9,6 @@ export interface FloorPlan {
   description?: string;
   features?: string[];
   floorPlanImage?: string;
+  galleryImages?: string[];
   stories?: string;
 }

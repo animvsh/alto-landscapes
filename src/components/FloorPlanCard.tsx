@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 interface FloorPlanCardProps {
   name: string;
@@ -46,7 +47,7 @@ const FloorPlanCard = ({
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <div className="bg-white rounded-lg overflow-hidden card-shadow group h-full flex flex-col transition-all duration-300">
+        <div className="bg-white rounded-lg overflow-hidden card-shadow group h-full flex flex-col transition-all duration-300 hover:shadow-xl">
           <div className="relative overflow-hidden h-64">
             <motion.img 
               src={displayImage} 
@@ -57,19 +58,20 @@ const FloorPlanCard = ({
             />
             
             {price && (
-              <div className="absolute top-0 right-0 bg-alto-accent text-white px-3 py-1 font-medium">
+              <div className="absolute top-0 right-0 bg-alto-accent text-white px-3 py-1 font-medium rounded-bl-lg">
                 {price}
               </div>
             )}
             
             <div className={`absolute inset-0 bg-black/50 flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}>
               <motion.div 
-                className="px-4 py-2 rounded-full bg-white text-alto-blue font-medium"
+                className="px-4 py-2 rounded-full bg-white text-alto-blue font-medium flex items-center space-x-2"
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: isHovered ? 0 : 20, opacity: isHovered ? 1 : 0 }}
                 transition={{ duration: 0.3 }}
               >
-                View Details
+                <span>View Details</span>
+                <ArrowRight size={16} />
               </motion.div>
             </div>
           </div>
@@ -79,15 +81,26 @@ const FloorPlanCard = ({
             <div className="flex justify-between items-center mb-2">
               <p className="text-alto-dark-gray">{specs}</p>
               {squareFeet && (
-                <p className="text-sm text-alto-gray">{squareFeet}</p>
+                <p className="text-sm text-alto-gray font-medium">{squareFeet}</p>
               )}
             </div>
             {description && (
               <p className="text-sm text-alto-dark-gray mb-3 line-clamp-2">{description}</p>
             )}
-            <span className="inline-block text-alto-accent font-medium mt-auto">
+            <motion.span 
+              className="inline-flex items-center text-alto-accent font-medium mt-auto group"
+              whileHover={{ x: 5 }}
+              transition={{ type: "spring", stiffness: 400, damping: 10 }}
+            >
               View Details
-            </span>
+              <motion.span 
+                initial={{ x: 0, opacity: 0.5 }}
+                animate={{ x: isHovered ? 5 : 0, opacity: isHovered ? 1 : 0.5 }}
+                transition={{ duration: 0.3 }}
+              >
+                <ArrowRight size={16} className="ml-1" />
+              </motion.span>
+            </motion.span>
           </div>
         </div>
       </Link>

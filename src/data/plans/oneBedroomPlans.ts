@@ -5,7 +5,7 @@ export const oneBedroomPlans: FloorPlan[] = [
   {
     name: "The Redwood Plan",
     specs: "1 Bed, 1 Bath",
-    image: "/lovable-uploads/d376ac77-74c6-4ae7-8d9e-718ff0a2c0d1.png",
+    image: "/lovable-uploads/ebddb371-0e65-4bb4-a1ac-9b6059d5e771.png",
     link: "/plans/redwood",
     price: "$180,000",
     squareFeet: "440 ft²",
@@ -16,13 +16,20 @@ export const oneBedroomPlans: FloorPlan[] = [
       "Full Bathroom",
       "Built-in Storage Solutions"
     ],
-    floorPlanImage: "/lovable-uploads/d376ac77-74c6-4ae7-8d9e-718ff0a2c0d1.png",
+    floorPlanImage: "/lovable-uploads/ebddb371-0e65-4bb4-a1ac-9b6059d5e771.png",
+    galleryImages: [
+      "/lovable-uploads/ebddb371-0e65-4bb4-a1ac-9b6059d5e771.png",
+      "/lovable-uploads/7419d60a-ec81-44f8-9282-46c29cccef3f.png",
+      "/lovable-uploads/a9bfdac4-44a4-4a23-aa12-d651cecdab58.png",
+      "/lovable-uploads/10d81105-f2f0-4454-8e09-e710ed3088b8.png",
+      "/lovable-uploads/2bb818e7-0d24-4461-8d11-65a03f17aa7e.png"
+    ],
     stories: "One Story"
   },
   {
     name: "The Bluff Plan",
     specs: "1 Bed, 1 Bath",
-    image: "/lovable-uploads/f447c865-ed66-4877-a352-f56f5c67ef94.png",
+    image: "/lovable-uploads/0ce70111-c71a-4fe3-854c-8371c1d705be.png",
     link: "/plans/bluff",
     price: "$200,000",
     squareFeet: "490 ft²",
@@ -34,13 +41,20 @@ export const oneBedroomPlans: FloorPlan[] = [
       "Open Living Space",
       "Efficient Kitchen Layout"
     ],
-    floorPlanImage: "/lovable-uploads/f447c865-ed66-4877-a352-f56f5c67ef94.png",
+    floorPlanImage: "/lovable-uploads/0ce70111-c71a-4fe3-854c-8371c1d705be.png",
+    galleryImages: [
+      "/lovable-uploads/0ce70111-c71a-4fe3-854c-8371c1d705be.png",
+      "/lovable-uploads/12ed4d26-eaf7-47bd-a9c2-8f9a4a83d958.png",
+      "/lovable-uploads/076bf568-2847-4398-bd1d-1a309e343ec8.png",
+      "/lovable-uploads/8389877f-1314-4719-b5f0-2c929305b762.png",
+      "/lovable-uploads/63349a28-e751-4075-83af-d1bf534df480.png"
+    ],
     stories: "One Story"
   },
   {
     name: "The Shore Plan",
     specs: "1 Bed, 1 Bath",
-    image: "/lovable-uploads/21fee34c-566e-4fdd-88fb-a78d3d3b74b7.png",
+    image: "/lovable-uploads/a9410ff4-86a2-4a43-bc03-48edaa052693.png",
     link: "/plans/shore",
     price: "$200,000",
     squareFeet: "490 ft²",
@@ -51,13 +65,20 @@ export const oneBedroomPlans: FloorPlan[] = [
       "Integrated Kitchen & Living Area",
       "Efficient Layout"
     ],
-    floorPlanImage: "/lovable-uploads/21fee34c-566e-4fdd-88fb-a78d3d3b74b7.png",
+    floorPlanImage: "/lovable-uploads/a9410ff4-86a2-4a43-bc03-48edaa052693.png",
+    galleryImages: [
+      "/lovable-uploads/a9410ff4-86a2-4a43-bc03-48edaa052693.png",
+      "/lovable-uploads/d0849f17-6d65-48b8-bacf-42f67e2d09a5.png",
+      "/lovable-uploads/7e89f3c9-444e-476b-b59e-80b4bdb8f77e.png",
+      "/lovable-uploads/4d599c32-66af-45a5-90a2-918cf0a3fdc1.png",
+      "/lovable-uploads/f07cd1ac-7943-47b8-b267-00f7d9c7435a.png"
+    ],
     stories: "One Story"
   },
   {
     name: "The Rosewood Plan",
     specs: "1 Bed, 1 Bath",
-    image: "/lovable-uploads/20445a80-7d0c-4d5b-b816-22dd735d5054.png",
+    image: "/lovable-uploads/8ad8a41d-8577-4dca-998c-9a083d25ef9e.png",
     link: "/plans/rosewood",
     price: "$240,000",
     squareFeet: "580 ft²",
@@ -69,7 +90,14 @@ export const oneBedroomPlans: FloorPlan[] = [
       "Open-Concept Living Area",
       "Efficient Kitchen"
     ],
-    floorPlanImage: "/lovable-uploads/20445a80-7d0c-4d5b-b816-22dd735d5054.png",
+    floorPlanImage: "/lovable-uploads/8ad8a41d-8577-4dca-998c-9a083d25ef9e.png",
+    galleryImages: [
+      "/lovable-uploads/8ad8a41d-8577-4dca-998c-9a083d25ef9e.png",
+      "/lovable-uploads/e0ca71a5-725c-4673-b154-27e9d2e81874.png",
+      "/lovable-uploads/3ce8c2d6-0748-453e-86d5-59f0f2efce7b.png",
+      "/lovable-uploads/e9607bcd-eb53-4f64-81ca-337727b7459f.png",
+      "/lovable-uploads/e21b3411-8014-4b62-8796-7e67fb48fc22.png"
+    ],
     stories: "One Story"
   },
   {
