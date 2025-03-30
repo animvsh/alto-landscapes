@@ -5,28 +5,15 @@ import HeroSection from '../components/HeroSection';
 import CallToActionSection from '../components/CallToActionSection';
 import FloorPlanCategory from '../components/FloorPlanCategory';
 import { Link } from 'react-router-dom';
+import { Card, CardContent } from '../components/ui/card';
+import { Button } from '../components/ui/button';
+import FeaturedPlansSection from '../components/design/FeaturedPlansSection';
+import { featuredFloorPlans } from '../data/floorPlansData';
 
 const Plans = () => {
-  const studioPlans = [
-    {
-      name: "Studio 1",
-      specs: "Studio | 1 BA",
-      price: "$150,000",
-      image: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      name: "Studio 2",
-      specs: "Studio | 1 BA",
-      price: "$120,000",
-      image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?auto=format&fit=crop&w=800&q=80",
-    },
-    {
-      name: "Studio 3",
-      specs: "Studio | 1 BA",
-      price: "$140,000",
-      image: "https://images.unsplash.com/photo-1536376072261-38c75010e6c9?auto=format&fit=crop&w=800&q=80",
-    },
-  ];
+  // Filter the floor plans by type
+  const studioPlans = featuredFloorPlans.filter(plan => 
+    plan.specs.toLowerCase().includes('studio'));
 
   const oneBedroomPlans = [
     {
@@ -139,8 +126,46 @@ const Plans = () => {
             </div>
           </div>
 
-          <div id="studio-plans">
-            <FloorPlanCategory title="Studio Plans" plans={studioPlans} />
+          <div id="studio-plans" className="mb-16">
+            <h3 className="text-2xl font-semibold text-alto-blue mb-6 border-b border-alto-light-gray pb-2">
+              Studio Plans
+            </h3>
+            
+            {/* Featured Studio Plans Section */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+              {studioPlans.map((plan, index) => (
+                <Card key={index} className="overflow-hidden">
+                  <div className="relative h-64 overflow-hidden">
+                    <img 
+                      src={plan.floorPlanImage || plan.image} 
+                      alt={`${plan.name} floor plan`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <CardContent className="p-6">
+                    <div className="mb-4">
+                      <h4 className="text-xl font-semibold text-alto-blue">{plan.name}</h4>
+                      <div className="flex justify-between items-center mt-2">
+                        <p className="text-alto-dark-gray">{plan.specs}</p>
+                        <p className="text-alto-accent font-semibold">{plan.price}</p>
+                      </div>
+                      {plan.squareFeet && (
+                        <p className="text-sm text-alto-gray mt-1">{plan.squareFeet}</p>
+                      )}
+                    </div>
+                    <p className="text-sm text-alto-dark-gray mb-4 line-clamp-3">
+                      {plan.description}
+                    </p>
+                    <Link 
+                      to={plan.link} 
+                      className="inline-block text-alto-accent font-medium hover:underline"
+                    >
+                      View Details
+                    </Link>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
 
           <div id="one-bedroom-plans">
