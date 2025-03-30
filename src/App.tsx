@@ -24,8 +24,7 @@ import Sitemap from "./pages/Sitemap";
 import FAQ from "./pages/FAQ";
 import AduConstruction from "./pages/services/AduConstruction";
 import Remodeling from "./pages/services/Remodeling";
-
-const queryClient = new QueryClient();
+import { useState } from "react";
 
 // AnimatedRoutes component for handling page transitions
 const AnimatedRoutes = () => {
@@ -59,16 +58,21 @@ const AnimatedRoutes = () => {
   );
 };
 
-const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <BrowserRouter>
-      <TooltipProvider>
-        <AnimatedRoutes />
-        <Toaster />
-        <Sonner />
-      </TooltipProvider>
-    </BrowserRouter>
-  </QueryClientProvider>
-);
+const App = () => {
+  // Moving the QueryClient inside the component function to follow React's rules of hooks
+  const [queryClient] = useState(() => new QueryClient());
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <TooltipProvider>
+          <AnimatedRoutes />
+          <Toaster />
+          <Sonner />
+        </TooltipProvider>
+      </BrowserRouter>
+    </QueryClientProvider>
+  );
+};
 
 export default App;
