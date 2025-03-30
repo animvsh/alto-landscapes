@@ -1,5 +1,5 @@
 
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 
 interface ProcessStepProps {
   number: string;
@@ -9,10 +9,40 @@ interface ProcessStepProps {
 }
 
 const ProcessStep = ({ number, title, description, icon }: ProcessStepProps) => {
+  const [isVisible, setIsVisible] = useState(false);
+  const stepRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    if (stepRef.current) {
+      observer.observe(stepRef.current);
+    }
+
+    return () => {
+      if (stepRef.current) {
+        observer.unobserve(stepRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <div className="flex">
+    <div 
+      ref={stepRef}
+      className={`flex transition-all duration-700 transform ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}
+    >
       <div className="mr-6">
-        <div className="flex items-center justify-center w-12 h-12 rounded-full bg-alto-accent text-white font-bold text-xl">
+        <div className="flex items-center justify-center w-14 h-14 rounded-full bg-alto-accent text-white font-bold text-xl shadow-md">
           {number}
         </div>
         <div className="h-full w-px bg-alto-accent mx-auto mt-2 mb-2 opacity-50 hidden md:block"></div>
