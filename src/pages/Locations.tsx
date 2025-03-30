@@ -1,4 +1,3 @@
-
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import HeroSection from '../components/HeroSection';
@@ -55,27 +54,6 @@ const Locations = () => {
     },
   ];
 
-  const featuredLocations = [
-    {
-      city: "Woodland Hills",
-      image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=800&q=80",
-      description: "Woodland Hills offers excellent opportunities for ADU development with its spacious lots and supportive zoning regulations. Our ADUs in this area often feature indoor-outdoor living spaces that take advantage of the beautiful climate.",
-      link: "/locations/woodland-hills",
-    },
-    {
-      city: "Santa Monica",
-      image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=80",
-      description: "Santa Monica's coastal living inspires our ADU designs with bright, airy spaces and eco-friendly features. The city's progressive ADU policies make it an excellent location for homeowners looking to maximize property value.",
-      link: "/locations/santa-monica",
-    },
-    {
-      city: "Silver Lake",
-      image: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&w=800&q=80",
-      description: "Silver Lake's creative community and hillside terrain present unique design opportunities. Our ADUs in this neighborhood combine modern aesthetics with practical solutions for challenging topography.",
-      link: "/locations/silver-lake",
-    },
-  ];
-
   return (
     <>
       <Navbar />
@@ -84,47 +62,6 @@ const Locations = () => {
         subtitle="Alto Builders proudly serves Greater Los Angeles and Ventura County"
         backgroundImage="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=1920&q=80"
       />
-
-      <section className="py-20">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="section-title">Featured Locations</h2>
-            <p className="section-subtitle mx-auto">
-              Explore our work in these popular areas
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {featuredLocations.map((location, index) => (
-              <div key={index} className="bg-white rounded-lg overflow-hidden card-shadow group">
-                <div className="relative overflow-hidden h-48">
-                  <img 
-                    src={location.image} 
-                    alt={`ADU in ${location.city}`} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-70"></div>
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                    <div className="flex items-center mb-2">
-                      <MapPin size={18} className="mr-2" />
-                      <h3 className="text-xl font-semibold">{location.city}</h3>
-                    </div>
-                  </div>
-                </div>
-                <div className="p-6">
-                  <p className="text-alto-dark-gray mb-4">{location.description}</p>
-                  <Link 
-                    to={location.link} 
-                    className="inline-block text-alto-accent font-medium hover:underline"
-                  >
-                    Learn More
-                  </Link>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       <section className="py-20 bg-alto-light-gray">
         <div className="container-custom">
