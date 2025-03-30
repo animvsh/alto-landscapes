@@ -152,6 +152,20 @@
   }
 }
 
+@layer utilities {
+  .bg-size-200 {
+    background-size: 200% auto;
+  }
+  
+  .bg-pos-0 {
+    background-position: 0% center;
+  }
+  
+  .bg-pos-100 {
+    background-position: 100% center;
+  }
+}
+
 /* Custom animations */
 @keyframes fadeInUp {
   from {

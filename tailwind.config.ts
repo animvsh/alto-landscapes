@@ -83,6 +83,13 @@ export default {
 				inter: ['Inter', 'sans-serif'],
 				playfair: ['Playfair Display', 'serif'],
 			},
+			backgroundSize: {
+				'size-200': '200% auto',
+			},
+			backgroundPosition: {
+				'pos-0': '0% center',
+				'pos-100': '100% center',
+			},
 			keyframes: {
 				'accordion-down': {
 					from: {

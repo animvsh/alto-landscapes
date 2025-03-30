@@ -1,5 +1,6 @@
 
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import ProjectModal from './projects/ProjectModal';
 
 interface ProjectCardProps {
   title: string;
@@ -10,9 +11,14 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ title, location, image, link, description }: ProjectCardProps) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
-    <Link to={link} className="block">
-      <div className="bg-white rounded-lg overflow-hidden card-shadow group">
+    <>
+      <div 
+        className="bg-white rounded-lg overflow-hidden card-shadow group cursor-pointer"
+        onClick={() => setIsModalOpen(true)}
+      >
         <div className="relative overflow-hidden h-64">
           <img 
             src={image} 
@@ -29,7 +35,13 @@ const ProjectCard = ({ title, location, image, link, description }: ProjectCardP
           </div>
         </div>
       </div>
-    </Link>
+      
+      <ProjectModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        project={{ title, location, image, description }}
+      />
+    </>
   );
 };
 
