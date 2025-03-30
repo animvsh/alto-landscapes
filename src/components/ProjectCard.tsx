@@ -16,7 +16,7 @@ const ProjectCard = ({ title, location, image, link, description }: ProjectCardP
   return (
     <>
       <div 
-        className="bg-white rounded-lg overflow-hidden card-shadow group cursor-pointer"
+        className="bg-white rounded-lg overflow-hidden card-shadow group cursor-pointer transition-all duration-300"
         onClick={() => setIsModalOpen(true)}
       >
         <div className="relative overflow-hidden h-64">
@@ -25,12 +25,12 @@ const ProjectCard = ({ title, location, image, link, description }: ProjectCardP
             alt={title} 
             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-70"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-80"></div>
           <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-            <h3 className="text-xl font-semibold mb-1">{title}</h3>
-            <p className="text-white/80">{location}</p>
+            <h3 className="text-xl font-semibold mb-1 group-hover:text-alto-accent transition-colors duration-300">{title}</h3>
+            <p className="text-white/90">{location}</p>
             {description && (
-              <p className="text-white/90 text-sm mt-2 line-clamp-2">{description}</p>
+              <p className="text-white/90 text-sm mt-2 line-clamp-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-2 group-hover:translate-y-0">{description}</p>
             )}
           </div>
         </div>
