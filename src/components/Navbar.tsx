@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
@@ -50,28 +49,27 @@ const Navbar = () => {
     setActiveDropdown(activeDropdown === name ? null : name);
   };
 
-  // Update the navigation links array to include Team
-const navLinks = [
-  { name: 'About', path: '/about' },
-  { name: 'Team', path: '/team' },
-  { name: 'Services', path: '/services', dropdown: true, 
-    subItems: [
-      { name: 'ADU Construction', path: '/services/adu' },
-      { name: 'Remodeling', path: '/services/remodeling' },
-    ] 
-  },
-  { name: 'Projects', path: '/projects' },
-  { name: 'Plans', path: '/plans' },
-  { name: 'Locations', path: '/locations' },
-  { name: 'FAQ', path: '/faq' },
-  { name: 'Contact', path: '/contact' },
-  { name: 'Other Services', path: 'https://www.altobuilds.com/services', external: true }
-];
+  const navLinks = [
+    { name: 'About', path: '/about' },
+    { name: 'Team', path: '/team' },
+    { name: 'Services', path: '/services', dropdown: true, 
+      subItems: [
+        { name: 'ADU Construction', path: '/services/adu' },
+        { name: 'Remodeling', path: '/services/remodeling' },
+      ] 
+    },
+    { name: 'Projects', path: '/projects' },
+    { name: 'Plans', path: '/plans' },
+    { name: 'Locations', path: '/locations' },
+    { name: 'FAQ', path: '/faq' },
+    { name: 'Contact', path: '/contact' },
+    { name: 'Other Services', path: 'https://www.altobuilds.com/services', external: true }
+  ];
 
   const navbarVariants = {
     hidden: { opacity: 0, y: -50 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
-    scrolled: { backgroundColor: 'rgba(255, 255, 255, 0.95)', transition: { duration: 0.3 } },
+    scrolled: { backgroundColor: 'rgba(26, 53, 94, 0.95)', transition: { duration: 0.3 } },
     top: { backgroundColor: 'transparent' }
   };
 
@@ -90,7 +88,7 @@ const navLinks = [
     <motion.nav
       className={cn(
         "fixed top-0 left-0 w-full z-50 py-4 px-6 lg:px-12 xl:px-24 flex items-center justify-between transition-colors duration-300",
-        isScrolled ? "bg-white/95 backdrop-blur-sm shadow-md" : "bg-transparent",
+        isScrolled ? "bg-alto-blue/95 backdrop-blur-sm shadow-md" : "bg-transparent",
         "font-montserrat"
       )}
       variants={navbarVariants}
@@ -98,22 +96,18 @@ const navLinks = [
       animate={isScrolled ? "scrolled" : "visible"}
     >
       <motion.div
-        className="text-2xl font-bold text-alto-blue"
+        className="text-2xl font-bold text-white"
         variants={logoVariants}
       >
         <Logo />
       </motion.div>
 
-      {/* Desktop Navigation */}
       <div className="hidden lg:flex items-center space-x-6 xl:space-x-10">
         {navLinks.map((link) => (
           link.dropdown ? (
             <div key={link.name} className="relative group">
               <button
-                className={cn(
-                  "hover:text-alto-accent transition-colors duration-200 font-medium flex items-center gap-1",
-                  isScrolled ? "text-alto-blue" : "text-white"
-                )}
+                className="text-white hover:text-alto-accent transition-colors duration-200 font-medium flex items-center gap-1"
                 onClick={() => toggleDropdown(link.name)}
               >
                 <span>{link.name}</span>
@@ -149,9 +143,8 @@ const navLinks = [
               to={link.path}
               className={({ isActive }) =>
                 cn(
-                  "hover:text-alto-accent transition-colors duration-200 font-medium",
-                  isScrolled ? "text-alto-blue" : "text-white",
-                  isActive ? (isScrolled ? "text-alto-light-blue" : "text-alto-accent") : ""
+                  "text-white hover:text-alto-accent transition-colors duration-200 font-medium",
+                  isActive ? "text-alto-accent" : ""
                 )
               }
             >
@@ -161,11 +154,10 @@ const navLinks = [
         ))}
       </div>
 
-      {/* Mobile Navigation */}
       <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
         <SheetTrigger asChild>
           <Button variant="ghost" size="icon" className="lg:hidden">
-            <Menu className={cn("h-6 w-6", isScrolled ? "text-alto-blue" : "text-white")} />
+            <Menu className="h-6 w-6 text-white" />
             <span className="sr-only">Open menu</span>
           </Button>
         </SheetTrigger>
