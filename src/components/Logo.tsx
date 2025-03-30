@@ -9,15 +9,11 @@ interface LogoProps {
 const Logo = ({ linkTo = "/", className = "" }: LogoProps) => {
   const logoContent = (
     <div className={`text-white flex items-center ${className}`}>
-      <div className="flex items-center">
-        <span className="text-3xl font-bold">A</span>
-        <span className="text-3xl font-light mx-0.5">|</span>
-        <span className="text-3xl font-bold">B</span>
-      </div>
-      <div className="flex flex-col text-xs uppercase ml-2 leading-tight tracking-wide">
-        <span className="font-medium">ALTO</span>
-        <span className="font-medium">BUILDERS</span>
-      </div>
+      <img 
+        src="/lovable-uploads/5b18d647-f44d-47a8-b557-3937966da72b.png" 
+        alt="Alto Builders Logo"
+        className="h-12"
+      />
     </div>
   );
 

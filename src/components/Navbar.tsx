@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
@@ -10,6 +9,7 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import Logo from './Logo';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -36,19 +36,7 @@ const Navbar = () => {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 
       ${isScrolled ? 'bg-alto-blue shadow-md py-3' : 'bg-alto-blue/80 backdrop-blur-md py-6'}`}>
       <div className="container-custom flex justify-between items-center">
-        <Link to="/" className="flex items-center">
-          <div className="text-white flex items-center">
-            <div className="flex items-center">
-              <span className="text-3xl font-bold">A</span>
-              <span className="text-3xl font-light mx-0.5">|</span>
-              <span className="text-3xl font-bold">B</span>
-            </div>
-            <div className="flex flex-col text-xs uppercase ml-2 leading-tight tracking-wide">
-              <span className="font-medium">ALTO</span>
-              <span className="font-medium">BUILDERS</span>
-            </div>
-          </div>
-        </Link>
+        <Logo linkTo="/" className="mr-8" />
 
         {/* Desktop Menu */}
         <NavigationMenu className="hidden md:flex">
