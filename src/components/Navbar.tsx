@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
@@ -13,6 +14,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet"
 import { Menu } from "lucide-react"
+import Logo from './Logo';
 
 interface NavLinkProps {
   name: string;
@@ -99,13 +101,7 @@ const navLinks = [
         className="text-2xl font-bold text-alto-blue"
         variants={logoVariants}
       >
-        <Link to="/">
-          <img
-            src="/alto-builders-logo.svg"
-            alt="Alto Builders Logo"
-            className="h-8"
-          />
-        </Link>
+        <Logo />
       </motion.div>
 
       {/* Desktop Navigation */}
@@ -165,14 +161,14 @@ const navLinks = [
       <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
         <SheetTrigger asChild>
           <Button variant="ghost" size="icon" className="lg:hidden">
-            <Menu className="h-6 w-6" />
+            <Menu className="h-6 w-6 text-alto-blue" />
             <span className="sr-only">Open menu</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" className="sm:max-w-sm">
+        <SheetContent side="left" className="sm:max-w-sm bg-white text-alto-blue">
           <SheetHeader>
-            <SheetTitle>Menu</SheetTitle>
-            <SheetDescription>
+            <SheetTitle className="text-alto-blue">Menu</SheetTitle>
+            <SheetDescription className="text-alto-dark-gray">
               Explore our site and discover how we can help with your project.
             </SheetDescription>
           </SheetHeader>
