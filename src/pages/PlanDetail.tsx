@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
@@ -6,7 +5,7 @@ import Footer from '../components/Footer';
 import CallToActionSection from '../components/CallToActionSection';
 import PlanDetailBanner from '../components/PlanDetailBanner';
 import { ArrowLeft, Check } from 'lucide-react';
-import { featuredFloorPlans } from '../data/floorPlansData';
+import { featuredFloorPlans } from '../data/plans';
 
 const PlanDetail = () => {
   const { planId } = useParams<{ planId: string }>();

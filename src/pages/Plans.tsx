@@ -4,23 +4,13 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import HeroSection from '../components/HeroSection';
 import CallToActionSection from '../components/CallToActionSection';
-import { featuredFloorPlans } from '../data/floorPlansData';
+import { featuredFloorPlans, studioPlans, oneBedroomPlans, twoBedroomPlans } from '../data/plans';
 import PlansHeader from '../components/plans/PlansHeader';
 import PlansNavigation from '../components/plans/PlansNavigation';
 import PlanTypeSection from '../components/plans/PlanTypeSection';
 import CustomPlansSection from '../components/plans/CustomPlansSection';
 
 const Plans = () => {
-  // Filter the floor plans by type
-  const studioPlans = featuredFloorPlans.filter(plan => 
-    plan.specs.toLowerCase().includes('studio'));
-
-  const oneBedroomPlans = featuredFloorPlans.filter(plan => 
-    plan.specs.toLowerCase().includes('1 bed') || plan.specs.toLowerCase().includes('1 bedroom'));
-
-  const twoBedroomPlans = featuredFloorPlans.filter(plan => 
-    plan.specs.toLowerCase().includes('2 bed') || plan.specs.toLowerCase().includes('2 bedroom'));
-
   // State for section collapse/expand
   const [expandedSections, setExpandedSections] = useState({
     studio: true,

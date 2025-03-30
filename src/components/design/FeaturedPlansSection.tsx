@@ -1,7 +1,7 @@
-
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import FloorPlanCard from '../FloorPlanCard';
+import { FloorPlan } from '../../data/types/FloorPlan';
 
 interface FeaturedPlansSectionProps {
   plans: {

@@ -7,23 +7,13 @@ import CallToActionSection from '../components/CallToActionSection';
 import ProjectsSection from '../components/projects/ProjectsSection';
 import ProjectsApproach from '../components/projects/ProjectsApproach';
 import FeaturedPlansSection from '../components/design/FeaturedPlansSection';
-import { featuredFloorPlans } from '../data/floorPlansData';
+import { studioPlans, oneBedroomPlans, twoBedroomPlans } from '../data/plans';
 
 const Projects = () => {
-  // Filter studio plans
-  const studioPlans = featuredFloorPlans.filter(plan => 
-    plan.specs.toLowerCase().includes('studio')
-  ).slice(0, 3);
-  
-  // Filter one-bedroom plans
-  const oneBedroomPlans = featuredFloorPlans.filter(plan => 
-    plan.specs.toLowerCase().includes('1 bed') || plan.specs.toLowerCase().includes('1 bedroom')
-  ).slice(0, 3);
-  
-  // Filter two-bedroom plans
-  const twoBedroomPlans = featuredFloorPlans.filter(plan => 
-    plan.specs.toLowerCase().includes('2 bed') || plan.specs.toLowerCase().includes('2 bedroom')
-  ).slice(0, 3);
+  // Filter plans (using first 3 of each type - they're already segregated)
+  const studioPlansSubset = studioPlans.slice(0, 3);
+  const oneBedroomPlansSubset = oneBedroomPlans.slice(0, 3);
+  const twoBedroomPlansSubset = twoBedroomPlans.slice(0, 3);
 
   return (
     <>
@@ -47,7 +37,7 @@ const Projects = () => {
             </p>
           </div>
           
-          <FeaturedPlansSection plans={studioPlans} count={3} />
+          <FeaturedPlansSection plans={studioPlansSubset} count={3} />
         </div>
       </section>
       
@@ -61,7 +51,7 @@ const Projects = () => {
             </p>
           </div>
           
-          <FeaturedPlansSection plans={oneBedroomPlans} count={3} />
+          <FeaturedPlansSection plans={oneBedroomPlansSubset} count={3} />
         </div>
       </section>
       
@@ -75,7 +65,7 @@ const Projects = () => {
             </p>
           </div>
           
-          <FeaturedPlansSection plans={twoBedroomPlans} count={3} />
+          <FeaturedPlansSection plans={twoBedroomPlansSubset} count={3} />
         </div>
       </section>
 
