@@ -44,7 +44,7 @@ const Index = () => {
       <HeroSection 
         title="YOUR GREATER LOS ANGELES ADU BUILDERS"
         subtitle="Start your building journey with ALTO here"
-        backgroundImage="https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?auto=format&fit=crop&w=1920&q=80"
+        backgroundImage="/lovable-uploads/d3cf4ce7-3f97-4189-96aa-90b3c9bd790d.png"
         buttonText="START YOUR BUILD"
         showScrollIndicator={true}
         onScrollDown={() => scrollToSection('explore-section')}

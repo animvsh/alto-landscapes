@@ -15,62 +15,62 @@ interface FloorPlan {
 
 const defaultFloorPlans: FloorPlan[] = [
   {
-    name: "The Yosemite Plan",
+    name: "The Spruce Plan",
     specs: "2 Bed, 2.5 Bath",
-    image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=600&q=80",
-    link: "/plans/yosemite",
+    image: "/lovable-uploads/f9b428c1-3ef4-4d46-87ba-368a64a9ba47.png",
+    link: "/plans/the-spruce-plan",
     price: "$320,000",
   },
   {
-    name: "The Glacier Plan",
+    name: "The Birch Plan",
     specs: "2 Bed, 2 Bath",
-    image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=600&q=80",
-    link: "/plans/glacier",
+    image: "/lovable-uploads/87aa8cc7-0176-4780-927b-2fe210f9535d.png",
+    link: "/plans/the-birch-plan",
     price: "$280,000",
   },
   {
     name: "The Hickory Plan",
     specs: "2 Bed, 1 Bath",
-    image: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&w=600&q=80",
-    link: "/plans/hickory",
+    image: "/lovable-uploads/15387f04-3154-42ef-b673-a243a66904de.png",
+    link: "/plans/the-hickory-plan",
     price: "$220,000",
   },
   {
     name: "The Whistler Plan",
     specs: "2 Bed, 1 Bath",
-    image: "https://images.unsplash.com/photo-1516455590571-18256e5bb9ff?auto=format&fit=crop&w=600&q=80",
-    link: "/plans/whistler",
+    image: "/lovable-uploads/317d251a-25e4-401a-8f49-b4f6b1b4c652.png",
+    link: "/plans/the-whistler-plan",
     price: "$210,000",
   },
 ];
 
 const additionalFloorPlans: FloorPlan[] = [
   {
-    name: "The Pine Plan",
+    name: "The Willow Plan",
     specs: "Studio, 1 Bath",
-    image: "https://images.unsplash.com/photo-1493809842364-78817add7ffb?auto=format&fit=crop&w=600&q=80",
-    link: "/plans/pine",
+    image: "/lovable-uploads/34a83205-08c6-422c-8432-17ce1ceb1bea.png",
+    link: "/plans/the-willow-plan",
     price: "$150,000",
   },
   {
     name: "The Redwood Plan",
     specs: "2 Bed, 1 Bath",
-    image: "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=600&q=80",
-    link: "/plans/redwood",
+    image: "/lovable-uploads/9e390d7a-1b19-4862-8706-7a0630051ed3.png",
+    link: "/plans/the-redwood-plan",
     price: "$260,000",
   },
   {
     name: "The Palm Plan",
     specs: "1 Bed, 2 Bath",
-    image: "https://images.unsplash.com/photo-1523837157348-ffbdaccfc7de?auto=format&fit=crop&w=600&q=80",
-    link: "/plans/palm",
+    image: "/lovable-uploads/c39f088a-7d6d-452f-9dcb-a62f496abf7e.png",
+    link: "/plans/the-palm-plan",
     price: "$200,000",
   },
   {
-    name: "The Beech Plan",
+    name: "The Cedar Plan",
     specs: "2 Bed, 2 Bath",
-    image: "https://images.unsplash.com/photo-1503174971373-b1f69a8bdbc7?auto=format&fit=crop&w=600&q=80",
-    link: "/plans/beech",
+    image: "/lovable-uploads/d92cf2ac-d227-4b35-8771-6272c332f425.png",
+    link: "/plans/the-cedar-plan",
     price: "$295,000",
   },
 ];
@@ -119,7 +119,7 @@ const FloorPlansSection = ({
 
         {showAllPlansLink && (
           <div className="mt-12 text-center">
-            <Link to="/floor-plans" className="btn-secondary flex items-center justify-center mx-auto w-fit">
+            <Link to="/plans" className="btn-secondary flex items-center justify-center mx-auto w-fit">
               All Floor Plans <ArrowRight size={16} className="ml-2" />
             </Link>
           </div>

@@ -51,7 +51,7 @@ const Plans = () => {
           className="absolute inset-0 z-0" 
           style={{ 
             transform: `translateY(${scrollY * 0.4}px)`,
-            backgroundImage: "url('https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1920&q=80')",
+            backgroundImage: "url('/lovable-uploads/d3cf4ce7-3f97-4189-96aa-90b3c9bd790d.png')",
             backgroundPosition: 'center',
             backgroundSize: 'cover',
             filter: 'brightness(0.9)'
@@ -60,7 +60,7 @@ const Plans = () => {
         <HeroSection 
           title="ADU PLANS & PRICING"
           subtitle="Explore our collection of ready-to-build ADU floor plans"
-          backgroundImage="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1920&q=80"
+          backgroundImage="/lovable-uploads/d3cf4ce7-3f97-4189-96aa-90b3c9bd790d.png"
         />
       </div>
 
