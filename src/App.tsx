@@ -21,6 +21,8 @@ import AccessibilityStatement from "./pages/AccessibilityStatement";
 import TermsOfService from "./pages/TermsOfService";
 import Sitemap from "./pages/Sitemap";
 import FAQ from "./pages/FAQ";
+import AduConstruction from "./pages/services/AduConstruction";
+import Remodeling from "./pages/services/Remodeling";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +36,8 @@ const AnimatedRoutes = () => {
         <Route path="/" element={<Index />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/services/adu" element={<AduConstruction />} />
+        <Route path="/services/remodeling" element={<Remodeling />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/design" element={<Design />} />
         <Route path="/plans" element={<Plans />} />
