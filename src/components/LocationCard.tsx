@@ -20,7 +20,7 @@ const LocationCard = ({ name, image, slug, description }: LocationCardProps) => 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6 }}
-      className="location-card h-[400px] card-shadow"
+      className="location-card h-[400px] card-shadow group"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -32,7 +32,7 @@ const LocationCard = ({ name, image, slug, description }: LocationCardProps) => 
         />
         <div className={`location-card-overlay ${isHovered ? 'opacity-100' : 'opacity-90'}`}></div>
         
-        <div className="location-card-content">
+        <div className="location-card-content group-hover:translate-y-[-8px]">
           <h3 className="text-2xl font-semibold mb-2 text-white text-shadow">{name}</h3>
           
           {description && (
