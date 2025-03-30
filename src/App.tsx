@@ -23,8 +23,6 @@ import Sitemap from "./pages/Sitemap";
 import FAQ from "./pages/FAQ";
 import AduConstruction from "./pages/services/AduConstruction";
 import Remodeling from "./pages/services/Remodeling";
-import DesignServices from "./pages/services/DesignServices";
-import PermittingServices from "./pages/services/PermittingServices";
 
 const queryClient = new QueryClient();
 
@@ -40,8 +38,6 @@ const AnimatedRoutes = () => {
         <Route path="/services" element={<Services />} />
         <Route path="/services/adu" element={<AduConstruction />} />
         <Route path="/services/remodeling" element={<Remodeling />} />
-        <Route path="/services/design" element={<DesignServices />} />
-        <Route path="/services/permitting" element={<PermittingServices />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/design" element={<Design />} />
         <Route path="/plans" element={<Plans />} />
