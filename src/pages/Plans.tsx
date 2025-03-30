@@ -46,7 +46,7 @@ const Plans = () => {
     <>
       <ScrollProgress />
       <Navbar />
-      <div ref={heroRef} className="relative overflow-hidden">
+      <div ref={heroRef} className="relative overflow-hidden pt-20">
         <div 
           className="absolute inset-0 z-0" 
           style={{ 

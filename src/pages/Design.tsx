@@ -15,11 +15,13 @@ const Design = () => {
   return (
     <>
       <Navbar />
-      <HeroSection 
-        title="ADU DESIGNS"
-        subtitle="Choose an ADU design you'll love"
-        backgroundImage="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1920&q=80"
-      />
+      <div className="pt-20">
+        <HeroSection 
+          title="ADU DESIGNS"
+          subtitle="Choose an ADU design you'll love"
+          backgroundImage="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1920&q=80"
+        />
+      </div>
 
       <section className="py-16 md:py-20">
         <div className="container-custom">
