@@ -16,6 +16,9 @@ import Locations from "./pages/Locations";
 import LocationDetail from "./pages/LocationDetail";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import AccessibilityStatement from "./pages/AccessibilityStatement";
+import TermsOfService from "./pages/TermsOfService";
 
 const queryClient = new QueryClient();
 
@@ -36,6 +39,9 @@ const AnimatedRoutes = () => {
         <Route path="/locations" element={<Locations />} />
         <Route path="/locations/:location" element={<LocationDetail />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/accessibility-statement" element={<AccessibilityStatement />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>

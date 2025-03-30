@@ -106,9 +106,12 @@ const Footer = () => {
           <p className="text-white/60 text-xs sm:text-sm">
             &copy; {new Date().getFullYear()} Alto Builders. All Rights Reserved.
           </p>
-          <div className="flex space-x-4 mt-4 md:mt-0 text-xs sm:text-sm">
+          <div className="flex flex-wrap space-x-4 mt-4 md:mt-0 text-xs sm:text-sm justify-center">
             <Link to="/privacy-policy" className="text-white/60 hover:text-alto-accent">
               Privacy Policy
+            </Link>
+            <Link to="/accessibility-statement" className="text-white/60 hover:text-alto-accent">
+              Accessibility Statement
             </Link>
             <Link to="/terms-of-service" className="text-white/60 hover:text-alto-accent">
               Terms of Service
