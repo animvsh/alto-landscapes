@@ -6,7 +6,7 @@ interface FloorPlanCardProps {
   specs: string;
   image: string;
   link: string;
-  price: string;
+  price?: string; // Make price optional
 }
 
 const FloorPlanCard = ({ name, specs, image, link, price }: FloorPlanCardProps) => {
@@ -23,7 +23,7 @@ const FloorPlanCard = ({ name, specs, image, link, price }: FloorPlanCardProps) 
         <h3 className="text-xl font-semibold text-alto-blue mb-2">{name}</h3>
         <div className="flex justify-between items-center mb-4">
           <p className="text-alto-dark-gray">{specs}</p>
-          <p className="text-alto-accent font-semibold">{price}</p>
+          {price && <p className="text-alto-accent font-semibold">{price}</p>}
         </div>
         <Link 
           to={link} 
