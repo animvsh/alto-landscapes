@@ -7,7 +7,6 @@ import {
   AccordionTrigger 
 } from '@/components/ui/accordion';
 import { HelpCircle } from 'lucide-react';
-import { motion } from 'framer-motion';
 
 const ContactFAQ = () => {
   const faqItems = [
@@ -49,69 +48,33 @@ const ContactFAQ = () => {
     }
   ];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 }
-  };
-
   return (
-    <section className="py-20 bg-gradient-to-b from-white to-alto-light-gray/30">
+    <section className="py-20 bg-alto-light-gray">
       <div className="container-custom">
-        <motion.div 
-          className="text-center mb-16"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-          variants={containerVariants}
-        >
-          <motion.div variants={itemVariants} className="flex justify-center mb-4">
-            <div className="bg-alto-light-gray p-3 rounded-full inline-block">
-              <HelpCircle size={32} className="text-alto-accent" />
-            </div>
-          </motion.div>
-          <motion.h2 variants={itemVariants} className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="heading-accent">Expert</span>{' '}
-            <span className="text-gradient">Answers</span>
-          </motion.h2>
-          <motion.p variants={itemVariants} className="text-alto-dark-gray max-w-2xl mx-auto text-lg">
+        <div className="text-center mb-12">
+          <div className="flex justify-center mb-4">
+            <HelpCircle size={36} className="text-alto-accent" />
+          </div>
+          <h2 className="section-title">Frequently Asked Questions</h2>
+          <p className="section-subtitle mx-auto">
             Find answers to common questions about our ADU services
-          </motion.p>
-        </motion.div>
+          </p>
+        </div>
 
-        <motion.div 
-          className="max-w-3xl mx-auto"
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
-        >
-          <Accordion type="single" collapsible className="bg-white rounded-xl overflow-hidden shadow-xl border border-gray-100">
+        <div className="max-w-3xl mx-auto">
+          <Accordion type="single" collapsible className="bg-white rounded-lg overflow-hidden shadow-sm">
             {faqItems.map((item, index) => (
-              <motion.div key={index} variants={itemVariants}>
-                <AccordionItem value={`item-${index}`} className="border-b border-alto-light-gray px-2">
-                  <AccordionTrigger className="text-alto-blue hover:text-alto-accent py-6 text-left text-lg md:text-xl font-medium px-4">
-                    {item.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-alto-dark-gray pb-6 pt-0 text-base px-4">
-                    <div className="bg-alto-light-gray/30 p-4 rounded-lg border-l-4 border-alto-accent">
-                      {item.answer}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              </motion.div>
+              <AccordionItem key={index} value={`item-${index}`} className="border-b border-alto-light-gray px-1">
+                <AccordionTrigger className="text-alto-blue hover:text-alto-accent py-4 text-left text-base md:text-lg font-medium">
+                  {item.question}
+                </AccordionTrigger>
+                <AccordionContent className="text-alto-dark-gray pb-4 pt-0 text-base">
+                  {item.answer}
+                </AccordionContent>
+              </AccordionItem>
             ))}
           </Accordion>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
