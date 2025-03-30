@@ -12,7 +12,7 @@ const Projects = () => {
     <>
       <Navbar />
       <HeroSection 
-        title="OUR PROJECTS"
+        title="ADU PROJECT - WEISS FAMILY"
         subtitle="Explore our portfolio of premium ADUs across Greater Los Angeles"
         backgroundImage="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1920&q=80"
       />
@@ -21,9 +21,9 @@ const Projects = () => {
       <ProjectsApproach />
 
       <CallToActionSection 
-        title="Inspired By Our Projects?"
-        subtitle="Let's discuss how we can create a custom ADU for your property"
-        buttonText="Start Your Project"
+        title="Want to learn more about your ADU Project?"
+        subtitle="We'd love to help transform your property with a custom ADU solution"
+        buttonText="Learn More"
         buttonLink="/contact"
       />
 

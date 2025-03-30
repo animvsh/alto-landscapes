@@ -6,9 +6,10 @@ interface ProjectCardProps {
   location: string;
   image: string;
   link: string;
+  description?: string;
 }
 
-const ProjectCard = ({ title, location, image, link }: ProjectCardProps) => {
+const ProjectCard = ({ title, location, image, link, description }: ProjectCardProps) => {
   return (
     <Link to={link} className="block">
       <div className="bg-white rounded-lg overflow-hidden card-shadow group">
@@ -22,6 +23,9 @@ const ProjectCard = ({ title, location, image, link }: ProjectCardProps) => {
           <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
             <h3 className="text-xl font-semibold mb-1">{title}</h3>
             <p className="text-white/80">{location}</p>
+            {description && (
+              <p className="text-white/90 text-sm mt-2 line-clamp-2">{description}</p>
+            )}
           </div>
         </div>
       </div>

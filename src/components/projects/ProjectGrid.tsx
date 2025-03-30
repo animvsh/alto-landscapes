@@ -17,6 +17,7 @@ const ProjectGrid = ({ projects }: ProjectGridProps) => {
           location={project.location} 
           image={project.image} 
           link={project.link} 
+          description={project.description}
         />
       ))}
     </div>
