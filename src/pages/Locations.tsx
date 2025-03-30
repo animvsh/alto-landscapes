@@ -1,9 +1,11 @@
+
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import HeroSection from '../components/HeroSection';
 import CallToActionSection from '../components/CallToActionSection';
-import { Link } from 'react-router-dom';
-import { MapPin } from 'lucide-react';
+import ServiceAreaGrid from '../components/locations/ServiceAreaGrid';
+import LocalExpertiseSection from '../components/locations/LocalExpertiseSection';
+import PlanningRegulationsSection from '../components/locations/PlanningRegulationsSection';
 
 const Locations = () => {
   const serviceAreas = [
@@ -63,217 +65,9 @@ const Locations = () => {
         backgroundImage="https://images.unsplash.com/photo-1449034446853-66c86144b0ad?auto=format&fit=crop&w=1920&q=80"
       />
 
-      <section className="py-20 bg-alto-light-gray">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="section-title">Areas We Serve</h2>
-            <p className="section-subtitle mx-auto">
-              Alto Builders specializes in ADU construction throughout these communities
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {serviceAreas.map((area, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg card-shadow">
-                <h3 className="text-xl font-semibold text-alto-blue mb-4">{area.region}</h3>
-                <ul className="space-y-2">
-                  {area.cities.map((city, cityIndex) => (
-                    <li key={cityIndex}>
-                      <Link 
-                        to={city.link} 
-                        className="flex items-center text-alto-dark-gray hover:text-alto-blue transition-colors"
-                      >
-                        <MapPin size={14} className="mr-2" />
-                        {city.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20">
-        <div className="container-custom">
-          <div className="flex flex-col md:flex-row items-center">
-            <div className="md:w-1/2 mb-8 md:mb-0 md:pr-12">
-              <h2 className="section-title">Local Expertise Matters</h2>
-              <p className="text-alto-dark-gray mb-6">
-                Building an ADU requires navigating local regulations, zoning requirements, and building codes that vary significantly from city to city. Alto Builders brings in-depth knowledge of these local regulations across Greater Los Angeles and Ventura County.
-              </p>
-              <p className="text-alto-dark-gray mb-6">
-                Our team stays up-to-date with the latest policy changes and maintains relationships with local building departments, ensuring a smooth permitting process for your project.
-              </p>
-              <p className="text-alto-dark-gray">
-                Beyond regulations, we understand the unique architectural styles, climate considerations, and property characteristics of each neighborhood we serve, allowing us to design ADUs that complement existing structures and maximize property value.
-              </p>
-            </div>
-            <div className="md:w-1/2">
-              <img 
-                src="https://images.unsplash.com/photo-1589308902200-4f5f269dfb4f?auto=format&fit=crop&w=800&q=80" 
-                alt="Los Angeles cityscape" 
-                className="rounded-lg shadow-lg w-full"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-alto-light-gray">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="section-title">Planning Regulations by Area</h2>
-            <p className="section-subtitle mx-auto">
-              Understanding the key ADU regulations in different regions
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white p-6 rounded-lg card-shadow">
-              <h3 className="text-xl font-semibold text-alto-blue mb-4">City of Los Angeles</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <div>
-                    <p className="font-medium">Maximum Size:</p>
-                    <p className="text-sm text-alto-dark-gray">Up to 1,200 sq ft or 50% of the primary dwelling (whichever is less)</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <div>
-                    <p className="font-medium">Parking:</p>
-                    <p className="text-sm text-alto-dark-gray">No additional parking required if within 1/2 mile of public transit</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <div>
-                    <p className="font-medium">Owner Occupancy:</p>
-                    <p className="text-sm text-alto-dark-gray">Not required for new ADUs until 2025</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg card-shadow">
-              <h3 className="text-xl font-semibold text-alto-blue mb-4">Santa Monica</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <div>
-                    <p className="font-medium">Maximum Size:</p>
-                    <p className="text-sm text-alto-dark-gray">Up to 1,000 sq ft, regardless of lot size</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <div>
-                    <p className="font-medium">Parking:</p>
-                    <p className="text-sm text-alto-dark-gray">One parking space required, with several exemptions available</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <div>
-                    <p className="font-medium">Design Requirements:</p>
-                    <p className="text-sm text-alto-dark-gray">Must complement the architectural style of the primary dwelling</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg card-shadow">
-              <h3 className="text-xl font-semibold text-alto-blue mb-4">Ventura County</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <div>
-                    <p className="font-medium">Maximum Size:</p>
-                    <p className="text-sm text-alto-dark-gray">Up to 1,200 sq ft for detached ADUs</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <div>
-                    <p className="font-medium">Minimum Lot Size:</p>
-                    <p className="text-sm text-alto-dark-gray">No minimum lot size requirement</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <div>
-                    <p className="font-medium">Setbacks:</p>
-                    <p className="text-sm text-alto-dark-gray">4 ft from side and rear property lines</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            
-            <div className="bg-white p-6 rounded-lg card-shadow">
-              <h3 className="text-xl font-semibold text-alto-blue mb-4">San Fernando Valley</h3>
-              <ul className="space-y-3">
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <div>
-                    <p className="font-medium">Notable Benefits:</p>
-                    <p className="text-sm text-alto-dark-gray">Larger lot sizes often allow for maximum ADU square footage</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <div>
-                    <p className="font-medium">Special Considerations:</p>
-                    <p className="text-sm text-alto-dark-gray">Hillside regulations may apply in certain neighborhoods</p>
-                  </div>
-                </li>
-                <li className="flex items-start">
-                  <div className="text-alto-accent mr-2 mt-1">
-                    <CheckCircle size={16} />
-                  </div>
-                  <div>
-                    <p className="font-medium">Common Styles:</p>
-                    <p className="text-sm text-alto-dark-gray">Modern, ranch, and mid-century designs are popular in this region</p>
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="text-alto-dark-gray mb-6">
-              Regulations can change and vary by specific location. Contact us for the most up-to-date information for your property.
-            </p>
-            <Link to="/contact" className="btn-primary">
-              Get Location-Specific Information
-            </Link>
-          </div>
-        </div>
-      </section>
+      <ServiceAreaGrid serviceAreas={serviceAreas} />
+      <LocalExpertiseSection />
+      <PlanningRegulationsSection />
 
       <CallToActionSection 
         title="Serving Your Neighborhood"
@@ -288,22 +82,3 @@ const Locations = () => {
 };
 
 export default Locations;
-
-function CheckCircle(props: { size: number }) {
-  return (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      width={props.size} 
-      height={props.size} 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="2" 
-      strokeLinecap="round" 
-      strokeLinejoin="round"
-    >
-      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-      <polyline points="22 4 12 14.01 9 11.01"></polyline>
-    </svg>
-  );
-}
