@@ -1,7 +1,8 @@
 
 import { Facebook, Linkedin, Instagram } from 'lucide-react';
 import { Button } from './ui/button';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { motion } from 'framer-motion';
 
 interface TeamMemberCardProps {
   name: string;
@@ -25,16 +26,72 @@ const TeamMemberCard = ({
   fullBio
 }: TeamMemberCardProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.2 }
+    );
+    
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+    
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" }
+    }
+  };
+
+  const imageVariants = {
+    hover: { scale: 1.05, transition: { duration: 0.5 } },
+    initial: { scale: 1, transition: { duration: 0.5 } }
+  };
+
+  const overlayVariants = {
+    hover: { opacity: 1, transition: { duration: 0.3 } },
+    initial: { opacity: 0, transition: { duration: 0.3 } }
+  };
 
   return (
-    <div className="bg-white rounded-lg overflow-hidden card-shadow transition-all duration-300 hover:shadow-lg">
-      <div className="relative overflow-hidden h-64 md:h-80">
-        <img 
+    <motion.div 
+      ref={cardRef}
+      initial="hidden"
+      animate={isVisible ? "visible" : "hidden"}
+      variants={cardVariants}
+      className="bg-white rounded-lg overflow-hidden card-shadow transition-all duration-300 hover:shadow-lg"
+    >
+      <motion.div 
+        className="relative overflow-hidden h-64 md:h-80"
+        whileHover="hover"
+        initial="initial"
+      >
+        <motion.img 
+          variants={imageVariants}
           src={image} 
           alt={name} 
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+          className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300">
+        <motion.div 
+          variants={overlayVariants}
+          className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"
+        >
           <div className="absolute bottom-4 left-4 right-4 flex space-x-3">
             {facebook && (
               <a 
@@ -70,15 +127,22 @@ const TeamMemberCard = ({
               </a>
             )}
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
       <div className="p-6">
         <h3 className="text-xl font-semibold text-alto-blue">{name}</h3>
         <p className="text-alto-accent mb-4">{position}</p>
         
         <div className="mb-4">
           {isExpanded && fullBio ? (
-            <p className="text-alto-dark-gray">{fullBio}</p>
+            <motion.p 
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              transition={{ duration: 0.3 }}
+              className="text-alto-dark-gray"
+            >
+              {fullBio}
+            </motion.p>
           ) : (
             <p className="text-alto-dark-gray line-clamp-3">{bio}</p>
           )}
@@ -130,7 +194,7 @@ const TeamMemberCard = ({
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

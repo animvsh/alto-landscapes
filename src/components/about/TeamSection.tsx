@@ -1,17 +1,72 @@
 
 import { Card, CardContent } from "../ui/card";
 import { Separator } from "../ui/separator";
+import { Button } from "../ui/button";
+import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 
 const TeamSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLDivElement>(null);
+  
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+    
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+    
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6 }
+    }
+  };
+
   return (
-    <div className="text-center mb-12">
+    <div className="text-center mb-12" ref={sectionRef}>
       <h2 className="section-title">Meet Our Team</h2>
       <p className="section-subtitle mx-auto mb-10">
         The dedicated professionals behind Alto Builders
       </p>
       
-      <div className="max-w-3xl mx-auto">
-        <div className="bg-white p-8 rounded-lg card-shadow">
+      <motion.div 
+        className="max-w-3xl mx-auto"
+        variants={containerVariants}
+        initial="hidden"
+        animate={isVisible ? "visible" : "hidden"}
+      >
+        <motion.div 
+          className="bg-white p-8 rounded-lg card-shadow mb-8"
+          variants={itemVariants}
+        >
           <img 
             src="/lovable-uploads/103a79ba-0e63-4e5c-ba60-296a27569ab2.png" 
             alt="Paul and Simon Manfredi, Alto Builders Co-Founders" 
@@ -37,8 +92,14 @@ const TeamSection = () => {
               </p>
             </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+        
+        <motion.div variants={itemVariants}>
+          <Button asChild className="bg-alto-blue hover:bg-alto-light-blue">
+            <Link to="/team">Meet Our Full Team</Link>
+          </Button>
+        </motion.div>
+      </motion.div>
     </div>
   );
 };

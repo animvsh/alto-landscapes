@@ -1,193 +1,237 @@
-
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
-import { useIsMobile } from '@/hooks/use-mobile';
+import React, { useState, useEffect } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button"
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
-import Logo from './Logo';
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
+import { Menu } from "lucide-react"
+
+interface NavLinkProps {
+  name: string;
+  path: string;
+  external?: boolean;
+  dropdown?: boolean;
+  subItems?: { name: string; path: string }[];
+}
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const isMobile = useIsMobile();
+  const location = useLocation();
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
+  useEffect(() => {
+    setIsMenuOpen(false);
+    setActiveDropdown(null);
+  }, [location.pathname]);
+
+  const toggleDropdown = (name: string) => {
+    setActiveDropdown(activeDropdown === name ? null : name);
+  };
+
+  // Update the navigation links array to include Team
+const navLinks = [
+  { name: 'About', path: '/about' },
+  { name: 'Team', path: '/team' },
+  { name: 'Services', path: '/services', dropdown: true, 
+    subItems: [
+      { name: 'ADU Construction', path: '/services/adu' },
+      { name: 'Remodeling', path: '/services/remodeling' },
+    ] 
+  },
+  { name: 'Projects', path: '/projects' },
+  { name: 'Plans', path: '/plans' },
+  { name: 'Locations', path: '/locations' },
+  { name: 'FAQ', path: '/faq' },
+  { name: 'Contact', path: '/contact' },
+  { name: 'Other Services', path: 'https://www.altobuilds.com/services', external: true }
+];
+
+  const navbarVariants = {
+    hidden: { opacity: 0, y: -50 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+    scrolled: { backgroundColor: 'rgba(255, 255, 255, 0.95)', transition: { duration: 0.3 } },
+    top: { backgroundColor: 'transparent' }
+  };
+
+  const logoVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.5, delay: 0.2, ease: "easeOut" } }
+  };
+
+  const sheetVariants = {
+    hidden: { x: '-100%' },
+    open: { x: '0%', transition: { type: 'spring', stiffness: 80, damping: 20 } },
+    closed: { x: '-100%', transition: { duration: 0.3 } },
   };
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 
-      ${isScrolled ? 'bg-alto-blue shadow-md py-3' : 'bg-alto-blue/80 backdrop-blur-md py-6'}`}>
-      <div className="container-custom flex justify-between items-center">
-        <Logo linkTo="/" className="mr-4 md:mr-8" />
+    <motion.nav
+      className={cn(
+        "fixed top-0 left-0 w-full z-50 py-4 px-6 lg:px-12 xl:px-24 flex items-center justify-between transition-colors duration-300",
+        isScrolled ? "bg-white/95 backdrop-blur-sm shadow-md" : "bg-transparent",
+        "font-montserrat"
+      )}
+      variants={navbarVariants}
+      initial="hidden"
+      animate={isScrolled ? "scrolled" : "visible"}
+    >
+      <motion.div
+        className="text-2xl font-bold text-alto-blue"
+        variants={logoVariants}
+      >
+        <Link to="/">
+          <img
+            src="/alto-builders-logo.svg"
+            alt="Alto Builders Logo"
+            className="h-8"
+          />
+        </Link>
+      </motion.div>
 
-        {/* Desktop Menu */}
-        <NavigationMenu className="hidden md:flex">
-          <NavigationMenuList className="space-x-4 lg:space-x-6">
-            <NavigationMenuItem>
-              <Link to="/about" className="text-white hover:text-alto-accent uppercase text-sm font-medium tracking-wide">
-                ABOUT
-              </Link>
-            </NavigationMenuItem>
-            
-            <NavigationMenuItem>
-              <NavigationMenuTrigger className="bg-transparent text-white hover:bg-transparent hover:text-alto-accent focus:bg-transparent uppercase text-sm font-medium tracking-wide">
-                SERVICES
-              </NavigationMenuTrigger>
-              <NavigationMenuContent className="bg-alto-blue border border-white/10">
-                <div className="p-4 w-[280px]">
-                  <Link to="/services/adu" className="group flex p-3 hover:bg-white/10 rounded-md">
-                    <div className="text-white">
-                      <div className="font-medium">ADU Construction</div>
-                      <p className="text-sm text-white/70">Specialized ADU building</p>
-                    </div>
-                  </Link>
-                  <Link to="/services/remodeling" className="group flex p-3 hover:bg-white/10 rounded-md">
-                    <div className="text-white">
-                      <div className="font-medium">Remodeling</div>
-                      <p className="text-sm text-white/70">Transform your space</p>
-                    </div>
-                  </Link>
-                  <Link to="/services/design" className="group flex p-3 hover:bg-white/10 rounded-md">
-                    <div className="text-white">
-                      <div className="font-medium">Design Services</div>
-                      <p className="text-sm text-white/70">Custom architectural design</p>
-                    </div>
-                  </Link>
-                  <Link to="/services/permitting" className="group flex p-3 hover:bg-white/10 rounded-md">
-                    <div className="text-white">
-                      <div className="font-medium">Permitting</div>
-                      <p className="text-sm text-white/70">Navigate regulations easily</p>
-                    </div>
-                  </Link>
-                  <a href="https://www.altobuilds.com/services" target="_blank" rel="noopener noreferrer" className="group flex p-3 hover:bg-white/10 rounded-md">
-                    <div className="text-white">
-                      <div className="font-medium">Other Services</div>
-                      <p className="text-sm text-white/70">View all services</p>
-                    </div>
-                  </a>
-                </div>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            
-            <NavigationMenuItem>
-              <Link to="/projects" className="text-white hover:text-alto-accent uppercase text-sm font-medium tracking-wide">
-                PROJECTS
-              </Link>
-            </NavigationMenuItem>
-            
-            <NavigationMenuItem>
-              <NavigationMenuTrigger className="bg-transparent text-white hover:bg-transparent hover:text-alto-accent focus:bg-transparent uppercase text-sm font-medium tracking-wide">
-                MORE
-              </NavigationMenuTrigger>
-              <NavigationMenuContent className="bg-alto-blue border border-white/10">
-                <div className="p-4 w-[200px]">
-                  <Link to="/design" className="group flex p-2 hover:bg-white/10 rounded-md text-white">
-                    DESIGN
-                  </Link>
-                  <Link to="/plans" className="group flex p-2 hover:bg-white/10 rounded-md text-white">
-                    PLANS & PRICING
-                  </Link>
-                  <Link to="/locations" className="group flex p-2 hover:bg-white/10 rounded-md text-white">
-                    LOCATIONS
-                  </Link>
-                </div>
-              </NavigationMenuContent>
-            </NavigationMenuItem>
-            
-            <NavigationMenuItem>
-              <Link to="/contact" className="text-white hover:text-alto-accent uppercase text-sm font-medium tracking-wide">
-                CONTACT
-              </Link>
-            </NavigationMenuItem>
-          </NavigationMenuList>
-        </NavigationMenu>
-
-        <div className="hidden md:block">
-          <Link to="/contact" className="text-white hover:text-alto-accent font-medium">
-            Inquire
-          </Link>
-        </div>
-
-        {/* Mobile Menu Button */}
-        <button 
-          className="md:hidden text-white"
-          onClick={toggleMenu}
-          aria-label="Toggle Menu"
-        >
-          {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+      {/* Desktop Navigation */}
+      <div className="hidden lg:flex items-center space-x-6 xl:space-x-10">
+        {navLinks.map((link) => (
+          link.dropdown ? (
+            <div key={link.name} className="relative group">
+              <button
+                className="text-alto-blue hover:text-alto-light-blue transition-colors duration-200 font-medium flex items-center gap-1"
+                onClick={() => toggleDropdown(link.name)}
+              >
+                <span>{link.name}</span>
+                <svg className="fill-current h-4 w-4 transition-transform duration-200" viewBox="0 0 20 20" style={{ transform: activeDropdown === link.name ? 'rotate(180deg)' : 'rotate(0deg)' }}>
+                  <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                </svg>
+              </button>
+              <AnimatePresence>
+                {activeDropdown === link.name && (
+                  <motion.div
+                    className="absolute left-1/2 -translate-x-1/2 mt-2 py-2 w-48 bg-white rounded-md shadow-lg z-10"
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    {link.subItems?.map((subItem) => (
+                      <Link
+                        key={subItem.name}
+                        to={subItem.path}
+                        className="block px-4 py-2 text-alto-blue hover:bg-alto-light-gray transition-colors duration-200"
+                      >
+                        {subItem.name}
+                      </Link>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ) : (
+            <NavLink
+              key={link.name}
+              to={link.path}
+              className={({ isActive }) =>
+                cn(
+                  "text-alto-blue hover:text-alto-light-blue transition-colors duration-200 font-medium",
+                  isActive ? "text-alto-light-blue" : ""
+                )
+              }
+            >
+              {link.name}
+            </NavLink>
+          )
+        ))}
       </div>
 
-      {/* Mobile Menu */}
-      {isOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-alto-blue shadow-lg animate-fade-in">
-          <div className="flex flex-col p-4">
-            <Link to="/about" className="py-3 border-b border-white/20 text-white hover:text-alto-accent" onClick={toggleMenu}>ABOUT</Link>
-            
-            <div className="py-3 border-b border-white/20">
-              <div className="flex justify-between items-center cursor-pointer" onClick={() => {
-                const servicesSubmenu = document.getElementById('services-submenu');
-                servicesSubmenu?.classList.toggle('hidden');
-              }}>
-                <span className="text-white font-medium">SERVICES</span>
-                <ChevronDown className="text-white h-4 w-4" />
-              </div>
-              <div id="services-submenu" className="mt-2 pl-4 hidden">
-                <Link to="/services/adu" className="block py-2 text-white/90 hover:text-white" onClick={toggleMenu}>ADU Construction</Link>
-                <Link to="/services/remodeling" className="block py-2 text-white/90 hover:text-white" onClick={toggleMenu}>Remodeling</Link>
-                <Link to="/services/design" className="block py-2 text-white/90 hover:text-white" onClick={toggleMenu}>Design Services</Link>
-                <Link to="/services/permitting" className="block py-2 text-white/90 hover:text-white" onClick={toggleMenu}>Permitting</Link>
-                <a href="https://www.altobuilds.com/services" target="_blank" rel="noopener noreferrer" className="block py-2 text-white/90 hover:text-white" onClick={toggleMenu}>Other Services</a>
-              </div>
-            </div>
-            
-            <Link to="/projects" className="py-3 border-b border-white/20 text-white hover:text-alto-accent" onClick={toggleMenu}>PROJECTS</Link>
-            
-            <div className="py-3 border-b border-white/20">
-              <div className="flex justify-between items-center cursor-pointer" onClick={() => {
-                const moreSubmenu = document.getElementById('more-submenu');
-                moreSubmenu?.classList.toggle('hidden');
-              }}>
-                <span className="text-white font-medium">MORE</span>
-                <ChevronDown className="text-white h-4 w-4" />
-              </div>
-              <div id="more-submenu" className="mt-2 pl-4 hidden">
-                <Link to="/design" className="block py-2 text-white/90 hover:text-white" onClick={toggleMenu}>DESIGN</Link>
-                <Link to="/plans" className="block py-2 text-white/90 hover:text-white" onClick={toggleMenu}>PLANS & PRICING</Link>
-                <Link to="/locations" className="block py-2 text-white/90 hover:text-white" onClick={toggleMenu}>LOCATIONS</Link>
-              </div>
-            </div>
-            
-            <Link to="/contact" className="py-3 border-b border-white/20 text-white hover:text-alto-accent" onClick={toggleMenu}>CONTACT</Link>
-            
-            <Link to="/contact" className="btn-accent mt-4 text-center" onClick={toggleMenu}>
-              Inquire
-            </Link>
+      {/* Mobile Navigation */}
+      <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
+        <SheetTrigger asChild>
+          <Button variant="ghost" size="icon" className="lg:hidden">
+            <Menu className="h-6 w-6" />
+            <span className="sr-only">Open menu</span>
+          </Button>
+        </SheetTrigger>
+        <SheetContent side="left" className="sm:max-w-sm">
+          <SheetHeader>
+            <SheetTitle>Menu</SheetTitle>
+            <SheetDescription>
+              Explore our site and discover how we can help with your project.
+            </SheetDescription>
+          </SheetHeader>
+          <div className="grid gap-4 py-4">
+            {navLinks.map((link) => (
+              <React.Fragment key={link.name}>
+                {link.dropdown ? (
+                  <div>
+                    <button
+                      className="flex items-center justify-between w-full text-left text-alto-blue hover:text-alto-light-blue transition-colors duration-200 font-medium py-2"
+                      onClick={() => toggleDropdown(link.name)}
+                    >
+                      <span>{link.name}</span>
+                      <svg className="fill-current h-4 w-4 transition-transform duration-200" viewBox="0 0 20 20" style={{ transform: activeDropdown === link.name ? 'rotate(180deg)' : 'rotate(0deg)' }}>
+                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                      </svg>
+                    </button>
+                    <AnimatePresence>
+                      {activeDropdown === link.name && (
+                        <motion.div
+                          className="ml-4 mt-2 overflow-hidden"
+                          initial={{ opacity: 0, height: 0 }}
+                          animate={{ opacity: 1, height: 'auto' }}
+                          exit={{ opacity: 0, height: 0 }}
+                          transition={{ duration: 0.2 }}
+                        >
+                          {link.subItems?.map((subItem) => (
+                            <Link
+                              key={subItem.name}
+                              to={subItem.path}
+                              className="block px-4 py-2 text-alto-blue hover:bg-alto-light-gray transition-colors duration-200"
+                            >
+                              {subItem.name}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  <NavLink
+                    key={link.name}
+                    to={link.path}
+                    className={({ isActive }) =>
+                      cn(
+                        "block py-2 text-alto-blue hover:text-alto-light-blue transition-colors duration-200 font-medium",
+                        isActive ? "text-alto-light-blue" : ""
+                      )
+                    }
+                  >
+                    {link.name}
+                  </NavLink>
+                )}
+              </React.Fragment>
+            ))}
           </div>
-        </div>
-      )}
-    </header>
+        </SheetContent>
+      </Sheet>
+    </motion.nav>
   );
 };
 
