@@ -1,6 +1,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
+import TeamMemberCard from '../TeamMemberCard';
 import { AboutSectionProps } from './interfaces';
 
 const AboutSection = ({
@@ -64,26 +65,13 @@ const AboutSection = ({
           </div>
           
           <div className={`md:w-1/2 transition-all duration-1000 delay-300 ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="bg-white p-6 rounded-lg card-shadow text-center">
-                <img 
-                  src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80" 
-                  alt="Paul Manfredi" 
-                  className="w-32 h-32 object-cover rounded-full mx-auto mb-4 border-4 border-alto-accent"
-                />
-                <h3 className="text-xl font-semibold text-alto-blue mb-1">Paul Manfredi</h3>
-                <p className="text-alto-accent mb-4">Owner</p>
-              </div>
-              
-              <div className="bg-white p-6 rounded-lg card-shadow text-center">
-                <img 
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" 
-                  alt="Simon Manfredi" 
-                  className="w-32 h-32 object-cover rounded-full mx-auto mb-4 border-4 border-alto-accent"
-                />
-                <h3 className="text-xl font-semibold text-alto-blue mb-1">Simon Manfredi</h3>
-                <p className="text-alto-accent mb-4">Owner</p>
-              </div>
+            <div className="mb-10">
+              <img 
+                src="/lovable-uploads/44aeeca9-3113-4e64-a595-18432655f328.png" 
+                alt="Paul and Simon Manfredi" 
+                className="w-full rounded-lg shadow-lg mb-4 card-shadow"
+              />
+              <p className="text-center text-sm text-alto-dark-gray italic">Paul and Simon Manfredi, Co-Founders of Alto Builders</p>
             </div>
             
             <div className="mt-10 bg-white p-8 rounded-lg card-shadow text-center">
