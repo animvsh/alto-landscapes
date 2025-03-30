@@ -8,8 +8,8 @@ export interface FormData {
   timeline: string;
 }
 
-export interface EmailJSConfig {
-  serviceId: string;
-  templateId: string;
-  userId: string;
+export interface SendGridConfig {
+  apiKey: string;
+  fromEmail: string;
+  toEmail: string;
 }

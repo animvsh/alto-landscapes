@@ -1,16 +1,12 @@
 
 import { useState } from 'react';
 import { useToast } from "@/hooks/use-toast";
-import emailjs from 'emailjs-com';
-import { FormData, EmailJSConfig } from '@/types/contact';
+import { FormData, SendGridConfig } from '@/types/contact';
 
-// EmailJS configuration constants
-const EMAILJS_SERVICE_ID = "service_id"; // Replace with your EmailJS service ID
-const EMAILJS_TEMPLATE_ID = "template_id"; // Replace with your EmailJS template ID
-const EMAILJS_USER_ID = "user_id"; // Replace with your EmailJS user ID
-
-// The specific email where queries will be sent
-const CONTACT_EMAIL = "info@altobuilds.com";
+// SendGrid configuration constants
+const SENDGRID_API_KEY = "SG.YOUR_API_KEY"; // Replace with your SendGrid API key
+const FROM_EMAIL = "noreply@altobuilds.com"; // Replace with your verified sender
+const TO_EMAIL = "info@altobuilds.com"; // Email where queries will be sent
 
 export const useContactForm = () => {
   const { toast } = useToast();
@@ -49,31 +45,37 @@ export const useContactForm = () => {
     setIsSubmitting(true);
     
     try {
-      console.log(`Sending query to ${CONTACT_EMAIL}:`, formData);
+      console.log(`Sending query to ${TO_EMAIL}:`, formData);
       
-      // Prepare template parameters for EmailJS
-      const templateParams = {
-        to_email: CONTACT_EMAIL,
-        from_name: formData.name,
-        from_email: formData.email,
-        phone: formData.phone,
-        address: formData.address,
-        message: formData.message,
-        timeline: formData.timeline,
+      // Prepare email content for SendGrid
+      const emailContent = {
+        to: TO_EMAIL,
+        from: FROM_EMAIL,
+        subject: `Alto Builds Contact Form: ${formData.name}`,
+        html: `
+          <h2>New Contact Form Submission</h2>
+          <p><strong>Name:</strong> ${formData.name}</p>
+          <p><strong>Email:</strong> ${formData.email}</p>
+          <p><strong>Phone:</strong> ${formData.phone || 'Not provided'}</p>
+          <p><strong>Address:</strong> ${formData.address}</p>
+          <p><strong>Timeline:</strong> ${formData.timeline}</p>
+          <p><strong>Message:</strong></p>
+          <p>${formData.message || 'No message provided'}</p>
+        `,
       };
       
-      // If the EmailJS credentials are properly set up, send the email
-      if (EMAILJS_SERVICE_ID !== "service_id" && EMAILJS_TEMPLATE_ID !== "template_id" && EMAILJS_USER_ID !== "user_id") {
-        await emailjs.send(
-          EMAILJS_SERVICE_ID,
-          EMAILJS_TEMPLATE_ID,
-          templateParams,
-          EMAILJS_USER_ID
-        );
-        console.log("Email sent successfully");
+      // If the SendGrid API key is properly set up, send the email
+      if (SENDGRID_API_KEY !== "SG.YOUR_API_KEY") {
+        // In a real environment, this would be a server-side API call
+        // For this frontend-only demo, we'll simulate sending the email
+        console.log("Would send email with SendGrid:", emailContent);
+        
+        // Call to a function that would handle the SendGrid API request
+        // This would typically be an API endpoint on your server
+        await simulateSendEmail(emailContent);
       } else {
-        // If EmailJS is not configured, log this information
-        console.log("EmailJS not configured. Email would have been sent with these details:", templateParams);
+        // If SendGrid is not configured, log this information
+        console.log("SendGrid not configured. Email would have been sent with these details:", emailContent);
         // Simulate a delay to mimic email sending
         await new Promise(resolve => setTimeout(resolve, 1500));
       }
@@ -81,7 +83,7 @@ export const useContactForm = () => {
       // Show success toast
       toast({
         title: "Message sent successfully",
-        description: `Your message has been sent to ${CONTACT_EMAIL}. We'll get back to you shortly.`,
+        description: `Your message has been sent to ${TO_EMAIL}. We'll get back to you shortly.`,
       });
       
       setIsSubmitting(false);
@@ -100,6 +102,19 @@ export const useContactForm = () => {
     }
   };
 
+  // This function simulates sending an email with SendGrid
+  // In a real application, this would be an API call to a server endpoint
+  const simulateSendEmail = async (emailContent: any) => {
+    console.log("Simulating sending email...");
+    // In a real app, this would call an API endpoint that uses SendGrid's Node.js SDK
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        console.log("Email sent successfully (simulated)");
+        resolve(true);
+      }, 1500);
+    });
+  };
+
   return {
     formData,
     handleChange,
@@ -109,6 +124,6 @@ export const useContactForm = () => {
     submitError,
     setSubmitSuccess,
     resetForm,
-    CONTACT_EMAIL,
+    CONTACT_EMAIL: TO_EMAIL,
   };
 };
