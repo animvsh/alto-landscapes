@@ -2,41 +2,9 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import HeroSection from '../components/HeroSection';
 import CallToActionSection from '../components/CallToActionSection';
-import TeamMemberCard from '../components/TeamMemberCard';
 import { CheckCircle } from 'lucide-react';
 
 const About = () => {
-  const teamMembers = [
-    {
-      name: "Paul Manfredi",
-      position: "Co-Founder & CEO",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=400&q=80",
-      bio: "With over 15 years of experience in the construction industry, Paul leads the Alto Builders team with a passion for innovative design and exceptional client service.",
-      linkedin: "https://linkedin.com",
-    },
-    {
-      name: "Simon Manfredi",
-      position: "Co-Founder & Operations Director",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=400&q=80",
-      bio: "Simon brings 15+ years of project management expertise to ensure every Alto Builders project is delivered on time and within budget.",
-      linkedin: "https://linkedin.com",
-    },
-    {
-      name: "Maria Rodriguez",
-      position: "Lead Architect",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&q=80",
-      bio: "Maria's innovative designs have helped countless homeowners maximize space and functionality in their ADUs while maintaining aesthetic appeal.",
-      linkedin: "https://linkedin.com",
-    },
-    {
-      name: "David Chen",
-      position: "Project Manager",
-      image: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?auto=format&fit=crop&w=400&q=80",
-      bio: "With a keen eye for detail and strong communication skills, David ensures smooth project execution from start to finish.",
-      linkedin: "https://linkedin.com",
-    },
-  ];
-
   return (
     <>
       <Navbar />
@@ -141,22 +109,39 @@ const About = () => {
 
           <div className="text-center mb-12">
             <h2 className="section-title">Meet Our Team</h2>
-            <p className="section-subtitle mx-auto">
+            <p className="section-subtitle mx-auto mb-10">
               The dedicated professionals behind Alto Builders
             </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-            {teamMembers.map((member, index) => (
-              <TeamMemberCard 
-                key={index} 
-                name={member.name} 
-                position={member.position} 
-                image={member.image} 
-                bio={member.bio}
-                linkedin={member.linkedin}
-              />
-            ))}
+            
+            <div className="max-w-3xl mx-auto">
+              <div className="bg-white p-8 rounded-lg card-shadow">
+                <img 
+                  src="/lovable-uploads/103a79ba-0e63-4e5c-ba60-296a27569ab2.png" 
+                  alt="Paul and Simon Manfredi, Alto Builders Co-Founders" 
+                  className="w-full rounded-lg shadow-lg mb-6"
+                />
+                <p className="text-center text-lg font-semibold text-alto-blue mb-2">Paul and Simon Manfredi</p>
+                <p className="text-center text-alto-dark-gray mb-6">Co-Founders, Alto Builders</p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  <div>
+                    <h3 className="text-xl font-semibold text-alto-blue mb-3">Paul Manfredi</h3>
+                    <p className="text-alto-dark-gray mb-1 font-medium">Co-Founder</p>
+                    <p className="text-alto-dark-gray mb-4">
+                      With over 30 years of expertise in the building industry, Paul stands as a cornerstone of the Alto team. His journey into construction, a path shaped by a deep, familial legacy, began under the guidance of his father.
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-xl font-semibold text-alto-blue mb-3">Simon Manfredi</h3>
+                    <p className="text-alto-dark-gray mb-1 font-medium">Co-Founder</p>
+                    <p className="text-alto-dark-gray mb-4">
+                      Simon's building journey, enriched by a distinguished education from the University of British Columbia's School of Architecture and Landscape (SALA) & the Sauder School of Business, mirrors the foundational principles instilled in him by his father.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           
           <div className="bg-gray-50 rounded-xl p-8 mb-8">
