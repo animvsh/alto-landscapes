@@ -60,6 +60,7 @@ export default {
 					'gray': '#e5e5e5',
 					'light-gray': '#f7f7f7',
 					'dark-gray': '#333333',
+					'gold': '#D4AF37',
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
@@ -80,6 +81,7 @@ export default {
 			fontFamily: {
 				montserrat: ['Montserrat', 'sans-serif'],
 				inter: ['Inter', 'sans-serif'],
+				playfair: ['Playfair Display', 'serif'],
 			},
 			keyframes: {
 				'accordion-down': {
@@ -117,6 +119,14 @@ export default {
 						opacity: '1',
 						transform: 'translateX(0)'
 					}
+				},
+				'shimmer': {
+					'0%': {
+						backgroundPosition: '-200% 0'
+					},
+					'100%': {
+						backgroundPosition: '200% 0'
+					}
 				}
 			},
 			animation: {
@@ -127,6 +137,11 @@ export default {
 				'fade-in-delay-2': 'fade-in 0.6s ease-out 0.4s forwards',
 				'fade-in-delay-3': 'fade-in 0.6s ease-out 0.6s forwards',
 				'fade-in-right': 'fade-in-right 0.6s ease-out',
+				'shimmer': 'shimmer 2s infinite linear'
+			},
+			backgroundImage: {
+				'premium-gradient': 'linear-gradient(135deg, #1a355e 0%, #2c4c7c 50%, #1a355e 100%)',
+				'gold-gradient': 'linear-gradient(135deg, #D4AF37 0%, #F4E8AF 50%, #D4AF37 100%)',
 			}
 		}
 	},
