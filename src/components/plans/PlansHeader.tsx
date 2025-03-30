@@ -8,41 +8,56 @@ interface PlansHeaderProps {
 }
 
 const PlansHeader = ({ title, subtitle }: PlansHeaderProps) => {
-  return (
-    <motion.div 
-      className="text-center mb-12"
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ 
-        duration: 0.8,
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        when: "beforeChildren"
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
         type: "spring",
         stiffness: 100,
         damping: 15
-      }}
+      }
+    }
+  };
+
+  return (
+    <motion.div 
+      className="text-center mb-12"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
     >
       <motion.h2 
         className="section-title"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
+        variants={itemVariants}
       >
         {title}
       </motion.h2>
       
       <motion.p 
         className="section-subtitle mx-auto"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
+        variants={itemVariants}
       >
         {subtitle}
       </motion.p>
       
       <motion.p 
         className="mt-4 text-alto-dark-gray max-w-4xl mx-auto"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
+        variants={itemVariants}
       >
         Our in-house design team specializes in creating plans that integrate seamlessly with your main residence, 
         ensuring your ADU's exterior complements your property. From minor modifications to completely bespoke designs, 

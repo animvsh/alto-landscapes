@@ -1,4 +1,3 @@
-
 import { FloorPlan } from '../types/FloorPlan';
 
 export const oneBedroomPlans: FloorPlan[] = [
@@ -115,6 +114,12 @@ export const oneBedroomPlans: FloorPlan[] = [
       "Practical Layout"
     ],
     floorPlanImage: "/lovable-uploads/b745e0c7-07ae-42eb-aa39-127c6ae0a12c.png",
+    galleryImages: [
+      "/lovable-uploads/f02316f4-6de8-4b06-80ff-d97d2d8654ec.png",
+      "/lovable-uploads/db14da64-e62b-4a45-8b3b-21620f0ce0ff.png",
+      "/lovable-uploads/54f986fb-5b02-4054-a615-4bf5d95c6d67.png",
+      "/lovable-uploads/f9af0784-34f4-49f2-9a29-bc4e04c54567.png"
+    ],
     stories: "One Story"
   },
   {
@@ -132,6 +137,13 @@ export const oneBedroomPlans: FloorPlan[] = [
       "Efficient Layout"
     ],
     floorPlanImage: "/lovable-uploads/1e9679c4-31cb-4e6c-ba9d-e19ed0371537.png",
+    galleryImages: [
+      "/lovable-uploads/e0997161-578d-42b6-ac1a-0de8ed79604c.png",
+      "/lovable-uploads/f108967f-34ee-4753-8291-f735c858a96f.png",
+      "/lovable-uploads/0a34093f-1258-4440-b024-71b144741db8.png",
+      "/lovable-uploads/7501ec04-3cf8-4311-8973-585ec4b2c1be.png",
+      "/lovable-uploads/f02316f4-6de8-4b06-80ff-d97d2d8654ec.png"
+    ],
     stories: "One Story"
   }
 ];

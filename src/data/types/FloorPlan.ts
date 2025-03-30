@@ -11,4 +11,6 @@ export interface FloorPlan {
   floorPlanImage?: string;
   galleryImages?: string[];
   stories?: string;
+  bedrooms?: string;
+  bathrooms?: string;
 }
