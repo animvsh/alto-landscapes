@@ -31,7 +31,9 @@ export const studioPlans: FloorPlan[] = [
     features: [
       "Open Living and Sleeping Area",
       "Efficient Kitchen Design",
-      "Convenient Full Bathroom"
+      "Convenient Full Bathroom",
+      "Built-in Storage Solutions",
+      "Versatile Living Space"
     ],
     floorPlanImage: "/lovable-uploads/27deba99-160c-44d5-9f53-b67e547a480d.png",
     stories: "One Story"
@@ -48,7 +50,8 @@ export const studioPlans: FloorPlan[] = [
       "Open Living Area",
       "Efficient Kitchen",
       "Full Bathroom",
-      "Smart Storage Solutions"
+      "Smart Storage Solutions",
+      "Adaptable Space Configuration"
     ],
     floorPlanImage: "/lovable-uploads/74770311-8fd1-4af1-a815-b7354b0ad933.png",
     stories: "One Story"

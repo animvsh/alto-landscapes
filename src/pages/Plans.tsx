@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import HeroSection from '../components/HeroSection';
@@ -9,6 +9,8 @@ import PlansHeader from '../components/plans/PlansHeader';
 import PlansNavigation from '../components/plans/PlansNavigation';
 import PlanTypeSection from '../components/plans/PlanTypeSection';
 import CustomPlansSection from '../components/plans/CustomPlansSection';
+import ScrollProgress from '../components/ScrollProgress';
+import { motion } from 'framer-motion';
 
 const Plans = () => {
   // State for section collapse/expand
@@ -25,23 +27,63 @@ const Plans = () => {
     }));
   };
 
+  // For parallax effect
+  const [scrollY, setScrollY] = useState(0);
+  const heroRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   return (
     <>
+      <ScrollProgress />
       <Navbar />
-      <HeroSection 
-        title="ADU PLANS & PRICING"
-        subtitle="Explore our collection of ready-to-build ADU floor plans"
-        backgroundImage="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1920&q=80"
-      />
+      <div ref={heroRef} className="relative overflow-hidden">
+        <div 
+          className="absolute inset-0 z-0" 
+          style={{ 
+            transform: `translateY(${scrollY * 0.4}px)`,
+            backgroundImage: "url('https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1920&q=80')",
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            filter: 'brightness(0.9)'
+          }}
+        />
+        <HeroSection 
+          title="ADU PLANS & PRICING"
+          subtitle="Explore our collection of ready-to-build ADU floor plans"
+          backgroundImage="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1920&q=80"
+        />
+      </div>
 
-      <section className="py-16 md:py-20 bg-alto-light-gray">
+      <section className="py-16 md:py-24 bg-gradient-to-b from-alto-light-gray to-white">
         <div className="container-custom">
-          <PlansHeader 
-            title="Accessory Dwelling Unit Floor Plans"
-            subtitle="Explore our collection of ready-to-build ADU floor plans below. Simply click on any plan to view detailed pricing."
-          />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <PlansHeader 
+              title="Accessory Dwelling Unit Floor Plans"
+              subtitle="Explore our collection of ready-to-build ADU floor plans below. Simply click on any plan to view detailed pricing and 3D virtual tours."
+            />
+          </motion.div>
 
-          <PlansNavigation />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+            <PlansNavigation />
+          </motion.div>
 
           <PlanTypeSection 
             id="studio-plans"
@@ -67,7 +109,13 @@ const Plans = () => {
             onToggle={() => toggleSection('twoBedroom')}
           />
 
-          <CustomPlansSection />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            <CustomPlansSection />
+          </motion.div>
         </div>
       </section>
 
