@@ -7,10 +7,11 @@ import StorySection from '../components/about/StorySection';
 import ValuesSection from '../components/about/ValuesSection';
 import TeamSection from '../components/about/TeamSection';
 import AduGuideSection from '../components/about/AduGuideSection';
+import PageTransition from '../components/PageTransition';
 
 const About = () => {
   return (
-    <>
+    <PageTransition>
       <Navbar />
       <HeroSection 
         title="ABOUT ALTO BUILDERS"
@@ -35,7 +36,7 @@ const About = () => {
       />
 
       <Footer />
-    </>
+    </PageTransition>
   );
 };
 

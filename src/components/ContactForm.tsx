@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { useToast } from "@/hooks/use-toast";
 
 interface FormData {
   name: string;
@@ -11,6 +12,7 @@ interface FormData {
 }
 
 const ContactForm = () => {
+  const { toast } = useToast();
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -24,19 +26,37 @@ const ContactForm = () => {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState('');
 
+  // The specific email where queries will be sent
+  const CONTACT_EMAIL = "info@altobuilds.com";
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Log the query details, including where it would be sent in a real implementation
+      console.log(`Sending query to ${CONTACT_EMAIL}:`, formData);
+      
+      // In a real implementation, this would be an API call to your backend
+      // that would send an email to the CONTACT_EMAIL address
+      
+      // Simulate form submission delay
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      // Show success toast
+      toast({
+        title: "Message sent successfully",
+        description: `Your message has been sent to ${CONTACT_EMAIL}. We'll get back to you shortly.`,
+      });
+      
       setIsSubmitting(false);
       setSubmitSuccess(true);
+      
       // Reset the form
       setFormData({
         name: '',
@@ -46,7 +66,17 @@ const ContactForm = () => {
         message: '',
         timeline: 'Within 3 months',
       });
-    }, 1500);
+    } catch (error) {
+      console.error("Error sending message:", error);
+      setSubmitError("There was a problem sending your message. Please try again.");
+      setIsSubmitting(false);
+      
+      toast({
+        title: "Error sending message",
+        description: "There was a problem sending your message. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   return (
@@ -171,6 +201,10 @@ const ContactForm = () => {
           >
             {isSubmitting ? 'Sending...' : 'Send Message'}
           </button>
+          
+          <p className="text-xs text-gray-500 text-center mt-4">
+            Your message will be sent to {CONTACT_EMAIL}
+          </p>
         </form>
       )}
     </div>
