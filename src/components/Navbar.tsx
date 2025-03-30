@@ -110,7 +110,10 @@ const navLinks = [
           link.dropdown ? (
             <div key={link.name} className="relative group">
               <button
-                className="text-alto-blue hover:text-alto-light-blue transition-colors duration-200 font-medium flex items-center gap-1"
+                className={cn(
+                  "hover:text-alto-accent transition-colors duration-200 font-medium flex items-center gap-1",
+                  isScrolled ? "text-alto-blue" : "text-white"
+                )}
                 onClick={() => toggleDropdown(link.name)}
               >
                 <span>{link.name}</span>
@@ -146,8 +149,9 @@ const navLinks = [
               to={link.path}
               className={({ isActive }) =>
                 cn(
-                  "text-alto-blue hover:text-alto-light-blue transition-colors duration-200 font-medium",
-                  isActive ? "text-alto-light-blue" : ""
+                  "hover:text-alto-accent transition-colors duration-200 font-medium",
+                  isScrolled ? "text-alto-blue" : "text-white",
+                  isActive ? (isScrolled ? "text-alto-light-blue" : "text-alto-accent") : ""
                 )
               }
             >
@@ -161,7 +165,7 @@ const navLinks = [
       <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
         <SheetTrigger asChild>
           <Button variant="ghost" size="icon" className="lg:hidden">
-            <Menu className="h-6 w-6 text-alto-blue" />
+            <Menu className={cn("h-6 w-6", isScrolled ? "text-alto-blue" : "text-white")} />
             <span className="sr-only">Open menu</span>
           </Button>
         </SheetTrigger>
