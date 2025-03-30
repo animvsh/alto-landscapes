@@ -19,6 +19,8 @@ import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import AccessibilityStatement from "./pages/AccessibilityStatement";
 import TermsOfService from "./pages/TermsOfService";
+import Sitemap from "./pages/Sitemap";
+import FAQ from "./pages/FAQ";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +44,8 @@ const AnimatedRoutes = () => {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/accessibility-statement" element={<AccessibilityStatement />} />
         <Route path="/terms-of-service" element={<TermsOfService />} />
+        <Route path="/sitemap" element={<Sitemap />} />
+        <Route path="/faq" element={<FAQ />} />
         {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
