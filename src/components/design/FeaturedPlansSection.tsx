@@ -15,12 +15,23 @@ interface FeaturedPlansSectionProps {
     floorPlanImage?: string;
   }[];
   count?: number;
+  title?: string;
+  subtitle?: string;
 }
 
-const FeaturedPlansSection = ({ plans, count = 8 }: FeaturedPlansSectionProps) => {
+const FeaturedPlansSection = ({ 
+  plans, 
+  count = 8, 
+  title = "Build-Ready Floor Plans",
+  subtitle
+}: FeaturedPlansSectionProps) => {
   return (
     <div className="mb-16">
-      <h3 className="text-2xl font-semibold text-alto-blue mb-6 text-center">Build-Ready Floor Plans</h3>
+      <h3 className="text-2xl font-semibold text-alto-blue mb-2 text-center">{title}</h3>
+      {subtitle && (
+        <p className="text-alto-dark-gray text-center max-w-3xl mx-auto mb-8">{subtitle}</p>
+      )}
+      
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {plans.slice(0, count).map((plan, index) => (
           <FloorPlanCard 

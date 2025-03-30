@@ -11,6 +11,7 @@ import Services from "./pages/Services";
 import Projects from "./pages/Projects";
 import Design from "./pages/Design";
 import Plans from "./pages/Plans";
+import PlanDetail from "./pages/PlanDetail";
 import Locations from "./pages/Locations";
 import LocationDetail from "./pages/LocationDetail";
 import Contact from "./pages/Contact";
@@ -31,6 +32,7 @@ const AnimatedRoutes = () => {
         <Route path="/projects" element={<Projects />} />
         <Route path="/design" element={<Design />} />
         <Route path="/plans" element={<Plans />} />
+        <Route path="/plans/:planId" element={<PlanDetail />} />
         <Route path="/locations" element={<Locations />} />
         <Route path="/locations/:location" element={<LocationDetail />} />
         <Route path="/contact" element={<Contact />} />
