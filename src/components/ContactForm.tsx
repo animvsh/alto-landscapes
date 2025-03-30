@@ -8,6 +8,7 @@ const ContactForm = () => {
   const { 
     formData, 
     handleChange, 
+    handleSelectChange,
     handleSubmit, 
     isSubmitting, 
     submitSuccess, 
@@ -21,15 +22,15 @@ const ContactForm = () => {
       {submitSuccess ? (
         <FormSuccessMessage onReset={() => setSubmitSuccess(false)} />
       ) : (
-        <form onSubmit={handleSubmit} className="space-y-6">
-          <ContactFormFields 
-            formData={formData}
-            handleChange={handleChange}
-            isSubmitting={isSubmitting}
-            submitError={submitError}
-            contactEmail={CONTACT_EMAIL}
-          />
-        </form>
+        <ContactFormFields 
+          formData={formData}
+          handleChange={handleChange}
+          handleSelectChange={handleSelectChange}
+          handleSubmit={handleSubmit}
+          isSubmitting={isSubmitting}
+          submitError={submitError}
+          contactEmail={CONTACT_EMAIL}
+        />
       )}
     </div>
   );

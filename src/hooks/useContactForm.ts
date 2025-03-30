@@ -23,8 +23,12 @@ export const useContactForm = () => {
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState('');
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSelectChange = (value: string, name: string) => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
@@ -118,6 +122,7 @@ export const useContactForm = () => {
   return {
     formData,
     handleChange,
+    handleSelectChange,
     handleSubmit,
     isSubmitting,
     submitSuccess,
