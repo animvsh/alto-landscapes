@@ -13,8 +13,8 @@ const Projects = () => {
       <Navbar />
       <HeroSection 
         title="ADU PROJECT - WEISS FAMILY"
-        subtitle="Explore our portfolio of premium ADUs across Greater Los Angeles"
-        backgroundImage="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1920&q=80"
+        subtitle="Explore our featured ADU project showcasing quality craftsmanship"
+        backgroundImage="/lovable-uploads/d3cf4ce7-3f97-4189-96aa-90b3c9bd790d.png"
       />
 
       <ProjectsSection />

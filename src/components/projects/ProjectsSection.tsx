@@ -1,24 +1,17 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { projects } from '../../data/projectsData';
-import ProjectFilter from './ProjectFilter';
 import ProjectGrid from './ProjectGrid';
 import { Building2 } from 'lucide-react';
 
 const ProjectsSection = () => {
-  const [filter, setFilter] = useState('all');
-
-  const filteredProjects = filter === 'all' 
-    ? projects 
-    : projects.filter(project => project.category === filter);
-
   return (
     <section className="py-20">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="section-title">Featured Projects</h2>
+          <h2 className="section-title">Weiss Family ADU Project</h2>
           <p className="section-subtitle mx-auto">
-            Discover the quality and craftsmanship of our custom ADUs
+            An elegant and functional Accessory Dwelling Unit in Los Angeles
           </p>
         </div>
 
@@ -39,8 +32,7 @@ const ProjectsSection = () => {
           </div>
         </div>
 
-        <ProjectFilter currentFilter={filter} onFilterChange={setFilter} />
-        <ProjectGrid projects={filteredProjects} />
+        <ProjectGrid projects={projects} />
         
         <div className="mt-16 bg-gray-50 p-8 rounded-lg">
           <h3 className="text-2xl font-semibold mb-4 text-center">Starting on the Right Foot</h3>
