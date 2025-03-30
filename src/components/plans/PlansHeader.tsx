@@ -14,7 +14,7 @@ const PlansHeader = ({ title, subtitle }: PlansHeaderProps) => {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.3,
         when: "beforeChildren"
       }
     }
@@ -29,6 +29,20 @@ const PlansHeader = ({ title, subtitle }: PlansHeaderProps) => {
         type: "spring",
         stiffness: 100,
         damping: 15
+      }
+    }
+  };
+
+  const paragraphVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 80,
+        damping: 12,
+        delay: 0.2
       }
     }
   };
@@ -57,7 +71,7 @@ const PlansHeader = ({ title, subtitle }: PlansHeaderProps) => {
       
       <motion.p 
         className="mt-4 text-alto-dark-gray max-w-4xl mx-auto"
-        variants={itemVariants}
+        variants={paragraphVariants}
       >
         Our in-house design team specializes in creating plans that integrate seamlessly with your main residence, 
         ensuring your ADU's exterior complements your property. From minor modifications to completely bespoke designs, 

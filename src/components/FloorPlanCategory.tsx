@@ -34,6 +34,19 @@ const FloorPlanCategory = ({ title, plans }: FloorPlanCategoryProps) => {
     }
   };
 
+  const titleVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: {
+        type: "spring",
+        stiffness: 80,
+        damping: 15
+      }
+    }
+  };
+
   return (
     <motion.div 
       className="mb-16"
@@ -44,7 +57,7 @@ const FloorPlanCategory = ({ title, plans }: FloorPlanCategoryProps) => {
     >
       <motion.h3 
         className="text-2xl font-semibold text-alto-blue mb-6 border-b border-alto-light-gray pb-2"
-        variants={itemVariants}
+        variants={titleVariants}
       >
         {title}
       </motion.h3>
