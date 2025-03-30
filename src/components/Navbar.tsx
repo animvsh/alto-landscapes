@@ -68,6 +68,24 @@ const Navbar = () => {
                       <p className="text-sm text-white/70">Transform your space</p>
                     </div>
                   </Link>
+                  <Link to="/services/design" className="group flex p-3 hover:bg-white/10 rounded-md">
+                    <div className="text-white">
+                      <div className="font-medium">Design Services</div>
+                      <p className="text-sm text-white/70">Custom architectural design</p>
+                    </div>
+                  </Link>
+                  <Link to="/services/permitting" className="group flex p-3 hover:bg-white/10 rounded-md">
+                    <div className="text-white">
+                      <div className="font-medium">Permitting</div>
+                      <p className="text-sm text-white/70">Navigate regulations easily</p>
+                    </div>
+                  </Link>
+                  <a href="https://www.altobuilds.com/services" target="_blank" rel="noopener noreferrer" className="group flex p-3 hover:bg-white/10 rounded-md">
+                    <div className="text-white">
+                      <div className="font-medium">Other Services</div>
+                      <p className="text-sm text-white/70">View all services</p>
+                    </div>
+                  </a>
                 </div>
               </NavigationMenuContent>
             </NavigationMenuItem>
@@ -138,6 +156,9 @@ const Navbar = () => {
               <div id="services-submenu" className="mt-2 pl-4 hidden">
                 <Link to="/services/adu" className="block py-2 text-white/90 hover:text-white" onClick={toggleMenu}>ADU Construction</Link>
                 <Link to="/services/remodeling" className="block py-2 text-white/90 hover:text-white" onClick={toggleMenu}>Remodeling</Link>
+                <Link to="/services/design" className="block py-2 text-white/90 hover:text-white" onClick={toggleMenu}>Design Services</Link>
+                <Link to="/services/permitting" className="block py-2 text-white/90 hover:text-white" onClick={toggleMenu}>Permitting</Link>
+                <a href="https://www.altobuilds.com/services" target="_blank" rel="noopener noreferrer" className="block py-2 text-white/90 hover:text-white" onClick={toggleMenu}>Other Services</a>
               </div>
             </div>
             
