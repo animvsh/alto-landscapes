@@ -19,6 +19,11 @@ const Projects = () => {
   const oneBedroomPlans = featuredFloorPlans.filter(plan => 
     plan.specs.toLowerCase().includes('1 bed') || plan.specs.toLowerCase().includes('1 bedroom')
   ).slice(0, 3);
+  
+  // Filter two-bedroom plans
+  const twoBedroomPlans = featuredFloorPlans.filter(plan => 
+    plan.specs.toLowerCase().includes('2 bed') || plan.specs.toLowerCase().includes('2 bedroom')
+  ).slice(0, 3);
 
   return (
     <>
@@ -32,7 +37,7 @@ const Projects = () => {
       <ProjectsSection />
       <ProjectsApproach />
 
-      {/* Add Featured Studio Plans */}
+      {/* Studio Plans */}
       <section className="py-16 bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12">
@@ -46,7 +51,7 @@ const Projects = () => {
         </div>
       </section>
       
-      {/* Add Featured One Bedroom Plans */}
+      {/* One Bedroom Plans */}
       <section className="py-16">
         <div className="container-custom">
           <div className="text-center mb-12">
@@ -57,6 +62,20 @@ const Projects = () => {
           </div>
           
           <FeaturedPlansSection plans={oneBedroomPlans} count={3} />
+        </div>
+      </section>
+      
+      {/* Two Bedroom Plans */}
+      <section className="py-16 bg-gray-50">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="section-title">Our Two Bedroom Plans</h2>
+            <p className="section-subtitle mx-auto">
+              Discover our spacious two-bedroom ADU options, perfect for families or maximizing rental income
+            </p>
+          </div>
+          
+          <FeaturedPlansSection plans={twoBedroomPlans} count={3} />
         </div>
       </section>
 

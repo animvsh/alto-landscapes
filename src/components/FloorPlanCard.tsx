@@ -9,14 +9,27 @@ interface FloorPlanCardProps {
   price?: string;
   squareFeet?: string;
   description?: string;
+  floorPlanImage?: string;
 }
 
-const FloorPlanCard = ({ name, specs, image, link, price, squareFeet, description }: FloorPlanCardProps) => {
+const FloorPlanCard = ({ 
+  name, 
+  specs, 
+  image, 
+  link, 
+  price, 
+  squareFeet, 
+  description,
+  floorPlanImage 
+}: FloorPlanCardProps) => {
+  // Use floor plan image if available, otherwise use regular image
+  const displayImage = floorPlanImage || image;
+  
   return (
     <div className="bg-white rounded-lg overflow-hidden card-shadow group">
       <div className="relative overflow-hidden h-64">
         <img 
-          src={image} 
+          src={displayImage} 
           alt={`${name} floor plan`} 
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
         />

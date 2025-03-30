@@ -11,6 +11,8 @@ interface FeaturedPlansSectionProps {
     link: string;
     price: string;
     squareFeet?: string;
+    description?: string;
+    floorPlanImage?: string;
   }[];
   count?: number;
 }
@@ -29,6 +31,8 @@ const FeaturedPlansSection = ({ plans, count = 8 }: FeaturedPlansSectionProps) =
             link={plan.link}
             price={plan.price}
             squareFeet={plan.squareFeet}
+            description={plan.description}
+            floorPlanImage={plan.floorPlanImage}
           />
         ))}
       </div>

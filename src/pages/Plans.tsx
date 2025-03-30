@@ -59,7 +59,7 @@ const Plans = () => {
               Studio Plans
             </h3>
             
-            {/* Featured Studio Plans Section */}
+            {/* Studio Plans Section */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
               {studioPlans.map((plan, index) => (
                 <Card key={index} className="overflow-hidden">
@@ -143,7 +143,7 @@ const Plans = () => {
               Two Bedroom Plans
             </h3>
             
-            {/* Two Bedroom Plans Section - Updated to use the same card pattern */}
+            {/* Two Bedroom Plans Section */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {twoBedroomPlans.map((plan, index) => (
                 <Card key={index} className="overflow-hidden">
@@ -165,11 +165,9 @@ const Plans = () => {
                         <p className="text-sm text-alto-gray mt-1">{plan.squareFeet}</p>
                       )}
                     </div>
-                    {plan.description && (
-                      <p className="text-sm text-alto-dark-gray mb-4 line-clamp-3">
-                        {plan.description}
-                      </p>
-                    )}
+                    <p className="text-sm text-alto-dark-gray mb-4 line-clamp-3">
+                      {plan.description}
+                    </p>
                     <Link 
                       to={plan.link} 
                       className="inline-block text-alto-accent font-medium hover:underline"
