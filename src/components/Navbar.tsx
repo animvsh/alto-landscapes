@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
@@ -174,7 +175,7 @@ const Navbar = () => {
                 {link.dropdown ? (
                   <div>
                     <button
-                      className="flex items-center justify-between w-full text-left text-alto-blue hover:text-alto-light-blue transition-colors duration-200 font-medium py-2"
+                      className="flex items-center justify-between w-full text-left text-alto-blue hover:text-alto-blue transition-colors duration-200 font-medium py-2"
                       onClick={() => toggleDropdown(link.name)}
                     >
                       <span>{link.name}</span>
@@ -210,8 +211,8 @@ const Navbar = () => {
                     to={link.path}
                     className={({ isActive }) =>
                       cn(
-                        "block py-2 text-alto-blue hover:text-alto-light-blue transition-colors duration-200 font-medium",
-                        isActive ? "text-alto-light-blue" : ""
+                        "block py-2 text-alto-blue hover:text-alto-blue transition-colors duration-200 font-medium",
+                        isActive ? "text-alto-blue" : ""
                       )
                     }
                   >
