@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import HeroSection from '../components/HeroSection';
@@ -9,6 +8,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import TestimonialCard from '../components/TestimonialCard';
 import ProcessStep from '../components/ProcessStep';
+import ScrollProgress from '../components/ScrollProgress';
 import { ArrowRight, Home, Ruler, Calendar, Zap, DollarSign, Map, Users, BookOpen, Building, FileText, Briefcase } from 'lucide-react';
 
 const Index = () => {
@@ -94,6 +94,14 @@ const Index = () => {
   const aboutSectionRef = useRef<HTMLDivElement>(null);
   const [aboutVisible, setAboutVisible] = useState(false);
   
+  // Handler for smooth scrolling to sections
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
   useEffect(() => {
     const handleScroll = () => {
       setScrollY(window.scrollY);
@@ -123,6 +131,7 @@ const Index = () => {
 
   return (
     <>
+      <ScrollProgress />
       <Navbar />
       
       <HeroSection 
@@ -130,9 +139,11 @@ const Index = () => {
         subtitle="Start your building journey with ALTO here"
         backgroundImage="https://images.unsplash.com/photo-1449157291145-7efd050a4d0e?auto=format&fit=crop&w=1920&q=80"
         buttonText="START YOUR BUILD"
+        showScrollIndicator={true}
+        onScrollDown={() => scrollToSection('explore-section')}
       />
 
-      <section className="py-20 bg-alto-light-gray">
+      <section id="explore-section" className="py-20 bg-alto-light-gray">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="section-title">Begin Your ADU Journey</h2>
@@ -194,7 +205,7 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="py-20">
+      <section id="floor-plans-section" className="py-20">
         <div className="container-custom">
           <div className="text-center mb-12">
             <h2 className="section-title">Our Floor Plans</h2>

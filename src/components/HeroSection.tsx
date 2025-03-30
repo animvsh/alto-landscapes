@@ -10,6 +10,7 @@ interface HeroSectionProps {
   buttonText?: string;
   buttonLink?: string;
   showScrollIndicator?: boolean;
+  onScrollDown?: () => void;
 }
 
 const HeroSection = ({
@@ -18,15 +19,20 @@ const HeroSection = ({
   backgroundImage,
   buttonText = "START YOUR BUILD",
   buttonLink = "/contact",
-  showScrollIndicator = true
+  showScrollIndicator = true,
+  onScrollDown
 }: HeroSectionProps) => {
   const [isLoaded, setIsLoaded] = useState(false);
   
   const handleScrollDown = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: 'smooth'
-    });
+    if (onScrollDown) {
+      onScrollDown();
+    } else {
+      window.scrollTo({
+        top: window.innerHeight,
+        behavior: 'smooth'
+      });
+    }
   };
 
   useEffect(() => {
