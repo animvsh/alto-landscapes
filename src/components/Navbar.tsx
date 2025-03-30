@@ -34,49 +34,47 @@ const Navbar = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 
-      ${isScrolled ? 'bg-alto-blue shadow-md py-3' : 'bg-alto-blue/90 backdrop-blur-md py-6'}`}>
+      ${isScrolled ? 'bg-alto-blue shadow-md py-3' : 'bg-alto-blue/80 backdrop-blur-md py-6'}`}>
       <div className="container-custom flex justify-between items-center">
         <Link to="/" className="flex items-center">
-          <div className="text-2xl font-bold text-white flex items-center">
-            <span className="mr-1">A|B</span>
-            <div className="flex flex-col text-sm ml-2 leading-tight">
-              <span>ALTO</span>
-              <span>BUILDERS</span>
+          <div className="text-white flex items-center">
+            <div className="flex items-center">
+              <span className="text-3xl font-bold">A</span>
+              <span className="text-3xl font-light mx-0.5">|</span>
+              <span className="text-3xl font-bold">B</span>
+            </div>
+            <div className="flex flex-col text-xs uppercase ml-2 leading-tight tracking-wide">
+              <span className="font-medium">ALTO</span>
+              <span className="font-medium">BUILDERS</span>
             </div>
           </div>
         </Link>
 
         {/* Desktop Menu */}
         <NavigationMenu className="hidden md:flex">
-          <NavigationMenuList className="space-x-1">
+          <NavigationMenuList className="space-x-8">
             <NavigationMenuItem>
-              <NavigationMenuTrigger className="bg-transparent text-white hover:bg-white/10 focus:bg-white/10">
-                ADU INFO
+              <Link to="/about" className="text-white hover:text-alto-accent uppercase text-sm font-medium tracking-wide">
+                ABOUT
+              </Link>
+            </NavigationMenuItem>
+            
+            <NavigationMenuItem>
+              <NavigationMenuTrigger className="bg-transparent text-white hover:bg-transparent hover:text-alto-accent focus:bg-transparent uppercase text-sm font-medium tracking-wide">
+                SERVICES
               </NavigationMenuTrigger>
               <NavigationMenuContent className="bg-alto-blue border border-white/10">
                 <div className="grid grid-cols-2 gap-3 p-4 w-[400px]">
-                  <Link to="/adu-basics" className="group flex p-3 hover:bg-white/10 rounded-md">
+                  <Link to="/services/adu" className="group flex p-3 hover:bg-white/10 rounded-md">
                     <div className="text-white">
-                      <div className="font-medium">ADU Basics</div>
-                      <p className="text-sm text-white/70">Learn the fundamentals of building an ADU</p>
+                      <div className="font-medium">ADU Construction</div>
+                      <p className="text-sm text-white/70">Specialized ADU building services</p>
                     </div>
                   </Link>
-                  <Link to="/adu-costs" className="group flex p-3 hover:bg-white/10 rounded-md">
+                  <Link to="/services/remodeling" className="group flex p-3 hover:bg-white/10 rounded-md">
                     <div className="text-white">
-                      <div className="font-medium">ADU Costs</div>
-                      <p className="text-sm text-white/70">Detailed breakdown of building costs</p>
-                    </div>
-                  </Link>
-                  <Link to="/city-regulations" className="group flex p-3 hover:bg-white/10 rounded-md">
-                    <div className="text-white">
-                      <div className="font-medium">City Regulations</div>
-                      <p className="text-sm text-white/70">City-specific rules and regulations</p>
-                    </div>
-                  </Link>
-                  <Link to="/process" className="group flex p-3 hover:bg-white/10 rounded-md">
-                    <div className="text-white">
-                      <div className="font-medium">Our Process</div>
-                      <p className="text-sm text-white/70">How we build your ADU from start to finish</p>
+                      <div className="font-medium">Remodeling</div>
+                      <p className="text-sm text-white/70">Transform your existing space</p>
                     </div>
                   </Link>
                 </div>
@@ -84,47 +82,40 @@ const Navbar = () => {
             </NavigationMenuItem>
             
             <NavigationMenuItem>
-              <Link to="/plans" className="text-white hover:text-alto-accent flex items-center p-2 rounded-md hover:bg-white/10">
-                PLANS & PRICING
-              </Link>
-            </NavigationMenuItem>
-            
-            <NavigationMenuItem>
-              <Link to="/design" className="text-white hover:text-alto-accent flex items-center p-2 rounded-md hover:bg-white/10">
-                DESIGN
-              </Link>
-            </NavigationMenuItem>
-            
-            <NavigationMenuItem>
-              <Link to="/projects" className="text-white hover:text-alto-accent flex items-center p-2 rounded-md hover:bg-white/10">
+              <Link to="/projects" className="text-white hover:text-alto-accent uppercase text-sm font-medium tracking-wide">
                 PROJECTS
               </Link>
             </NavigationMenuItem>
             
             <NavigationMenuItem>
-              <Link to="/about" className="text-white hover:text-alto-accent flex items-center p-2 rounded-md hover:bg-white/10">
-                ABOUT US
+              <Link to="/design" className="text-white hover:text-alto-accent uppercase text-sm font-medium tracking-wide">
+                DESIGN
               </Link>
             </NavigationMenuItem>
             
             <NavigationMenuItem>
-              <Link to="/services" className="text-white hover:text-alto-accent flex items-center p-2 rounded-md hover:bg-white/10">
-                OTHER SERVICES
+              <Link to="/plans" className="text-white hover:text-alto-accent uppercase text-sm font-medium tracking-wide">
+                PLANS & PRICING
               </Link>
             </NavigationMenuItem>
             
             <NavigationMenuItem>
-              <Link to="/contact" className="text-white hover:text-alto-accent flex items-center p-2 rounded-md hover:bg-white/10">
-                CONTACT US
+              <Link to="/locations" className="text-white hover:text-alto-accent uppercase text-sm font-medium tracking-wide">
+                LOCATIONS
+              </Link>
+            </NavigationMenuItem>
+            
+            <NavigationMenuItem>
+              <Link to="/contact" className="text-white hover:text-alto-accent uppercase text-sm font-medium tracking-wide">
+                CONTACT
               </Link>
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
 
         <div className="hidden md:block">
-          <Link to="/client-login" className="mr-4 text-white hover:text-alto-accent">CLIENT LOGIN</Link>
-          <Link to="/contact" className="btn-accent">
-            Get Started
+          <Link to="/contact" className="text-white hover:text-alto-accent font-medium">
+            Inquire
           </Link>
         </div>
 
@@ -142,27 +133,24 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-alto-blue shadow-lg animate-fade-in">
           <div className="flex flex-col p-4">
+            <Link to="/about" className="py-3 border-b border-white/20 text-white hover:text-alto-accent" onClick={toggleMenu}>ABOUT</Link>
             <div className="py-3 border-b border-white/20">
               <div className="flex justify-between items-center">
-                <span className="text-white font-medium">ADU INFO</span>
+                <span className="text-white font-medium">SERVICES</span>
                 <ChevronDown className="text-white h-4 w-4" />
               </div>
               <div className="mt-2 pl-4">
-                <Link to="/adu-basics" className="block py-2 text-white/90 hover:text-white" onClick={toggleMenu}>ADU Basics</Link>
-                <Link to="/adu-costs" className="block py-2 text-white/90 hover:text-white" onClick={toggleMenu}>ADU Costs</Link>
-                <Link to="/city-regulations" className="block py-2 text-white/90 hover:text-white" onClick={toggleMenu}>City Regulations</Link>
-                <Link to="/process" className="block py-2 text-white/90 hover:text-white" onClick={toggleMenu}>Our Process</Link>
+                <Link to="/services/adu" className="block py-2 text-white/90 hover:text-white" onClick={toggleMenu}>ADU Construction</Link>
+                <Link to="/services/remodeling" className="block py-2 text-white/90 hover:text-white" onClick={toggleMenu}>Remodeling</Link>
               </div>
             </div>
-            <Link to="/plans" className="py-3 border-b border-white/20 text-white hover:text-alto-accent" onClick={toggleMenu}>PLANS & PRICING</Link>
-            <Link to="/design" className="py-3 border-b border-white/20 text-white hover:text-alto-accent" onClick={toggleMenu}>DESIGN</Link>
             <Link to="/projects" className="py-3 border-b border-white/20 text-white hover:text-alto-accent" onClick={toggleMenu}>PROJECTS</Link>
-            <Link to="/about" className="py-3 border-b border-white/20 text-white hover:text-alto-accent" onClick={toggleMenu}>ABOUT US</Link>
-            <Link to="/services" className="py-3 border-b border-white/20 text-white hover:text-alto-accent" onClick={toggleMenu}>OTHER SERVICES</Link>
-            <Link to="/contact" className="py-3 border-b border-white/20 text-white hover:text-alto-accent" onClick={toggleMenu}>CONTACT US</Link>
-            <Link to="/client-login" className="py-3 border-b border-white/20 text-white hover:text-alto-accent" onClick={toggleMenu}>CLIENT LOGIN</Link>
+            <Link to="/design" className="py-3 border-b border-white/20 text-white hover:text-alto-accent" onClick={toggleMenu}>DESIGN</Link>
+            <Link to="/plans" className="py-3 border-b border-white/20 text-white hover:text-alto-accent" onClick={toggleMenu}>PLANS & PRICING</Link>
+            <Link to="/locations" className="py-3 border-b border-white/20 text-white hover:text-alto-accent" onClick={toggleMenu}>LOCATIONS</Link>
+            <Link to="/contact" className="py-3 border-b border-white/20 text-white hover:text-alto-accent" onClick={toggleMenu}>CONTACT</Link>
             <Link to="/contact" className="btn-accent mt-4 text-center" onClick={toggleMenu}>
-              Get Started
+              Inquire
             </Link>
           </div>
         </div>
