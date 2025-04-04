@@ -15,22 +15,22 @@ const About = () => {
       <Navbar />
       <HeroSection 
         title="ABOUT ALTO BUILDERS"
-        subtitle="We specialize in designing and building premium ADUs across Greater Los Angeles"
+        subtitle="We specialize in designing and building premium projects across Greater Los Angeles"
         backgroundImage="https://images.unsplash.com/photo-1451976426598-a7593bd6d0b2?auto=format&fit=crop&w=1920&q=80"
       />
 
       <section className="py-20">
         <div className="container-custom">
           <StorySection />
-          <ValuesSection />
           <TeamSection />
+          <ValuesSection />
           <AduGuideSection />
         </div>
       </section>
 
       <CallToActionSection 
         title="Ready to Work With Our Team?"
-        subtitle="Schedule a consultation to discuss your ADU project"
+        subtitle="Schedule a consultation to discuss your project"
         buttonText="Contact Us Today"
         buttonLink="/contact"
       />

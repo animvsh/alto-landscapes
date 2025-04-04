@@ -1,31 +1,36 @@
-
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import HeroSection from '../components/HeroSection';
 import CallToActionSection from '../components/CallToActionSection';
 import ServiceCard from '../components/ServiceCard';
 import ProcessStep from '../components/ProcessStep';
-import { Home, Ruler, FileText, HardHat, ClipboardCheck, Key } from 'lucide-react';
+import { Home, Ruler, FileText, HardHat, ClipboardCheck, Key, Kitchen, Bath, Palmtree, Building } from 'lucide-react';
 
 const Services = () => {
   const services = [
     {
-      title: "ADU Design",
-      description: "Custom architectural design services tailored to your property and needs.",
-      icon: <Ruler />,
-      link: "/services/design",
+      title: "Kitchen Remodeling",
+      description: "Transform your kitchen with modern designs and premium materials.",
+      icon: <Kitchen />,
+      link: "/services/kitchen",
     },
     {
-      title: "Permitting",
-      description: "Expert navigation of local regulations and permit acquisition.",
-      icon: <FileText />,
-      link: "/services/permitting",
+      title: "Bathroom Remodeling",
+      description: "Create your perfect bathroom with our expert renovation services.",
+      icon: <Bath />,
+      link: "/services/bathroom",
     },
     {
-      title: "Construction",
-      description: "Full-service construction with quality craftsmanship.",
-      icon: <HardHat />,
-      link: "/services/construction",
+      title: "Backyard Projects",
+      description: "Enhance your outdoor living space with custom backyard solutions.",
+      icon: <Palmtree />,
+      link: "/services/backyard",
+    },
+    {
+      title: "New Construction",
+      description: "Build your dream home from the ground up with our comprehensive construction services.",
+      icon: <Building />,
+      link: "/services/new-construction",
     },
     {
       title: "Project Management",
@@ -34,14 +39,8 @@ const Services = () => {
       link: "/services/project-management",
     },
     {
-      title: "Interior Design",
-      description: "Stylish and functional interior solutions for your ADU.",
-      icon: <Home />,
-      link: "/services/interior-design",
-    },
-    {
       title: "Turn-Key Solutions",
-      description: "End-to-end service for a hassle-free ADU experience.",
+      description: "End-to-end service for a hassle-free building experience.",
       icon: <Key />,
       link: "/services/turn-key",
     },
@@ -52,7 +51,7 @@ const Services = () => {
       <Navbar />
       <HeroSection 
         title="OUR SERVICES"
-        subtitle="Comprehensive ADU solutions from concept to completion"
+        subtitle="Comprehensive building solutions from concept to completion"
         backgroundImage="https://images.unsplash.com/photo-1460574283810-2aab119d8511?auto=format&fit=crop&w=1920&q=80"
       />
 
@@ -61,7 +60,7 @@ const Services = () => {
           <div className="text-center mb-12">
             <h2 className="section-title">What We Offer</h2>
             <p className="section-subtitle mx-auto">
-              Our full spectrum of services ensures a seamless ADU building experience
+              Our full spectrum of services ensures a seamless building experience
             </p>
           </div>
 
@@ -84,7 +83,7 @@ const Services = () => {
           <div className="text-center mb-16">
             <h2 className="section-title">Our Process</h2>
             <p className="section-subtitle mx-auto">
-              A streamlined approach to bringing your ADU vision to life
+              A streamlined approach to bringing your building vision to life
             </p>
           </div>
 
@@ -92,7 +91,7 @@ const Services = () => {
             <ProcessStep 
               number="1" 
               title="Discovery & Consultation" 
-              description="We begin with an in-depth consultation to understand your goals, budget, and timeline. Our team conducts a site assessment to evaluate your property's potential for an ADU."
+              description="We begin with an in-depth consultation to understand your goals, budget, and timeline. Our team conducts a site assessment to evaluate your property's potential for a building project."
               icon={<ClipboardCheck size={18} />}
             />
             
@@ -120,7 +119,7 @@ const Services = () => {
             <ProcessStep 
               number="5" 
               title="Final Inspection & Handover" 
-              description="After completion, we conduct thorough quality inspections before final walkthrough with you. We provide complete documentation and warranty information for your new ADU."
+              description="After completion, we conduct thorough quality inspections before final walkthrough with you. We provide complete documentation and warranty information for your new building project."
               icon={<ClipboardCheck size={18} />}
             />
           </div>
@@ -133,7 +132,7 @@ const Services = () => {
             <div className="md:w-1/2 mb-8 md:mb-0 md:pr-12">
               <h2 className="section-title">Why Choose Alto Builders?</h2>
               <p className="text-alto-dark-gray mb-6">
-                Alto Builders combines expertise, quality craftsmanship, and exceptional service to deliver premium ADUs that exceed expectations.
+                Alto Builders combines expertise, quality craftsmanship, and exceptional service to deliver premium building projects that exceed expectations.
               </p>
               
               <ul className="space-y-4">
@@ -153,7 +152,7 @@ const Services = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-alto-blue mb-1">Quality</h4>
-                    <p className="text-alto-dark-gray">We never compromise on materials or workmanship, ensuring your ADU is built to last.</p>
+                    <p className="text-alto-dark-gray">We never compromise on materials or workmanship, ensuring your building project is built to last.</p>
                   </div>
                 </li>
                 
@@ -173,7 +172,7 @@ const Services = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-alto-blue mb-1">Full Service</h4>
-                    <p className="text-alto-dark-gray">From design to handover, we handle every aspect of your ADU project for a stress-free experience.</p>
+                    <p className="text-alto-dark-gray">From design to handover, we handle every aspect of your building project for a stress-free experience.</p>
                   </div>
                 </li>
               </ul>
@@ -191,7 +190,7 @@ const Services = () => {
       </section>
 
       <CallToActionSection 
-        title="Ready to Start Your ADU Project?"
+        title="Ready to Start Your Project?"
         subtitle="Contact us today to schedule your free consultation"
         buttonText="Get Started"
         buttonLink="/contact"
