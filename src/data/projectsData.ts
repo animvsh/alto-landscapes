@@ -1,4 +1,3 @@
-
 export interface Project {
   title: string;
   location: string;
@@ -19,7 +18,7 @@ export const projects: Project[] = [
   {
     title: "Kitchen Project - West LA",
     location: "West LA, CA",
-    image: "/lovable-uploads/0ca56178-11a4-40a9-88f9-0e6ec63e1994.png",
+    image: "/lovable-uploads/710f9a5e-cc45-4a96-97ba-81f782a7d783.png",
     link: "/projects/kitchen-west-la",
     category: "kitchen",
     description: "Modern kitchen remodel with custom cabinetry and premium appliances."
@@ -27,7 +26,7 @@ export const projects: Project[] = [
   {
     title: "Kitchen Project - West LA",
     location: "West LA, CA",
-    image: "/lovable-uploads/0ce70111-c71a-4fe3-854c-8371c1d705be.png",
+    image: "/lovable-uploads/5126b630-7372-4a58-9266-fd6e718118df.png",
     link: "/projects/kitchen-west-la",
     category: "kitchen",
     description: "Elegant kitchen design with ample storage solutions and contemporary finishes."
@@ -35,7 +34,7 @@ export const projects: Project[] = [
   {
     title: "Kitchen Project - West LA",
     location: "West LA, CA",
-    image: "/lovable-uploads/12ed4d26-eaf7-47bd-a9c2-8f9a4a83d958.png",
+    image: "/lovable-uploads/94fc1121-02d7-4c84-9b59-3478af52bca7.png",
     link: "/projects/kitchen-west-la",
     category: "kitchen",
     description: "Spacious kitchen featuring high-end materials and functional workspace."
@@ -43,7 +42,7 @@ export const projects: Project[] = [
   {
     title: "Kitchen Project - West LA",
     location: "West LA, CA",
-    image: "/lovable-uploads/15387f04-3154-42ef-b673-a243a66904de.png",
+    image: "/lovable-uploads/c1d67c75-2052-49aa-8910-0bc223b2be05.png",
     link: "/projects/kitchen-west-la",
     category: "kitchen",
     description: "Custom kitchen with innovative storage solutions and premium countertops."
@@ -51,7 +50,7 @@ export const projects: Project[] = [
   {
     title: "Kitchen Project - West LA",
     location: "West LA, CA",
-    image: "/lovable-uploads/15a7ca53-0fbb-4a81-99d7-f06c95669a8f.png",
+    image: "/lovable-uploads/acb35287-28e0-4a16-97d5-96f5543d6e78.png",
     link: "/projects/kitchen-west-la",
     category: "kitchen",
     description: "Bright and airy kitchen design with custom island and professional-grade appliances."
@@ -103,15 +102,15 @@ export const projects: Project[] = [
   {
     title: "Kitchen Project - Pasadena",
     location: "Pasadena, CA",
-    image: "/lovable-uploads/21fee34c-566e-4fdd-88fb-a78d3d3b74b7.png",
+    image: "/lovable-uploads/582129ba-ae8e-4b70-94ff-bd16281b02d0.png",
     link: "/projects/kitchen-pasadena",
     category: "kitchen",
-    description: "Stylish kitchen renovation with custom details and premium finishes."
+    description: "Stylish kitchen renovation with custom wooden cabinetry and premium finishes."
   },
   {
     title: "Kitchen Project - Pasadena",
     location: "Pasadena, CA",
-    image: "/lovable-uploads/2277e935-2f10-4733-8f62-c1f3ec58534f.png",
+    image: "/lovable-uploads/569290b6-02a7-43ec-b6c2-fbca64d22845.png",
     link: "/projects/kitchen-pasadena",
     category: "kitchen",
     description: "Elegant kitchen design with functional layout and high-end appliances."
@@ -119,7 +118,7 @@ export const projects: Project[] = [
   {
     title: "Kitchen Project - Pasadena",
     location: "Pasadena, CA",
-    image: "/lovable-uploads/27deba99-160c-44d5-9f53-b67e547a480d.png",
+    image: "/lovable-uploads/2206905e-188a-4731-bd4f-7f3a6f79854d.png",
     link: "/projects/kitchen-pasadena",
     category: "kitchen",
     description: "Modern kitchen featuring custom storage solutions and premium materials."
@@ -127,7 +126,7 @@ export const projects: Project[] = [
   {
     title: "Kitchen Project - Pasadena",
     location: "Pasadena, CA",
-    image: "/lovable-uploads/286f7c19-752b-4cc4-90b0-4c14e2dea38e.png",
+    image: "/lovable-uploads/e8e7c260-aa22-4db1-92d6-4b1180181083.png",
     link: "/projects/kitchen-pasadena",
     category: "kitchen",
     description: "Spacious kitchen remodel with professional-grade appliances and custom cabinetry."
@@ -135,7 +134,7 @@ export const projects: Project[] = [
   {
     title: "Kitchen Project - Pasadena",
     location: "Pasadena, CA",
-    image: "/lovable-uploads/2bb818e7-0d24-4461-8d11-65a03f17aa7e.png",
+    image: "/lovable-uploads/a9f018d8-dc43-4cbf-8531-2e2ebfb5af32.png",
     link: "/projects/kitchen-pasadena",
     category: "kitchen",
     description: "Beautifully designed kitchen with premium countertops and functional workspace."

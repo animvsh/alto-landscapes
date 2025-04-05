@@ -1,9 +1,13 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, ExternalLink } from 'lucide-react';
+import { Phone, Mail, MapPin } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import PlanGallery from '../PlanGallery';
+
+// Logos needed for kitchen projects
+const builderTrendLogo = '/lovable-uploads/e8e7c260-aa22-4db1-92d6-4b1180181083.png';
+const chiefLogo = '/lovable-uploads/a9f018d8-dc43-4cbf-8531-2e2ebfb5af32.png';
 
 interface KitchenProjectDetailProps {
   title: string;
@@ -34,6 +38,11 @@ const KitchenProjectDetail = ({ title, location, images }: KitchenProjectDetailP
               and appliance fitting. Our extensive knowledge of materials ensures your kitchen remains not only aesthetically 
               pleasing but also durable and low maintenance.
             </p>
+            
+            <div className="flex justify-center space-x-12 my-8">
+              <img src={builderTrendLogo} alt="Buildertrend Logo" className="h-12 object-contain" />
+              <img src={chiefLogo} alt="Chief Architect Logo" className="h-12 object-contain" />
+            </div>
             
             <div className="bg-alto-light-gray p-6 rounded-lg mb-8">
               <h3 className="text-xl font-semibold mb-4">Starting on the Right Foot</h3>

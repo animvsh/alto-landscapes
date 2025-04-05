@@ -1,10 +1,10 @@
-
 import React from 'react';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import HeroSection from '../../components/HeroSection';
 import CallToActionSection from '../../components/CallToActionSection';
 import KitchenProjectDetail from '../../components/projects/KitchenProjectDetail';
+import PageTransition from '../../components/PageTransition';
 
 const KitchenProjectAgourahills = () => {
   const images = [
@@ -16,7 +16,7 @@ const KitchenProjectAgourahills = () => {
   ];
 
   return (
-    <>
+    <PageTransition>
       <Navbar />
       <HeroSection 
         title="Kitchen Project - Agoura Hills"
@@ -38,7 +38,7 @@ const KitchenProjectAgourahills = () => {
       />
       
       <Footer />
-    </>
+    </PageTransition>
   );
 };
 

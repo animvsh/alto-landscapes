@@ -5,23 +5,25 @@ import Footer from '../../components/Footer';
 import HeroSection from '../../components/HeroSection';
 import CallToActionSection from '../../components/CallToActionSection';
 import KitchenProjectDetail from '../../components/projects/KitchenProjectDetail';
+import PageTransition from '../../components/PageTransition';
 
 const KitchenProjectPasadena = () => {
+  // Using the 5 wooden cabinet kitchen images for Pasadena
   const images = [
-    "/lovable-uploads/21fee34c-566e-4fdd-88fb-a78d3d3b74b7.png",
-    "/lovable-uploads/2277e935-2f10-4733-8f62-c1f3ec58534f.png",
-    "/lovable-uploads/27deba99-160c-44d5-9f53-b67e547a480d.png",
-    "/lovable-uploads/286f7c19-752b-4cc4-90b0-4c14e2dea38e.png",
-    "/lovable-uploads/2bb818e7-0d24-4461-8d11-65a03f17aa7e.png"
+    "/lovable-uploads/582129ba-ae8e-4b70-94ff-bd16281b02d0.png",
+    "/lovable-uploads/569290b6-02a7-43ec-b6c2-fbca64d22845.png",
+    "/lovable-uploads/2206905e-188a-4731-bd4f-7f3a6f79854d.png",
+    "/lovable-uploads/e8e7c260-aa22-4db1-92d6-4b1180181083.png",
+    "/lovable-uploads/a9f018d8-dc43-4cbf-8531-2e2ebfb5af32.png"
   ];
 
   return (
-    <>
+    <PageTransition>
       <Navbar />
       <HeroSection 
         title="Kitchen Project - Pasadena"
         subtitle="Luxurious kitchen renovation featuring high-end materials and custom design"
-        backgroundImage="/lovable-uploads/21fee34c-566e-4fdd-88fb-a78d3d3b74b7.png"
+        backgroundImage="/lovable-uploads/582129ba-ae8e-4b70-94ff-bd16281b02d0.png"
       />
       
       <KitchenProjectDetail 
@@ -38,7 +40,7 @@ const KitchenProjectPasadena = () => {
       />
       
       <Footer />
-    </>
+    </PageTransition>
   );
 };
 
