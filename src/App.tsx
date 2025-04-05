@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -24,6 +23,9 @@ import Sitemap from "./pages/Sitemap";
 import FAQ from "./pages/FAQ";
 import AduConstruction from "./pages/services/AduConstruction";
 import Remodeling from "./pages/services/Remodeling";
+import KitchenProjectWestLA from "./pages/projects/KitchenProjectWestLA";
+import KitchenProjectAgourahills from "./pages/projects/KitchenProjectAgourahills";
+import KitchenProjectPasadena from "./pages/projects/KitchenProjectPasadena";
 import { useState } from "react";
 
 // AnimatedRoutes component for handling page transitions
@@ -40,6 +42,9 @@ const AnimatedRoutes = () => {
         <Route path="/services/adu" element={<AduConstruction />} />
         <Route path="/services/remodeling" element={<Remodeling />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/projects/kitchen-west-la" element={<KitchenProjectWestLA />} />
+        <Route path="/projects/kitchen-agoura-hills" element={<KitchenProjectAgourahills />} />
+        <Route path="/projects/kitchen-pasadena" element={<KitchenProjectPasadena />} />
         <Route path="/design" element={<Design />} />
         <Route path="/plans" element={<Plans />} />
         <Route path="/plans/:planId" element={<PlanDetail />} />

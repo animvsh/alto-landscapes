@@ -11,9 +11,137 @@ export interface Project {
 export const projectCategories = [
   { id: 'all', name: 'All' },
   { id: 'adu', name: 'ADU' },
+  { id: 'kitchen', name: 'Kitchen' },
 ];
 
 export const projects: Project[] = [
+  // Kitchen projects - West LA
+  {
+    title: "Kitchen Project - West LA",
+    location: "West LA, CA",
+    image: "/lovable-uploads/0ca56178-11a4-40a9-88f9-0e6ec63e1994.png",
+    link: "/projects/kitchen-west-la",
+    category: "kitchen",
+    description: "Modern kitchen remodel with custom cabinetry and premium appliances."
+  },
+  {
+    title: "Kitchen Project - West LA",
+    location: "West LA, CA",
+    image: "/lovable-uploads/0ce70111-c71a-4fe3-854c-8371c1d705be.png",
+    link: "/projects/kitchen-west-la",
+    category: "kitchen",
+    description: "Elegant kitchen design with ample storage solutions and contemporary finishes."
+  },
+  {
+    title: "Kitchen Project - West LA",
+    location: "West LA, CA",
+    image: "/lovable-uploads/12ed4d26-eaf7-47bd-a9c2-8f9a4a83d958.png",
+    link: "/projects/kitchen-west-la",
+    category: "kitchen",
+    description: "Spacious kitchen featuring high-end materials and functional workspace."
+  },
+  {
+    title: "Kitchen Project - West LA",
+    location: "West LA, CA",
+    image: "/lovable-uploads/15387f04-3154-42ef-b673-a243a66904de.png",
+    link: "/projects/kitchen-west-la",
+    category: "kitchen",
+    description: "Custom kitchen with innovative storage solutions and premium countertops."
+  },
+  {
+    title: "Kitchen Project - West LA",
+    location: "West LA, CA",
+    image: "/lovable-uploads/15a7ca53-0fbb-4a81-99d7-f06c95669a8f.png",
+    link: "/projects/kitchen-west-la",
+    category: "kitchen",
+    description: "Bright and airy kitchen design with custom island and professional-grade appliances."
+  },
+  
+  // Kitchen projects - Agoura Hills
+  {
+    title: "Kitchen Project - Agoura Hills",
+    location: "Agoura Hills, CA",
+    image: "/lovable-uploads/17929c0c-4021-439b-9cf2-e0dedb676b79.png",
+    link: "/projects/kitchen-agoura-hills",
+    category: "kitchen",
+    description: "Luxurious kitchen remodel with custom cabinetry and high-end fixtures."
+  },
+  {
+    title: "Kitchen Project - Agoura Hills",
+    location: "Agoura Hills, CA",
+    image: "/lovable-uploads/18785187-527a-42a6-86c7-5b163b1ad60b.png",
+    link: "/projects/kitchen-agoura-hills",
+    category: "kitchen",
+    description: "Contemporary kitchen with premium finishes and functional workspace."
+  },
+  {
+    title: "Kitchen Project - Agoura Hills",
+    location: "Agoura Hills, CA",
+    image: "/lovable-uploads/1e9679c4-31cb-4e6c-ba9d-e19ed0371537.png",
+    link: "/projects/kitchen-agoura-hills",
+    category: "kitchen",
+    description: "Elegant kitchen design featuring custom cabinets and stone countertops."
+  },
+  {
+    title: "Kitchen Project - Agoura Hills",
+    location: "Agoura Hills, CA",
+    image: "/lovable-uploads/20445a80-7d0c-4d5b-b816-22dd735d5054.png",
+    link: "/projects/kitchen-agoura-hills",
+    category: "kitchen",
+    description: "Modern kitchen remodel with innovative storage solutions and premium appliances."
+  },
+  {
+    title: "Kitchen Project - Agoura Hills",
+    location: "Agoura Hills, CA",
+    image: "/lovable-uploads/21faa8b0-bc6e-447d-9c61-62a55e9406bb.png",
+    link: "/projects/kitchen-agoura-hills",
+    category: "kitchen",
+    description: "Spacious kitchen featuring high-quality materials and functional design elements."
+  },
+  
+  // Kitchen projects - Pasadena
+  {
+    title: "Kitchen Project - Pasadena",
+    location: "Pasadena, CA",
+    image: "/lovable-uploads/21fee34c-566e-4fdd-88fb-a78d3d3b74b7.png",
+    link: "/projects/kitchen-pasadena",
+    category: "kitchen",
+    description: "Stylish kitchen renovation with custom details and premium finishes."
+  },
+  {
+    title: "Kitchen Project - Pasadena",
+    location: "Pasadena, CA",
+    image: "/lovable-uploads/2277e935-2f10-4733-8f62-c1f3ec58534f.png",
+    link: "/projects/kitchen-pasadena",
+    category: "kitchen",
+    description: "Elegant kitchen design with functional layout and high-end appliances."
+  },
+  {
+    title: "Kitchen Project - Pasadena",
+    location: "Pasadena, CA",
+    image: "/lovable-uploads/27deba99-160c-44d5-9f53-b67e547a480d.png",
+    link: "/projects/kitchen-pasadena",
+    category: "kitchen",
+    description: "Modern kitchen featuring custom storage solutions and premium materials."
+  },
+  {
+    title: "Kitchen Project - Pasadena",
+    location: "Pasadena, CA",
+    image: "/lovable-uploads/286f7c19-752b-4cc4-90b0-4c14e2dea38e.png",
+    link: "/projects/kitchen-pasadena",
+    category: "kitchen",
+    description: "Spacious kitchen remodel with professional-grade appliances and custom cabinetry."
+  },
+  {
+    title: "Kitchen Project - Pasadena",
+    location: "Pasadena, CA",
+    image: "/lovable-uploads/2bb818e7-0d24-4461-8d11-65a03f17aa7e.png",
+    link: "/projects/kitchen-pasadena",
+    category: "kitchen",
+    description: "Beautifully designed kitchen with premium countertops and functional workspace."
+  },
+  
+  // ADU Projects - Add these below kitchen projects
   {
     title: "Weiss Family ADU - Living Room",
     location: "Los Angeles, CA",
