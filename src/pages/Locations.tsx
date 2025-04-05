@@ -1,4 +1,5 @@
 
+import { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import HeroSection from '../components/HeroSection';
@@ -6,8 +7,13 @@ import CallToActionSection from '../components/CallToActionSection';
 import ServiceAreaGrid from '../components/locations/ServiceAreaGrid';
 import LocalExpertiseSection from '../components/locations/LocalExpertiseSection';
 import PlanningRegulationsSection from '../components/locations/PlanningRegulationsSection';
+import PageTransition from '../components/PageTransition';
 
 const Locations = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const serviceAreas = [
     {
       region: "San Fernando Valley",
@@ -57,7 +63,7 @@ const Locations = () => {
   ];
 
   return (
-    <>
+    <PageTransition>
       <Navbar />
       <HeroSection 
         title="OUR SERVICE AREAS"
@@ -77,7 +83,7 @@ const Locations = () => {
       />
 
       <Footer />
-    </>
+    </PageTransition>
   );
 };
 
