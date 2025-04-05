@@ -11,7 +11,7 @@ import WhyChooseUs from '../components/services/WhyChooseUs';
 import PageTransition from '../components/PageTransition';
 import { Link } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
-import { ArrowRight, Home, ChefHat, Bath, Palmtree, Tools } from 'lucide-react';
+import { ArrowRight, Home, ChefHat, Bath, Palmtree, Hammer } from 'lucide-react';
 
 const Services = () => {
   useEffect(() => {
@@ -133,7 +133,7 @@ const Services = () => {
             <div className="flex flex-col md:flex-row items-center">
               <div className="md:w-1/5 mb-6 md:mb-0 flex justify-center">
                 <div className="bg-alto-blue rounded-full p-6 inline-flex">
-                  <Tools className="h-12 w-12 text-white" />
+                  <Hammer className="h-12 w-12 text-white" />
                 </div>
               </div>
               <div className="md:w-3/5 md:px-8">
