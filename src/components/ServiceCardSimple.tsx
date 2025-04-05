@@ -10,7 +10,7 @@ interface ServiceCardProps {
   link: string;
 }
 
-const ServiceCard = ({ title, description, imageSrc, link }: ServiceCardProps) => {
+const ServiceCardSimple = ({ title, description, imageSrc, link }: ServiceCardProps) => {
   return (
     <motion.div 
       whileHover={{ y: -8, transition: { duration: 0.3 } }}
@@ -39,4 +39,4 @@ const ServiceCard = ({ title, description, imageSrc, link }: ServiceCardProps) =
   );
 };
 
-export default ServiceCard;
+export default ServiceCardSimple;

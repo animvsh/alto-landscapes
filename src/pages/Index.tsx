@@ -14,6 +14,8 @@ import AboutSection from '../components/sections/AboutSection';
 import ServiceAreaSection from '../components/sections/ServiceAreaSection';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import ServiceCardSimple from '../components/ServiceCardSimple';
+import ProjectCard from '../components/ProjectCard';
 
 const Index = () => {
   // Animation states
@@ -62,19 +64,19 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-            <ServiceCard 
+            <ServiceCardSimple 
               title="Kitchen Remodeling" 
               description="Transform your kitchen with modern designs and premium materials."
               imageSrc="/lovable-uploads/17929c0c-4021-439b-9cf2-e0dedb676b79.png"
               link="/services/kitchen"
             />
-            <ServiceCard 
+            <ServiceCardSimple 
               title="Bathroom Remodeling" 
               description="Create your perfect bathroom with our expert renovation services."
               imageSrc="/lovable-uploads/582129ba-ae8e-4b70-94ff-bd16281b02d0.png"
               link="/services/bathroom"
             />
-            <ServiceCard 
+            <ServiceCardSimple 
               title="ADU Construction" 
               description="Add value to your property with a custom accessory dwelling unit."
               imageSrc="/lovable-uploads/d3cf4ce7-3f97-4189-96aa-90b3c9bd790d.png"
@@ -105,18 +107,21 @@ const Index = () => {
               description="Modern white kitchen renovation with custom cabinetry"
               imageSrc="/lovable-uploads/710f9a5e-cc45-4a96-97ba-81f782a7d783.png"
               link="/projects/kitchen-west-la"
+              location="West LA, CA"
             />
             <ProjectCard 
               title="Kitchen Project - Pasadena" 
               description="Elegant wooden kitchen with premium finishes"
               imageSrc="/lovable-uploads/582129ba-ae8e-4b70-94ff-bd16281b02d0.png"
               link="/projects/kitchen-pasadena"
+              location="Pasadena, CA"
             />
             <ProjectCard 
               title="ADU Project - Agoura Hills" 
               description="Modern 800 sq ft accessory dwelling unit"
               imageSrc="/lovable-uploads/d3cf4ce7-3f97-4189-96aa-90b3c9bd790d.png"
               link="/projects"
+              location="Agoura Hills, CA"
             />
           </div>
           

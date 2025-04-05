@@ -8,9 +8,10 @@ interface ProjectCardProps {
   description: string;
   imageSrc: string;
   link: string;
+  location?: string;
 }
 
-const ProjectCard = ({ title, description, imageSrc, link }: ProjectCardProps) => {
+const ProjectCard = ({ title, description, imageSrc, link, location }: ProjectCardProps) => {
   return (
     <motion.div 
       whileHover={{ y: -8, transition: { duration: 0.3 } }}
@@ -26,6 +27,7 @@ const ProjectCard = ({ title, description, imageSrc, link }: ProjectCardProps) =
         </div>
         <div className="p-6">
           <h3 className="text-xl font-semibold text-alto-blue mb-2">{title}</h3>
+          {location && <p className="text-alto-accent mb-2 text-sm">{location}</p>}
           <p className="text-alto-dark-gray mb-4">{description}</p>
           <span className="text-alto-accent font-medium inline-flex items-center">
             View Project

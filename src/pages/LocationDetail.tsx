@@ -1,4 +1,3 @@
-
 import { useParams } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -30,18 +29,21 @@ const LocationDetail = () => {
       location: `${locationName}, CA`,
       image: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=800&q=80",
       link: `/projects/${location}-project-1`,
+      description: `Custom ADU design for ${locationName} property.`
     },
     {
       title: `Contemporary ${locationName} ADU`,
       location: `${locationName}, CA`,
       image: "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=800&q=80",
       link: `/projects/${location}-project-2`,
+      description: `Stylish ADU built for a ${locationName} client.`
     },
     {
       title: `Minimalist ${locationName} ADU`,
       location: `${locationName}, CA`,
       image: "https://images.unsplash.com/photo-1496307653780-42ee777d4833?auto=format&fit=crop&w=800&q=80",
       link: `/projects/${location}-project-3`,
+      description: `Space-efficient ADU design for ${locationName} property.`
     },
   ];
   
@@ -156,9 +158,10 @@ const LocationDetail = () => {
               <ProjectCard 
                 key={index} 
                 title={project.title} 
-                location={project.location} 
-                image={project.image} 
-                link={project.link} 
+                description={project.description}
+                imageSrc={project.image} 
+                link={project.link}
+                location={project.location}
               />
             ))}
           </div>
