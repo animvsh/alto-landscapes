@@ -67,7 +67,7 @@ const AboutSection = ({
           <div className={`md:w-1/2 transition-all duration-1000 delay-300 ${aboutVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'}`}>
             <div className="mb-10">
               <img 
-                src="/lovable-uploads/44aeeca9-3113-4e64-a595-18432655f328.png" 
+                src="/lovable-uploads/fb277fa8-69d3-4ca9-844d-2f8311faf420.png" 
                 alt="Paul and Simon Manfredi" 
                 className="w-full rounded-lg shadow-lg mb-4 card-shadow"
               />

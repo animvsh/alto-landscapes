@@ -8,6 +8,7 @@ import TeamGrid from '../components/team/TeamGrid';
 import TeamValueSection from '../components/team/TeamValueSection';
 import TeamHiringSection from '../components/team/TeamHiringSection';
 import CallToActionSection from '../components/CallToActionSection';
+import FounderDuoSection from '../components/team/FounderDuoSection';
 
 const Team = () => {
   return (
@@ -21,6 +22,7 @@ const Team = () => {
 
       <section className="py-20">
         <div className="container-custom">
+          <FounderDuoSection />
           <TeamGrid />
           <TeamValueSection />
           <TeamHiringSection />

@@ -13,18 +13,18 @@ export interface TeamMember {
 export const teamMembers: TeamMember[] = [
   {
     name: "Paul Manfredi",
-    position: "Co-Founder & CEO",
-    image: "/lovable-uploads/103a79ba-0e63-4e5c-ba60-296a27569ab2.png",
+    position: "Co-Founder",
+    image: "/lovable-uploads/fb277fa8-69d3-4ca9-844d-2f8311faf420.png",
     bio: "With over 30 years of expertise in the building industry, Paul stands as a cornerstone of the Alto team.",
-    fullBio: "With over 30 years of expertise in the building industry, Paul stands as a cornerstone of the Alto team. His journey into construction, a path shaped by a deep, familial legacy, began under the guidance of his father. From those formative years, Paul cultivated a profound understanding of building intricacies and a steadfast commitment to excellence, principles that now define Alto Builders. His vision has been instrumental in navigating Alto through significant milestones, establishing it as a distinguished name in the Los Angeles construction landscape.",
+    fullBio: "With over 30 years of expertise in the building industry, Paul stands as a cornerstone of the Alto team. His journey into construction, a path shaped by a deep, familial legacy, began under the guidance of his father. This early exposure not only instilled in him a profound respect for the craft but also equipped him with an exceptional blend of traditional techniques and innovative approaches. At Alto, Paul's commitment to excellence and detail is evident in every project, resonating with our core belief that building is not just about structures, but bringing a true sense of craftsmanship to each project. His hands-on approach ensures that each undertaking is not only a reflection of his vast experience but also a testament to his unyielding passion for the practice.",
     linkedin: "https://linkedin.com",
   },
   {
     name: "Simon Manfredi",
-    position: "Co-Founder & COO",
-    image: "/lovable-uploads/103a79ba-0e63-4e5c-ba60-296a27569ab2.png",
-    bio: "Simon's building journey, enriched by a distinguished education from the University of British Columbia's School of Architecture.",
-    fullBio: "Simon's building journey, enriched by a distinguished education from the University of British Columbia's School of Architecture and Landscape (SALA) & the Sauder School of Business, mirrors the foundational principles instilled in him by his father. His academic background provides a unique blend of architectural insight and business acumen, enriching Alto's approach to project management and client relationships. Simon's innovative thinking and commitment to sustainable building practices have been instrumental in positioning Alto at the forefront of modern construction methodologies.",
+    position: "Co-Founder",
+    image: "/lovable-uploads/ac480828-04fa-49f3-8c19-9d8e52218744.png",
+    bio: "Simon's journey in building and design is rooted in a distinguished education from the University of British Columbia's School of Business.",
+    fullBio: "Simon's journey in building and design is rooted in a distinguished education from the University of British Columbia's School of Business, where he earned a degree in Finance with a minor in Design. His academic achievements are seamlessly complemented by the foundational values instilled by his father: meticulous attention to detail, exceptional organizational skills, and an unwavering commitment to honesty. These principles have shaped Simon's approach to design since he began collaborating with his father on home and project designs at just 16 years old. At Alto Builders, Simon brings a dynamic perspective, blending the timeless lessons from his early experiences with the advanced methodologies honed during his studies at UBC. His designs transcend mere structure, transforming spaces into stories that harmonize function and beauty. With a deep understanding of both traditional craftsmanship and contemporary innovation, Simon's ability to create designs that are both visionary and deeply attuned to client needs makes him an indispensable member of the Alto team.",
     linkedin: "https://linkedin.com",
   },
   {

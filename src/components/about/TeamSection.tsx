@@ -71,7 +71,7 @@ const TeamSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
               <img 
-                src="/lovable-uploads/103a79ba-0e63-4e5c-ba60-296a27569ab2.png" 
+                src="/lovable-uploads/fb277fa8-69d3-4ca9-844d-2f8311faf420.png" 
                 alt="Paul and Simon Manfredi, Alto Builders Co-Founders" 
                 className="w-full rounded-lg shadow-lg mb-6"
               />
