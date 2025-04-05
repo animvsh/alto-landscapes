@@ -1,6 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -94,10 +95,19 @@
 
   body {
     @apply bg-background text-foreground font-inter;
+    scroll-behavior: smooth;
+  }
+
+  html {
+    @apply scroll-smooth;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-montserrat;
+  }
+  
+  h1, h2.section-title {
+    @apply font-playfair;
   }
 }
 
@@ -107,15 +117,15 @@
   }
   
   .btn-primary {
-    @apply bg-alto-blue hover:bg-alto-light-blue text-white font-medium py-3 px-6 rounded-full transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-md;
+    @apply bg-gradient-to-r from-alto-accent to-alto-blue text-white font-medium py-3 px-6 rounded-full transition-all duration-500 transform hover:translate-y-[-2px] hover:shadow-lg;
   }
   
   .btn-secondary {
-    @apply bg-white hover:bg-alto-light-gray text-alto-blue border border-alto-blue font-medium py-3 px-6 rounded-full transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-md;
+    @apply bg-white hover:bg-alto-light-gray text-alto-blue border border-alto-blue font-medium py-3 px-6 rounded-full transition-all duration-500 transform hover:translate-y-[-2px] hover:shadow-lg;
   }
   
   .btn-accent {
-    @apply bg-alto-accent hover:opacity-90 text-white font-medium py-3 px-6 rounded-full transition-all duration-300 transform hover:translate-y-[-2px] hover:shadow-md;
+    @apply bg-alto-accent hover:opacity-90 text-white font-medium py-3 px-6 rounded-full transition-all duration-500 transform hover:translate-y-[-2px] hover:shadow-lg;
   }
 
   .nav-link {
@@ -123,15 +133,23 @@
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-semibold text-alto-blue mb-4;
+    @apply text-3xl md:text-4xl lg:text-5xl font-semibold text-alto-blue mb-4 relative after:content-[''] after:absolute after:w-20 after:h-1 after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:bg-alto-accent;
   }
   
   .section-subtitle {
-    @apply text-xl text-alto-dark-gray mb-8 max-w-2xl;
+    @apply text-xl text-alto-dark-gray mt-6 mb-8 max-w-2xl;
   }
 
   .card-shadow {
-    @apply shadow-[0_4px_20px_rgba(0,0,0,0.08)] hover:shadow-[0_10px_30px_rgba(0,0,0,0.12)] transition-all duration-300;
+    @apply shadow-[0_10px_30px_rgba(0,0,0,0.08)] hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] transition-all duration-500;
+  }
+  
+  .glass-card {
+    @apply bg-white/80 backdrop-blur-sm border border-white;
+  }
+  
+  .luxury-gradient {
+    @apply bg-gradient-to-r from-alto-blue to-alto-accent;
   }
 }
 
@@ -159,12 +177,27 @@
   }
 }
 
+@keyframes shine {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
+}
+
 .animate-fadeInUp {
-  animation: fadeInUp 0.5s ease forwards;
+  animation: fadeInUp 0.8s ease forwards;
 }
 
 .animate-float {
-  animation: float 4s ease-in-out infinite;
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-shine {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  background-size: 200% 100%;
+  animation: shine 3s linear infinite;
 }
 
 /* Stagger animation delay helper classes */
@@ -182,4 +215,33 @@
 }
 .delay-500 {
   animation-delay: 500ms;
+}
+
+/* Luxury UI Elements */
+.luxury-border {
+  @apply border border-gray-200 hover:border-alto-accent transition-all duration-300;
+}
+
+.luxury-card {
+  @apply bg-white rounded-xl shadow-lg p-6 transition-all duration-500 hover:shadow-xl;
+}
+
+.parallax-bg {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Enhanced image hover effects */
+.img-hover-zoom {
+  @apply overflow-hidden;
+}
+
+.img-hover-zoom img {
+  @apply transition-transform duration-700 ease-in-out;
+}
+
+.img-hover-zoom:hover img {
+  @apply transform scale-110;
 }

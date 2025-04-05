@@ -3,6 +3,7 @@ import { ArrowDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { HeroSectionProps } from './sections/interfaces';
+import { motion } from 'framer-motion';
 
 const HeroSection = ({
   title,
@@ -39,53 +40,101 @@ const HeroSection = ({
   return (
     <div 
       className={`relative min-h-screen flex items-center justify-center pt-20 pb-16 overflow-hidden ${className || ''}`}
-      style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed',
-      }}
     >
-      {/* Overlay gradient for premium feel */}
-      <div className="absolute inset-0 bg-gradient-to-r from-alto-blue/30 to-transparent"></div>
+      {/* Parallax background with enhanced overlay */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-fixed z-0 transform transition-transform duration-1000"
+        style={{ 
+          backgroundImage: `url(${backgroundImage})`,
+          transform: isLoaded ? 'scale(1.05)' : 'scale(1)',
+          transition: 'transform 10s ease-out'
+        }}
+      />
       
-      <div className="container-custom text-white text-center md:text-left relative z-10">
+      {/* Overlay with luxurious gradient */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-alto-blue/30 z-10"></div>
+      
+      {/* Decorative elements */}
+      <motion.div 
+        className="absolute top-1/4 left-[10%] w-40 h-40 border border-white/10 rounded-full z-10"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ 
+          scale: isLoaded ? 1 : 0, 
+          opacity: isLoaded ? 0.2 : 0 
+        }}
+        transition={{ duration: 1.5, delay: 0.5 }}
+      ></motion.div>
+      
+      <motion.div 
+        className="absolute bottom-[30%] right-[15%] w-64 h-64 border border-white/10 rounded-full z-10"
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ 
+          scale: isLoaded ? 1 : 0, 
+          opacity: isLoaded ? 0.2 : 0 
+        }}
+        transition={{ duration: 1.5, delay: 0.8 }}
+      ></motion.div>
+      
+      <div className="container-custom text-white relative z-20">
         <div className="max-w-3xl">
-          <h1 
-            className={`text-4xl md:text-5xl lg:text-6xl font-bold mb-6 transition-all duration-1000 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+          <motion.h1 
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ 
+              opacity: isLoaded ? 1 : 0, 
+              y: isLoaded ? 0 : 30 
+            }}
+            transition={{ duration: 0.8 }}
           >
             {title}
-          </h1>
-          <p 
-            className={`text-xl md:text-2xl mb-8 transition-all duration-1000 delay-300 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+          </motion.h1>
+          
+          <motion.p 
+            className="text-xl md:text-2xl mb-8 text-white/90"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ 
+              opacity: isLoaded ? 1 : 0, 
+              y: isLoaded ? 0 : 30 
+            }}
+            transition={{ duration: 0.8, delay: 0.3 }}
           >
             {subtitle}
-          </p>
-          <div className={`transition-all duration-1000 delay-500 ${isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          </motion.p>
+          
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ 
+              opacity: isLoaded ? 1 : 0, 
+              y: isLoaded ? 0 : 30 
+            }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
             <Link 
               to={buttonLink} 
-              className="btn-accent inline-block text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
+              className="bg-gradient-to-r from-alto-accent to-alto-blue text-white font-medium py-3 px-8 rounded-full inline-block shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-1 hover:scale-105"
             >
               {buttonText}
             </Link>
-          </div>
+          </motion.div>
         </div>
       </div>
       
       {showScrollIndicator && (
-        <div 
-          className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer transition-all duration-1000 delay-1000 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}
+        <motion.div 
+          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 cursor-pointer z-20"
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ 
+            opacity: isLoaded ? 1 : 0,
+            y: isLoaded ? 0 : -10
+          }}
+          transition={{ duration: 0.8, delay: 1 }}
           onClick={handleScrollDown}
         >
-          <div className="w-10 h-10 rounded-full border-2 border-white/50 flex items-center justify-center animate-bounce">
+          <div className="w-12 h-12 rounded-full border-2 border-white/60 flex items-center justify-center animate-bounce hover:border-white transition-all duration-300">
             <ArrowDown size={24} className="text-white" />
           </div>
-        </div>
+        </motion.div>
       )}
-
-      {/* Decorative elements */}
-      <div className={`absolute bottom-[20%] right-[10%] w-32 h-32 border border-white/20 rounded-full transition-all duration-1000 delay-700 ${isLoaded ? 'opacity-30 scale-100' : 'opacity-0 scale-50'}`}></div>
-      <div className={`absolute top-[30%] left-[5%] w-24 h-24 border border-white/20 rounded-full transition-all duration-1000 delay-900 ${isLoaded ? 'opacity-30 scale-100' : 'opacity-0 scale-50'}`}></div>
     </div>
   );
 };

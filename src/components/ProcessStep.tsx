@@ -1,5 +1,6 @@
 
 import { ReactNode, useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 
 interface ProcessStepProps {
   number: string;
@@ -40,20 +41,56 @@ const ProcessStep = ({ number, title, description, icon }: ProcessStepProps) => 
   return (
     <div 
       ref={stepRef}
-      className={`flex transition-all duration-700 transform ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-10'}`}
+      className="flex"
     >
-      <div className="mr-6">
-        <div className={`flex items-center justify-center w-14 h-14 rounded-full bg-alto-accent text-white font-bold text-xl shadow-md transition-all duration-500 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}>
+      <motion.div 
+        className="mr-6"
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ 
+          opacity: isVisible ? 1 : 0, 
+          x: isVisible ? 0 : -20 
+        }}
+        transition={{ duration: 0.7 }}
+      >
+        <motion.div 
+          className="flex items-center justify-center w-14 h-14 rounded-full bg-gradient-to-br from-alto-accent to-alto-blue text-white font-bold text-xl shadow-lg"
+          initial={{ scale: 0.8, opacity: 0 }}
+          animate={{ 
+            scale: isVisible ? 1 : 0.8,
+            opacity: isVisible ? 1 : 0 
+          }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
           {number}
-        </div>
-        <div className={`h-full w-px bg-alto-accent mx-auto mt-2 mb-2 opacity-50 hidden md:block transition-all duration-700 delay-400 ${isVisible ? 'h-full' : 'h-0'}`}></div>
-      </div>
+        </motion.div>
+        <motion.div 
+          className="h-full w-px bg-gradient-to-b from-alto-accent to-alto-blue mx-auto mt-2 mb-2 hidden md:block"
+          initial={{ height: 0 }}
+          animate={{ height: isVisible ? '100%' : 0 }}
+          transition={{ duration: 0.7, delay: 0.4 }}
+        ></motion.div>
+      </motion.div>
       <div>
-        <div className={`flex items-center mb-2 transition-all duration-500 delay-300 ${isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'}`}>
+        <motion.div 
+          className="flex items-center mb-2"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ 
+            opacity: isVisible ? 1 : 0,
+            x: isVisible ? 0 : 20 
+          }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
           {icon && <span className="mr-2 text-alto-blue">{icon}</span>}
           <h3 className="text-xl font-semibold text-alto-blue">{title}</h3>
-        </div>
-        <p className={`text-alto-dark-gray mb-8 transition-all duration-500 delay-400 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>{description}</p>
+        </motion.div>
+        <motion.p 
+          className="text-alto-dark-gray mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isVisible ? 1 : 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
+          {description}
+        </motion.p>
       </div>
     </div>
   );
