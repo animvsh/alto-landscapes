@@ -1,10 +1,12 @@
+
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import HeroSection from '../components/HeroSection';
 import CallToActionSection from '../components/CallToActionSection';
 import ServiceCard from '../components/ServiceCard';
 import ProcessStep from '../components/ProcessStep';
-import { Home, Ruler, FileText, HardHat, ClipboardCheck, Key, Kitchen, Bath, Palmtree, Building } from 'lucide-react';
+import { Home, Ruler, FileText, HardHat, ClipboardCheck, Key } from 'lucide-react';
+import { Kitchen, Bath, Palmtree, Building } from '../components/icons/CustomIcons';
 
 const Services = () => {
   const services = [
