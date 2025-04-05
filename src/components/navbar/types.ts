@@ -9,7 +9,6 @@ export interface NavLinkProps {
 
 export const navLinks: NavLinkProps[] = [
   { name: 'About', path: '/about' },
-  { name: 'Team', path: '/team' },
   { name: 'Services', path: '/services', dropdown: true, 
     subItems: [
       { name: 'Kitchen Remodeling', path: '/services/kitchen' },
@@ -18,15 +17,20 @@ export const navLinks: NavLinkProps[] = [
       { name: 'New Construction', path: '/services/new-construction' },
     ] 
   },
+  { name: 'Projects', path: '/projects', dropdown: true, 
+    subItems: [
+      { name: 'Kitchen Projects', path: '/projects#kitchen-projects' },
+      { name: 'Bathroom Projects', path: '/projects#bathroom-projects' },
+      { name: 'ADU Projects', path: '/projects#adu-projects' },
+    ] 
+  },
   { name: 'ADUs', path: '/adu', dropdown: true, 
     subItems: [
       { name: 'ADU Construction', path: '/services/adu' },
       { name: 'ADU Plans', path: '/plans' },
+      { name: 'ADU FAQ', path: '/faq' },
     ] 
   },
-  { name: 'Projects', path: '/projects' },
   { name: 'Locations', path: '/locations' },
-  { name: 'FAQ', path: '/faq' },
   { name: 'Contact', path: '/contact' },
-  { name: 'Other Services', path: 'https://www.altobuilds.com/services', external: true }
 ];
