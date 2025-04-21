@@ -278,10 +278,10 @@ footer {
   position: absolute;
   top: 50%;
   left: 50%;
-  height: 120vh;
-  width: calc(120vh * 9 / 16);
-  min-width: 120vw;
-  min-height: 120vh;
+  height: 150vh;
+  width: calc(150vh * 9 / 16);
+  min-width: 150vw;
+  min-height: 150vh;
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: -1;
@@ -292,10 +292,10 @@ footer {
 
 @media (max-aspect-ratio: 9/16) {
   .iframe-bg-cover {
-    width: 120vw;
-    height: calc(120vw * 16 / 9);
-    min-height: 120vh;
-    min-width: 120vw;
+    width: 150vw;
+    height: calc(150vw * 16 / 9);
+    min-height: 150vh;
+    min-width: 150vw;
   }
 }
 

@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import HomeHeader from "../components/HomeHeader";
 import HomeServicesSection from "../components/HomeServicesSection";
@@ -28,14 +27,14 @@ const Index = () => {
           {/* Full-viewport, always-fill iframe embed cropped to cover */}
           <div className="absolute inset-0 w-full h-full overflow-hidden">
             <iframe
-              src="https://go.screenpal.com/player/cTfr60njGdL?title=0&controls=0&a=1&share=1&download=1&embed=1&cl=1&width=1920&height=1080&overlays=0&ff=1&autoplay=1&muted=1&loop=1"
+              src="https://go.screenpal.com/player/cTfr60njGdL?title=0&controls=0&a=1&share=1&download=0&embed=1&cl=1&width=1920&height=1080&overlays=0&ff=1&autoplay=1&muted=1&loop=1&play=1&pause=0&playsinline=1"
               allow="autoplay; fullscreen"
               allowFullScreen
               title="Background video"
               className="iframe-bg-cover"
               style={{
                 border: "none",
-                pointerEvents: showSplash ? "auto" : "none",
+                pointerEvents: "none",
                 background: "#000",
               }}
             ></iframe>
@@ -68,4 +67,3 @@ const Index = () => {
 };
 
 export default Index;
-
