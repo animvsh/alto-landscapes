@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import HomeHeader from "../components/HomeHeader";
 import HomeServicesSection from "../components/HomeServicesSection";
@@ -12,9 +13,14 @@ import SplashScreen from "../components/SplashScreen";
 
 const Index = () => {
   const [showSplash, setShowSplash] = useState(true);
+  const [videoKey, setVideoKey] = useState(Date.now());
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowSplash(false), 1800);
+    const timer = setTimeout(() => {
+      setShowSplash(false);
+      // Reload the video when splash screen disappears to ensure autoplay
+      setVideoKey(Date.now());
+    }, 1800);
     return () => clearTimeout(timer);
   }, []);
 
@@ -27,7 +33,8 @@ const Index = () => {
           {/* Full-viewport, always-fill iframe embed cropped to cover */}
           <div className="absolute inset-0 w-full h-full overflow-hidden">
             <iframe
-              src="https://go.screenpal.com/player/cTfr60njGdL?title=0&controls=0&a=1&share=1&download=0&embed=1&cl=1&width=1920&height=1080&overlays=0&ff=1&autoplay=1&muted=1&loop=1&play=1&pause=0&playsinline=1"
+              key={videoKey}
+              src="https://go.screenpal.com/player/cTfr60njGdL?title=0&controls=0&a=1&share=0&download=0&embed=1&cl=1&width=1920&height=1080&overlays=0&ff=1&autoplay=1&muted=1&loop=1&play=1&pause=0&playsinline=1&is_background=1"
               allow="autoplay; fullscreen"
               allowFullScreen
               title="Background video"
@@ -36,6 +43,7 @@ const Index = () => {
                 border: "none",
                 pointerEvents: "none",
                 background: "#000",
+                opacity: 0.9,
               }}
             ></iframe>
           </div>
