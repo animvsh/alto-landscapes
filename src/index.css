@@ -241,3 +241,45 @@
 .img-hover-zoom:hover img {
   @apply transform scale-110;
 }
+
+/* --- SPLASH SCREEN AND VIDEO --- */
+.splash-background {
+  background: linear-gradient(135deg, #1a355e 40%, #8E9196, #222 120%);
+}
+
+.splash-loader {
+  animation: spin 1s linear infinite;
+}
+
+@media (max-width: 768px) {
+  .splash-logo {
+    height: 70px !important;
+  }
+}
+
+/* Put HomeHeader/navbar above the video background */
+header,
+nav,
+main,
+footer {
+  position: relative;
+  z-index: 20;
+}
+
+/* Ensure the video background stays behind all main contents */
+.video-bg {
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  object-fit: cover;
+  z-index: -10;
+  pointer-events: none;
+}
+
+/* Optional: fade-in animation for the content */
+@keyframes fadeInSection {
+  from { opacity: 0; transform: translateY(30px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+.animate-fadeInUp {
+  animation: fadeInSection 0.85s cubic-bezier(.43,.19,.04,.91) both;
+}
