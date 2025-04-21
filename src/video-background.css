@@ -1,0 +1,34 @@
+
+.iframe-bg-cover {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 180vh;
+  width: calc(180vh * 9 / 16);
+  min-width: 180vw;
+  min-height: 180vh;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: -1;
+  background: #000;
+  display: block;
+  aspect-ratio: 9 / 16;
+}
+
+@media (max-aspect-ratio: 9/16) {
+  .iframe-bg-cover {
+    width: 180vw;
+    height: calc(180vw * 16 / 9);
+    min-height: 180vh;
+    min-width: 180vw;
+  }
+}
+
+html, body {
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
