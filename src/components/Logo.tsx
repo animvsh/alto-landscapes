@@ -8,7 +8,7 @@ interface LogoProps {
 
 const Logo = ({ linkTo = "/", className = "" }: LogoProps) => {
   const logoContent = (
-    <div className={`flex items-center ${className}`}>
+    <div className={`text-white flex items-center ${className}`}>
       <img 
         src="/lovable-uploads/e18ec492-99e6-44f0-942f-5cc979e67cd3.png" 
         alt="Alto Builders Logo"
@@ -18,7 +18,7 @@ const Logo = ({ linkTo = "/", className = "" }: LogoProps) => {
   );
 
   if (linkTo) {
-    return <Link to={linkTo} className="flex justify-center">{logoContent}</Link>;
+    return <Link to={linkTo}>{logoContent}</Link>;
   }
 
   return logoContent;
