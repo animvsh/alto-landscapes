@@ -42,44 +42,45 @@ const services = [
 ];
 
 const HomeServicesSection = () => (
-  <section className="bg-alto-light-gray py-20">
+  <section className="bg-alto-light-gray py-14 md:py-20">
     <div className="container-custom">
-      <div className="text-center mb-12">
+      <div className="text-center mb-9 md:mb-12">
         <h2 className="section-title">Our Services</h2>
         <p className="section-subtitle mx-auto">
           Cutting-edge remodeling and construction services across Los Angeles
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
         {services.map((service, idx) => (
           <div
             key={service.title}
-            className="luxury-card hover:shadow-alto-accent border border-gray-100 hover:border-alto-accent transition-all duration-300 flex flex-col items-center bg-white"
+            className="luxury-card hover:shadow-alto-accent border border-gray-100 hover:border-alto-accent transition-all duration-300 flex flex-col items-center bg-white/80"
             style={{
               boxShadow:
-                "0 10px 24px 0 rgba(26, 53, 94, 0.08), 0 1.5px 3px 0 rgba(51, 70, 122, 0.07)",
+                "0 2px 10px 0 #8E919626, 0 1.5px 3px 0 rgba(51, 70, 122, 0.07)",
+              borderRadius: "1.2rem"
             }}
           >
-            <div className="img-hover-zoom w-full h-56 overflow-hidden rounded-xl mb-5">
+            <div className="img-hover-zoom w-full h-40 md:h-56 overflow-hidden rounded-xl mb-4 md:mb-5">
               <img
                 src={service.imageSrc}
                 className="w-full h-full object-cover transition-transform duration-700"
                 alt={service.title}
               />
             </div>
-            <div className="flex-1 flex flex-col items-center px-4 text-center">
-              <h3 className="text-2xl font-semibold text-alto-blue mb-3 luxury-gradient bg-clip-text text-transparent">
+            <div className="flex-1 flex flex-col items-center px-2 md:px-4 text-center">
+              <h3 className="text-lg md:text-2xl font-semibold text-alto-blue mb-2 md:mb-3 luxury-gradient bg-clip-text text-transparent">
                 {service.title}
               </h3>
-              <p className="text-alto-dark-gray mb-6">{service.description}</p>
-              <Link to={service.link} className="btn-primary mt-auto w-full">
+              <p className="text-gray-700 md:text-alto-dark-gray mb-5 md:mb-6">{service.description}</p>
+              <Link to={service.link} className="btn-primary mt-auto w-full rounded-xl">
                 Learn More
               </Link>
             </div>
           </div>
         ))}
       </div>
-      <div className="flex justify-center mt-14">
+      <div className="flex justify-center mt-7 md:mt-14">
         <Link to="/services" className="btn-secondary luxury-border">
           Explore All Services
         </Link>

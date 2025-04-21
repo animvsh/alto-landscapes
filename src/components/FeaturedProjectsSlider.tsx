@@ -15,31 +15,34 @@ const FeaturedProjectsSlider = () => {
   const ref = useRef<HTMLDivElement>(null);
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-12 md:py-20 bg-white">
       <div className="container-custom">
-        <div className="text-center mb-12">
+        <div className="text-center mb-7 md:mb-12">
           <h2 className="section-title">Featured Projects</h2>
         </div>
         <div className="relative">
-          <Carousel className="w-full max-w-5xl mx-auto">
+          <Carousel className="w-full max-w-lg md:max-w-5xl mx-auto">
             <CarouselContent>
               {projectImages.map((img, idx) => (
-                <CarouselItem key={idx} className="flex justify-center items-center h-96">
+                <CarouselItem key={idx} className="flex justify-center items-center h-44 md:h-96">
                   <img
                     src={img}
                     alt={`Project ${idx + 1}`}
-                    className="object-cover rounded-2xl w-full h-96 shadow-lg"
+                    className="object-cover rounded-xl md:rounded-2xl w-full h-44 md:h-96 shadow-lg"
                   />
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <div className="absolute top-1/2 left-3 -translate-y-1/2 z-10">
+              <CarouselPrevious className="!w-9 !h-9 !rounded-full !shadow-lg !bg-white/80 hover:!bg-[#8E9196] hover:!text-white" />
+            </div>
+            <div className="absolute top-1/2 right-3 -translate-y-1/2 z-10">
+              <CarouselNext className="!w-9 !h-9 !rounded-full !shadow-lg !bg-white/80 hover:!bg-[#8E9196] hover:!text-white" />
+            </div>
           </Carousel>
         </div>
       </div>
     </section>
   );
 };
-
 export default FeaturedProjectsSlider;
