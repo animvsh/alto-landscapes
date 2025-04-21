@@ -274,6 +274,34 @@ footer {
   z-index: -1;
 }
 
+.iframe-bg-cover {
+  /* Covers viewport like object-fit: cover, cropping sides as needed, always fills */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vw;
+  height: 100vh;
+  min-width: 100vw;
+  min-height: 100vh;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: -1;
+  background: #000;
+  /* Hide scrollbars and ensure no white lines */
+  display: block;
+  aspect-ratio: 9 / 16;
+}
+
+/* For extra safety, force html/body/viewport to have no scrollbars or gaps */
+html, body {
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 @keyframes fadeInSection {
   from { opacity: 0; transform: translateY(30px);}
   to { opacity: 1; transform: translateY(0);}

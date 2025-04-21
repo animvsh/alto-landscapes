@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import HomeHeader from "../components/HomeHeader";
 import HomeServicesSection from "../components/HomeServicesSection";
@@ -25,21 +24,20 @@ const Index = () => {
       <div className="relative min-h-screen flex flex-col overflow-hidden">
         {/* Video Background */}
         <div className="fixed inset-0 -z-10 w-full h-full bg-black/90">
-          {/* Direct video embed without iframe */}
+          {/* Full-viewport, always-fill iframe embed cropped to cover */}
           <div className="absolute inset-0 w-full h-full overflow-hidden">
-            <video 
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="video-background"
-              poster="https://i.imgur.com/6QTjyTR.jpg"
-            >
-              <source 
-                src="https://go.screenpal.com/player/cTfr6VnjGGH?title=0&controls=0&a=1&embed=1&cl=1&overlays=0&ff=1&download=0&share=0" 
-                type="video/mp4"
-              />
-            </video>
+            <iframe
+              src="https://go.screenpal.com/player/cTfr6VnjGGH?title=0&controls=0&a=1&embed=1&cl=1&overlays=0&ff=1&download=0&share=0&loop=1&autoplay=1&muted=1"
+              allow="autoplay; fullscreen"
+              allowFullScreen
+              title="Background video"
+              className="iframe-bg-cover"
+              style={{
+                border: "none",
+                pointerEvents: "none",
+                background: "#000",
+              }}
+            ></iframe>
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/70 pointer-events-none" />
         </div>
