@@ -25,16 +25,17 @@ const Index = () => {
       <div className="relative min-h-screen flex flex-col overflow-hidden">
         {/* Video Background */}
         <div className="fixed inset-0 -z-10 w-full h-full bg-black/80">
-          <div className="absolute inset-0 w-full h-full">
-            <iframe 
+          {/* Updated: Use special iframe-cover wrapper for reliable full-bleed background effect */}
+          <div className="absolute inset-0 w-full h-full overflow-hidden">
+            <iframe
               src="https://go.screenpal.com/player/cTfr6VnjGGH?title=0&controls=1&a=1&share=1&download=1&embed=1&cl=1&width=1280&height=720&overlays=1&ff=1"
-              allow="autoplay; fullscreen" 
+              allow="autoplay; fullscreen"
               allowFullScreen
               title="Background video"
-              className="w-full h-full absolute inset-0 object-cover"
-              style={{ 
+              className="iframe-cover"
+              style={{
                 border: "none",
-                pointerEvents: "none"
+                pointerEvents: "none",
               }}
             ></iframe>
           </div>
