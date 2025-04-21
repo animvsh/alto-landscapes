@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import HomeHeader from "../components/HomeHeader";
 import HomeServicesSection from "../components/HomeServicesSection";
@@ -24,15 +25,19 @@ const Index = () => {
       <div className="relative min-h-screen flex flex-col overflow-hidden">
         {/* Video Background */}
         <div className="fixed inset-0 -z-10 w-full h-full bg-black/80">
-          <iframe
-            title="Background video"
-            src="https://go.screenmal.com/player/cTfr6VnjGGH?title=0&controls=1&a=1&share=1&download=1&embed=1&cl=1&width=1280&height=720&overlays=1&ff=1"
-            frameBorder="0"
-            allowFullScreen
-            scrolling="no"
-            className="absolute inset-0 w-full h-full object-cover"
-            style={{ pointerEvents: "none" }} // ensure main UI stays clickable
-          ></iframe>
+          <div className="absolute inset-0 w-full h-full">
+            <iframe 
+              src="https://go.screenpal.com/player/cTfr6VnjGGH?title=0&controls=1&a=1&share=1&download=1&embed=1&cl=1&width=1280&height=720&overlays=1&ff=1"
+              allow="autoplay; fullscreen" 
+              allowFullScreen
+              title="Background video"
+              className="w-full h-full absolute inset-0 object-cover"
+              style={{ 
+                border: "none",
+                pointerEvents: "none"
+              }}
+            ></iframe>
+          </div>
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/70 pointer-events-none" />
         </div>
         {/* Always keep the header/nav/logo above video */}
