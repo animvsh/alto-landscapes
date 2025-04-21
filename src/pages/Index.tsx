@@ -10,9 +10,6 @@ import Footer from "../components/Footer";
 import TestimonialSlider from "../components/TestimonialSlider";
 import SplashScreen from "../components/SplashScreen";
 
-const videoUrl =
-  "https://www.w3schools.com/html/mov_bbb.mp4"; // Placeholder video, replace with real one later
-
 const Index = () => {
   const [showSplash, setShowSplash] = useState(true);
 
@@ -27,16 +24,15 @@ const Index = () => {
       <div className="relative min-h-screen flex flex-col overflow-hidden">
         {/* Video Background */}
         <div className="fixed inset-0 -z-10 w-full h-full bg-black/80">
-          <video
-            className="absolute inset-0 w-full h-full object-cover object-center brightness-75"
-            src={videoUrl}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            poster="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1400&q=80"
-          ></video>
+          <iframe
+            title="Background video"
+            src="https://go.screenmal.com/player/cTfr6VnjGGH?title=0&controls=1&a=1&share=1&download=1&embed=1&cl=1&width=1280&height=720&overlays=1&ff=1"
+            frameBorder="0"
+            allowFullScreen
+            scrolling="no"
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ pointerEvents: "none" }} // ensure main UI stays clickable
+          ></iframe>
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/70 pointer-events-none" />
         </div>
         {/* Always keep the header/nav/logo above video */}
