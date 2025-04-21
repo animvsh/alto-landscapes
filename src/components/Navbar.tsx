@@ -7,9 +7,13 @@ import MobileNavigation from './navbar/MobileNavigation';
 const Navbar = () => {
   return (
     <NavbarProvider>
-      <div className="w-full flex justify-center">
-        <DesktopNavigation />
-        <MobileNavigation />
+      <div className="w-full flex flex-col items-center">
+        <div className="hidden lg:flex w-full justify-center">
+          <DesktopNavigation />
+        </div>
+        <div className="flex lg:hidden w-full">
+          <MobileNavigation />
+        </div>
       </div>
     </NavbarProvider>
   );

@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import HomeHeader from "../components/HomeHeader";
 import HomeServicesSection from "../components/HomeServicesSection";
@@ -10,8 +11,7 @@ import Footer from "../components/Footer";
 import TestimonialSlider from "../components/TestimonialSlider";
 import SplashScreen from "../components/SplashScreen";
 
-const videoUrl =
-  "https://www.w3schools.com/html/mov_bbb.mp4"; // Placeholder video, replace with real one later
+// Remove previous videoUrl, we'll use the provided embed below
 
 const Index = () => {
   const [showSplash, setShowSplash] = useState(true);
@@ -25,25 +25,34 @@ const Index = () => {
     <>
       {showSplash && <SplashScreen />}
       <div className="relative min-h-screen flex flex-col overflow-hidden">
-        {/* Video Background */}
-        <div className="fixed inset-0 -z-10 w-full h-full bg-black/80">
-          <video
-            className="absolute inset-0 w-full h-full object-cover object-center brightness-75"
-            src={videoUrl}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            poster="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1400&q=80"
-          ></video>
+        {/* --- Video Background: Always behind everything --- */}
+        <div className="fixed inset-0 -z-20 w-full h-full pointer-events-none">
+          <iframe
+            width="1280"
+            height="720"
+            style={{
+              border: 0,
+              width: "100vw",
+              height: "100vh",
+              position: "fixed",
+              top: 0,
+              left: 0,
+              zIndex: -20,
+              objectFit: "cover",
+              pointerEvents: "none"
+            }}
+            scrolling="no"
+            src="https://go.screenpal.com/player/cTfr6VnjGGH?title=0&controls=1&a=1&share=1&download=1&embed=1&cl=1&width=1280&height=720&overlays=1&ff=1"
+            allowFullScreen
+          ></iframe>
+          {/* Subtle overlays for blend and readability, can adjust as you like */}
+          <div className="absolute inset-0 bg-black/65 pointer-events-none" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/20 to-black/70 pointer-events-none" />
         </div>
         {/* Always keep the header/nav/logo above video */}
         <HomeHeader />
         <main className="relative z-20 flex-1 w-full">
-          <div className="backdrop-blur-[1.5px] bg-white/50 dark:bg-black/15 min-h-full">
-            {/* Home hero content, sections etc */}
+          <div className="backdrop-blur-[2px] bg-white/50 dark:bg-black/15 min-h-full">
             <HomeServicesSection />
             <FeaturedProjectsSlider />
             <TestimonialSlider />
