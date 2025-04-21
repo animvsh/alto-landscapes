@@ -1,4 +1,3 @@
-
 import HomeHeader from "../components/HomeHeader";
 import HomeServicesSection from "../components/HomeServicesSection";
 import FeaturedProjectsSlider from "../components/FeaturedProjectsSlider";
@@ -7,6 +6,7 @@ import ServiceAreaSection from "../components/sections/ServiceAreaSection";
 import TestimonialsSection from "../components/sections/TestimonialsSection";
 import CallToActionSection from "../components/CallToActionSection";
 import Footer from "../components/Footer";
+import TestimonialSlider from "../components/TestimonialSlider";
 
 const Index = () => {
   return (
@@ -15,6 +15,7 @@ const Index = () => {
       <main>
         <HomeServicesSection />
         <FeaturedProjectsSlider />
+        <TestimonialSlider />
         <AboutSection />
         <ServiceAreaSection />
         <TestimonialsSection />
