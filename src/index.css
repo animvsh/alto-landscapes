@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -276,15 +275,13 @@ footer {
 }
 
 .iframe-bg-cover {
-  /* Fills viewport 'cover' style, cropping as needed, no black bars for 9:16 video. */
   position: absolute;
   top: 50%;
   left: 50%;
-  /* We use height of viewport; width from aspect-ratio. */
-  height: 100vh;
-  width: calc(100vh * 9 / 16); /* Default is vertical. */
-  min-width: 100vw;
-  min-height: 100vh;
+  height: 120vh;
+  width: calc(120vh * 9 / 16);
+  min-width: 120vw;
+  min-height: 120vh;
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: -1;
@@ -292,19 +289,16 @@ footer {
   display: block;
   aspect-ratio: 9 / 16;
 }
-/* Responsive tweak: If browser is very tall/skinny (mobile in portrait),
-   ensure iframe never leaves blank edges (crop top/bottom if needed) */
+
 @media (max-aspect-ratio: 9/16) {
   .iframe-bg-cover {
-    width: 100vw;
-    height: calc(100vw * 16 / 9);
-    min-height: 100vh;
-    min-width: 100vw;
-    /* The video will now overflow vertically, cropping top/bottom, no sidebars */
+    width: 120vw;
+    height: calc(120vw * 16 / 9);
+    min-height: 120vh;
+    min-width: 120vw;
   }
 }
 
-/* For safety, force html/body/viewport to have no scrollbars or gaps */
 html, body {
   width: 100vw;
   min-height: 100vh;
