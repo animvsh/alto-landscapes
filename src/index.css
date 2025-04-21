@@ -196,7 +196,6 @@
   animation: shine 3s linear infinite;
 }
 
-/* Stagger animation delay helper classes */
 .delay-100 {
   animation-delay: 100ms;
 }
@@ -213,7 +212,6 @@
   animation-delay: 500ms;
 }
 
-/* Luxury UI Elements */
 .luxury-border {
   @apply border border-gray-200 hover:border-alto-accent transition-all duration-300;
 }
@@ -229,7 +227,6 @@
   background-size: cover;
 }
 
-/* Enhanced image hover effects */
 .img-hover-zoom {
   @apply overflow-hidden;
 }
@@ -242,7 +239,6 @@
   @apply transform scale-110;
 }
 
-/* --- SPLASH SCREEN AND VIDEO --- */
 .splash-background {
   background: linear-gradient(135deg, #1a355e 40%, #8E9196, #222 120%);
 }
@@ -257,7 +253,6 @@
   }
 }
 
-/* Put HomeHeader/navbar above the video background */
 header,
 nav,
 main,
@@ -266,35 +261,23 @@ footer {
   z-index: 20;
 }
 
-/* Ensure the video background stays behind all main contents */
-.video-bg {
-  position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
+.video-background {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  transform: translateX(-50%) translateY(-50%);
   object-fit: cover;
-  z-index: -10;
-  pointer-events: none;
+  z-index: -1;
 }
 
-/* Optional: fade-in animation for the content */
 @keyframes fadeInSection {
   from { opacity: 0; transform: translateY(30px);}
   to { opacity: 1; transform: translateY(0);}
 }
 .animate-fadeInUp {
   animation: fadeInSection 0.85s cubic-bezier(.43,.19,.04,.91) both;
-}
-
-.iframe-cover {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 120vw;
-  height: 120vh;
-  min-width: 100vw;
-  min-height: 100vh;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  z-index: -10;
-  background: #000;
-  pointer-events: none;
 }
