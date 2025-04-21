@@ -1,3 +1,4 @@
+
 import React, { useEffect, useState } from "react";
 import HomeHeader from "../components/HomeHeader";
 import HomeServicesSection from "../components/HomeServicesSection";
@@ -27,7 +28,7 @@ const Index = () => {
           {/* Full-viewport, always-fill iframe embed cropped to cover */}
           <div className="absolute inset-0 w-full h-full overflow-hidden">
             <iframe
-              src="https://go.screenpal.com/player/cTfr6VnjGGH?title=0&controls=0&a=1&embed=1&cl=1&overlays=0&ff=1&download=0&share=0&loop=1&autoplay=1&muted=1"
+              src="https://go.screenmal.com/player/cTfr60njGdL?title=0&controls=1&a=1&share=1&download=1&embed=1&cl=1&width=1280&height=720&overlays=1&ff=1&autoplay=1&muted=1&loop=1"
               allow="autoplay; fullscreen"
               allowFullScreen
               title="Background video"
@@ -67,3 +68,4 @@ const Index = () => {
 };
 
 export default Index;
+
