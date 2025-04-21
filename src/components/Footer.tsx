@@ -20,15 +20,36 @@ const Footer = () => {
             <p className="text-white/80 mb-4 text-sm md:text-base">
               Premium accessory dwelling units designed and built for the modern homeowner in Greater Los Angeles and Ventura County.
             </p>
-            <div className="flex space-x-4">
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-alto-accent">
-                <Facebook size={18} />
+            <div className="flex space-x-4 mt-2">
+              <a
+                href="https://www.linkedin.com/company/alto-builders/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-alto-accent"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={18} />
               </a>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-alto-accent">
+              <a
+                href="https://www.instagram.com/alto.builders/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-alto-accent"
+                aria-label="Instagram"
+              >
                 <Instagram size={18} />
               </a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-alto-accent">
-                <Linkedin size={18} />
+              <a
+                href="https://www.yelp.com/biz/alto-builders-agoura-hills-2"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white/80 hover:text-alto-accent"
+                aria-label="Yelp"
+              >
+                {/* Simple Yelp icon SVG */}
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M15.29 18.63l1.77 3.36a1 1 0 0 0 1.79-.18 1 1 0 0 0-.09-.98l-2.22-3.05a1 1 0 1 0-1.25 1.85zM10.59 9.2l-5.11-7.47A1 1 0 0 0 3.41 1.5a1 1 0 0 0-1.2 1.57l6.67 6.11a1 1 0 0 0 1.71-.98zM8.35 13.91L2.9 12.81a1 1 0 1 0-.37 1.97l5.46 1.11a1 1 0 1 0 .36-1.98zM13.87 13.27l7.51.29a1 1 0 0 0 .05-2l-7.29-.29a1 1 0 1 0-.27 2zM9.22 17.06l-5.42 3.29a1 1 0 0 0 1 1.73l5.41-3.29a1 1 0 0 0-1-1.73z" />
+                </svg>
               </a>
             </div>
           </div>
@@ -86,7 +107,11 @@ const Footer = () => {
             <ul className="space-y-3 text-sm md:text-base">
               <li className="flex items-start">
                 <MapPin size={18} className="mr-2 mt-1 text-alto-accent" /> 
-                <span className="text-white/80">328 S La Brea Ave, Los Angeles, CA 90038</span>
+                <span className="text-white/80">
+                  <span className="block">328 S La Brea Ave, Los Angeles, CA 90038</span>
+                  <span className="block">Agoura Hills, CA</span>
+                  <span className="block">Temecula, CA</span>
+                </span>
               </li>
               <li className="flex items-center">
                 <Phone size={18} className="mr-2 text-alto-accent" /> 
@@ -94,7 +119,8 @@ const Footer = () => {
               </li>
               <li className="flex items-center">
                 <Mail size={18} className="mr-2 text-alto-accent" /> 
-                <a href="mailto:info@altobuilds.com" className="text-white/80 hover:text-alto-accent">info@altobuilds.com</a>
+                <span className="text-white/80 font-semibold mr-1">Email:</span>
+                <a href="mailto:info@altobuilds.com" className="text-white/80 underline hover:text-alto-accent font-inter" style={{ wordBreak: 'break-all' }}>info@altobuilds.com</a>
               </li>
             </ul>
           </div>
@@ -127,3 +153,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
