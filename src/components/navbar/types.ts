@@ -24,13 +24,7 @@ export const navLinks: NavLinkProps[] = [
       { name: 'ADU Projects', path: '/projects#adu-projects' },
     ] 
   },
-  { name: 'ADUs', path: '/adu', dropdown: true, 
-    subItems: [
-      { name: 'ADU Construction', path: '/services/adu' },
-      { name: 'ADU Plans', path: '/plans' },
-      { name: 'ADU FAQ', path: '/faq' },
-    ] 
-  },
+  { name: 'ADUs', path: '/adu', dropdown: false },
   { name: 'Locations', path: '/locations' },
   { name: 'Contact', path: '/contact' },
 ];

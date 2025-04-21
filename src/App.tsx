@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -30,6 +29,7 @@ import KitchenProjectAgourahills from "./pages/projects/KitchenProjectAgourahill
 import KitchenProjectPasadena from "./pages/projects/KitchenProjectPasadena";
 import BathroomProjectDetail from "./pages/projects/BathroomProjectDetail";
 import { useState } from "react";
+import Adu from "./pages/Adu";
 
 // AnimatedRoutes component for handling page transitions
 const AnimatedRoutes = () => {
@@ -42,7 +42,12 @@ const AnimatedRoutes = () => {
         <Route path="/about" element={<About />} />
         <Route path="/team" element={<Team />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/services/adu" element={<AduConstruction />} />
+        {/* Remove direct ADU/Design/FAQ routes, use merge page */}
+        {/* <Route path="/services/adu" element={<AduConstruction />} /> */}
+        {/* <Route path="/design" element={<Design />} /> */}
+        {/* <Route path="/faq" element={<FAQ />} /> */}
+        <Route path="/adu" element={<Adu />} />
+        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="/services/remodeling" element={<Remodeling />} />
         <Route path="/services/bathroom" element={<BathroomRemodeling />} />
         <Route path="/projects" element={<Projects />} />
@@ -61,7 +66,6 @@ const AnimatedRoutes = () => {
         <Route path="/terms-of-service" element={<TermsOfService />} />
         <Route path="/sitemap" element={<Sitemap />} />
         <Route path="/faq" element={<FAQ />} />
-        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
