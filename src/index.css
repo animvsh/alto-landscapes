@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -25,8 +24,8 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 199 85% 47%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 220 4% 58%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
@@ -41,8 +40,8 @@
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
     --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-accent: 220 4% 58%;
+    --sidebar-accent-foreground: 0 0% 100%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
@@ -111,23 +110,26 @@
   }
   
   .btn-primary {
-    @apply bg-gradient-to-r from-alto-accent to-alto-blue text-white font-medium py-3 px-6 rounded-full transition-all duration-500 transform hover:translate-y-[-2px] hover:shadow-lg;
+    @apply bg-[#8E9196] text-white font-medium py-3 px-6 rounded-full transition-all duration-500 transform hover:translate-y-[-2px] hover:shadow-lg hover:bg-[#707279];
+    background: none !important;
   }
   
   .btn-secondary {
-    @apply bg-white hover:bg-alto-light-gray text-alto-blue border border-alto-blue font-medium py-3 px-6 rounded-full transition-all duration-500 transform hover:translate-y-[-2px] hover:shadow-lg;
+    @apply bg-white hover:bg-[#e2e2e4] text-[#8E9196] border border-[#8E9196] font-medium py-3 px-6 rounded-full transition-all duration-500 transform hover:translate-y-[-2px] hover:shadow-lg;
+    background: none !important;
   }
   
   .btn-accent {
-    @apply bg-alto-accent hover:opacity-90 text-white font-medium py-3 px-6 rounded-full transition-all duration-500 transform hover:translate-y-[-2px] hover:shadow-lg;
+    @apply bg-[#8E9196] hover:bg-[#707279] text-white font-medium py-3 px-6 rounded-full transition-all duration-500 transform hover:translate-y-[-2px] hover:shadow-lg;
+    background: none !important;
   }
 
   .nav-link {
-    @apply relative inline-block text-alto-dark-gray hover:text-alto-blue after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-alto-accent after:transition-transform after:duration-300 hover:after:scale-x-100;
+    @apply relative inline-block text-alto-dark-gray hover:text-[#8E9196] after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-[#8E9196] after:transition-transform after:duration-300 hover:after:scale-x-100;
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-semibold text-alto-blue mb-4 relative after:content-[''] after:absolute after:w-20 after:h-1 after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:bg-alto-accent;
+    @apply text-3xl md:text-4xl lg:text-5xl font-semibold text-[#8E9196] mb-4 relative after:content-[''] after:absolute after:w-20 after:h-1 after:-bottom-2 after:left-1/2 after:-translate-x-1/2 after:bg-[#8E9196];
   }
   
   .section-subtitle {
@@ -143,7 +145,7 @@
   }
   
   .luxury-gradient {
-    @apply bg-gradient-to-r from-alto-blue to-alto-accent;
+    @apply bg-gradient-to-r from-[#8E9196] to-[#707279];
   }
 }
 

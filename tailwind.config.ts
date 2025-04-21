@@ -42,8 +42,8 @@ export default {
 					foreground: 'hsl(var(--muted-foreground))'
 				},
 				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
+					DEFAULT: '#8E9196', // Set the accent to the specific grey globally
+					foreground: '#fff'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
@@ -56,7 +56,8 @@ export default {
 				alto: {
 					'blue': '#1a355e',
 					'light-blue': '#2c4c7c',
-					'accent': '#33C3F0',
+					// 'accent': '#33C3F0', (no longer using for accent)
+					'accent': '#8E9196',
 					'gray': '#e5e5e5',
 					'light-gray': '#f7f7f7',
 					'dark-gray': '#333333',
@@ -66,11 +67,12 @@ export default {
 					foreground: 'hsl(var(--sidebar-foreground))',
 					primary: 'hsl(var(--sidebar-primary))',
 					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
+					accent: '#8E9196',
+					'accent-foreground': '#fff',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+        'grey-accent': '#8E9196',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -78,7 +80,7 @@ export default {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
-				montserrat: ['Montserrat', 'sans-serif'],
+				montserrat: ['Montserrat', 'sans-serif'], // OK to leave, not globally applied
 				inter: ['Inter', 'sans-serif'],
 				playfair: ['Playfair Display', 'serif'],
 			},

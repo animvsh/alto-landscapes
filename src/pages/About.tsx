@@ -1,8 +1,6 @@
-
 import React, { useEffect, useRef } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import HeroSection from '../components/HeroSection';
 import CallToActionSection from '../components/CallToActionSection';
 import PageTransition from '../components/PageTransition';
 import { motion, useScroll, useTransform } from 'framer-motion';
@@ -17,7 +15,7 @@ const About = () => {
     target: containerRef,
     offset: ["start end", "end start"]
   });
-  
+
   const opacity = useTransform(scrollYProgress, [0, 0.2], [0.6, 1]);
   const y = useTransform(scrollYProgress, [0, 0.2], [50, 0]);
 
@@ -25,18 +23,15 @@ const About = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const founders = teamMembers.filter(
+    (m) => m.name === "Paul Manfredi" || m.name === "Simon Manfredi"
+  );
+
   return (
     <PageTransition>
       <Navbar />
-      <HeroSection 
-        title="ABOUT ALTO BUILDERS"
-        subtitle="Building Excellence Across Greater Los Angeles Since 2015"
-        backgroundImage="https://images.unsplash.com/photo-1451976426598-a7593bd6d0b2?auto=format&fit=crop&w=1920&q=80"
-      />
-      
       <div ref={containerRef} className="py-20">
         <div className="container-custom">
-          {/* Our Story Section */}
           <motion.div 
             className="mb-24"
             initial={{ opacity: 0, y: 20 }}
@@ -68,7 +63,7 @@ const About = () => {
                     className="rounded-lg shadow-lg w-full"
                   />
                   <div className="absolute -bottom-6 -right-6 bg-white p-4 rounded-lg shadow-lg">
-                    <p className="text-3xl font-bold text-alto-blue">100+</p>
+                    <p className="text-3xl font-bold text-grey-accent">100+</p>
                     <p className="text-alto-dark-gray">Projects Completed</p>
                   </div>
                 </div>
@@ -76,7 +71,6 @@ const About = () => {
             </div>
           </motion.div>
           
-          {/* Father-Son Duo Section */}
           <motion.div 
             className="mb-24 bg-white p-10 rounded-2xl card-shadow"
             style={{ opacity, y }}
@@ -86,7 +80,7 @@ const About = () => {
             viewport={{ once: true }}
           >
             <div className="text-center mb-10">
-              <h2 className="text-2xl md:text-3xl font-bold text-alto-blue mb-3">A Father-Son Duo Unlike Any Other</h2>
+              <h2 className="text-2xl md:text-3xl font-bold text-grey-accent mb-3">A Father-Son Duo Unlike Any Other</h2>
             </div>
             
             <div className="flex flex-col lg:flex-row items-center gap-10">
@@ -106,11 +100,11 @@ const About = () => {
                 </p>
                 <div className="grid grid-cols-2 gap-4 mt-8">
                   <div className="bg-alto-light-gray p-4 rounded-lg">
-                    <p className="font-semibold text-alto-blue">Paul Manfredi</p>
+                    <p className="font-semibold text-grey-accent">Paul Manfredi</p>
                     <p className="text-alto-dark-gray text-sm">30+ years experience</p>
                   </div>
                   <div className="bg-alto-light-gray p-4 rounded-lg">
-                    <p className="font-semibold text-alto-blue">Simon Manfredi</p>
+                    <p className="font-semibold text-grey-accent">Simon Manfredi</p>
                     <p className="text-alto-dark-gray text-sm">Modern design approach</p>
                   </div>
                 </div>
@@ -118,7 +112,6 @@ const About = () => {
             </div>
           </motion.div>
           
-          {/* Our Team Section */}
           <motion.div 
             className="mb-24"
             initial={{ opacity: 0, y: 20 }}
@@ -132,9 +125,8 @@ const About = () => {
                 The dedicated professionals behind Alto Builders' success
               </p>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {teamMembers.map((member, index) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {founders.map((member, index) => (
                 <motion.div 
                   key={index}
                   className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
@@ -151,16 +143,15 @@ const About = () => {
                     />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold text-alto-blue mb-1">{member.name}</h3>
-                    <p className="text-alto-accent mb-3">{member.position}</p>
+                    <h3 className="text-xl font-semibold text-grey-accent mb-1">{member.name}</h3>
+                    <p className="text-grey-accent mb-3">{member.position}</p>
                     <p className="text-alto-dark-gray mb-4">{member.bio}</p>
-                    
                     {member.linkedin && (
                       <a 
                         href={member.linkedin}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-alto-blue hover:text-alto-accent transition-colors inline-flex items-center"
+                        className="text-grey-accent hover:text-grey-accent/80 transition-colors inline-flex items-center"
                       >
                         <span className="mr-2">LinkedIn</span>
                         <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
@@ -172,7 +163,6 @@ const About = () => {
                 </motion.div>
               ))}
             </div>
-            
             <div className="text-center mt-12">
               <Link to="/team" className="btn-primary">
                 View Full Team
@@ -180,7 +170,6 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* Company Values Section */}
           <motion.div 
             className="mb-24"
             initial={{ opacity: 0, y: 20 }}
@@ -254,7 +243,6 @@ const About = () => {
             </div>
           </motion.div>
 
-          {/* Service Areas Section */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
